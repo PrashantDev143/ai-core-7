@@ -1,0 +1,2145 @@
+{
+  "generated_at": "2026-09-23T04:36:27Z",
+  "queries": [
+    "abs:\"retrieval augmented generation\"",
+    "abs:\"dense passage retrieval\" OR abs:\"dense retrieval\"",
+    "abs:\"large language model\" AND abs:\"hallucination\"",
+    "abs:\"chain of thought\" AND abs:\"reasoning\"",
+    "abs:\"language model\" AND abs:\"agent\" AND abs:\"tool use\"",
+    "abs:\"instruction tuning\" OR abs:\"parameter efficient fine-tuning\"",
+    "abs:\"vector search\" OR abs:\"approximate nearest neighbor\"",
+    "abs:\"evaluation\" AND abs:\"large language model\" AND abs:\"benchmark\"",
+    "abs:\"prompt injection\" OR abs:\"jailbreak\" AND abs:\"language model\"",
+    "abs:\"knowledge distillation\" AND abs:\"language model\""
+  ],
+  "count": 100,
+  "papers": [
+    {
+      "arxiv_id": "2512.17194",
+      "version": "v1",
+      "title": "MMRAG-RFT: Two-stage Reinforcement Fine-tuning for Explainable Multi-modal Retrieval-augmented Generation",
+      "authors": [
+        "Shengwei Zhao",
+        "Jingwen Yao",
+        "Sitong Wei",
+        "Linhai Xu",
+        "Yuying Liu",
+        "Dong Zhang",
+        "Zhiqiang Tian",
+        "Shaoyi Du"
+      ],
+      "published": "2025-12-19T03:19:54Z",
+      "updated": "2025-12-19T03:19:54Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "Multi-modal Retrieval-Augmented Generation (MMRAG) enables highly credible generation by integrating external multi-modal knowledge, thus demonstrating impressive performance in complex multi-modal scenarios. However, existing MMRAG methods fail to clarify the reasoning logic behind retrieval and response generation, which limits the explainability of the results. To address this gap, we propose to introduce reinforcement learning into multi-modal retrieval-augmented generation, enhancing the reasoning capabilities of multi-modal large language models through a two-stage reinforcement fine-tuning framework to achieve explainable multi-modal retrieval-augmented generation. Specifically, in the first stage, rule-based reinforcement fine-tuning is employed to perform coarse-grained point-wise ranking of multi-modal documents, effectively filtering out those that are significantly irrelevant. In the second stage, reasoning-based reinforcement fine-tuning is utilized to jointly optimize fine-grained list-wise ranking and answer generation, guiding multi-modal large language models to output explainable reasoning logic in the MMRAG process. Our method achieves state-of-the-art results on WebQA and MultimodalQA, two benchmark datasets for multi-modal retrieval-augmented generation, and its effectiveness is validated through comprehensive ablation experiments.",
+      "pdf_url": "https://arxiv.org/pdf/2512.17194v1"
+    },
+    {
+      "arxiv_id": "2406.03790",
+      "version": "v2",
+      "title": "End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction",
+      "authors": [
+        "Kohei Makino",
+        "Makoto Miwa",
+        "Yutaka Sasaki"
+      ],
+      "published": "2024-06-06T07:01:50Z",
+      "updated": "2024-10-10T07:36:23Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "This paper addresses a crucial challenge in retrieval-augmented generation-based relation extractors; the end-to-end training is not applicable to conventional retrieval-augmented generation due to the non-differentiable nature of instance retrieval. This problem prevents the instance retrievers from being optimized for the relation extraction task, and conventionally it must be trained with an objective different from that for relation extraction. To address this issue, we propose a novel End-to-end Trainable Retrieval-Augmented Generation (ETRAG), which allows end-to-end optimization of the entire model, including the retriever, for the relation extraction objective by utilizing a differentiable selection of the $k$ nearest instances. We evaluate the relation extraction performance of ETRAG on the TACRED dataset, which is a standard benchmark for relation extraction. ETRAG demonstrates consistent improvements against the baseline model as retrieved instances are added. Furthermore, the analysis of instances retrieved by the end-to-end trained retriever confirms that the retrieved instances contain common relation labels or entities with the query and are specialized for the target task. Our findings provide a promising foundation for future research on retrieval-augmented generation and the broader applications of text generation in Natural Language Processing.",
+      "pdf_url": "https://arxiv.org/pdf/2406.03790v2"
+    },
+    {
+      "arxiv_id": "2412.15404",
+      "version": "v1",
+      "title": "A Retrieval-Augmented Generation Framework for Academic Literature Navigation in Data Science",
+      "authors": [
+        "Ahmet Yasin Aytar",
+        "Kemal Kilic",
+        "Kamer Kaya"
+      ],
+      "published": "2024-12-19T21:14:54Z",
+      "updated": "2024-12-19T21:14:54Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI"
+      ],
+      "summary": "In the rapidly evolving field of data science, efficiently navigating the expansive body of academic literature is crucial for informed decision-making and innovation. This paper presents an enhanced Retrieval-Augmented Generation (RAG) application, an artificial intelligence (AI)-based system designed to assist data scientists in accessing precise and contextually relevant academic resources. The AI-powered application integrates advanced techniques, including the GeneRation Of BIbliographic Data (GROBID) technique for extracting bibliographic information, fine-tuned embedding models, semantic chunking, and an abstract-first retrieval method, to significantly improve the relevance and accuracy of the retrieved information. This implementation of AI specifically addresses the challenge of academic literature navigation. A comprehensive evaluation using the Retrieval-Augmented Generation Assessment System (RAGAS) framework demonstrates substantial improvements in key metrics, particularly Context Relevance, underscoring the system's effectiveness in reducing information overload and enhancing decision-making processes. Our findings highlight the potential of this enhanced Retrieval-Augmented Generation system to transform academic exploration within data science, ultimately advancing the workflow of research and innovation in the field.",
+      "pdf_url": "https://arxiv.org/pdf/2412.15404v1"
+    },
+    {
+      "arxiv_id": "2309.01431",
+      "version": "v2",
+      "title": "Benchmarking Large Language Models in Retrieval-Augmented Generation",
+      "authors": [
+        "Jiawei Chen",
+        "Hongyu Lin",
+        "Xianpei Han",
+        "Le Sun"
+      ],
+      "published": "2023-09-04T08:28:44Z",
+      "updated": "2023-12-20T11:54:11Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Retrieval-Augmented Generation (RAG) is a promising approach for mitigating the hallucination of large language models (LLMs). However, existing research lacks rigorous evaluation of the impact of retrieval-augmented generation on different large language models, which make it challenging to identify the potential bottlenecks in the capabilities of RAG for different LLMs. In this paper, we systematically investigate the impact of Retrieval-Augmented Generation on large language models. We analyze the performance of different large language models in 4 fundamental abilities required for RAG, including noise robustness, negative rejection, information integration, and counterfactual robustness. To this end, we establish Retrieval-Augmented Generation Benchmark (RGB), a new corpus for RAG evaluation in both English and Chinese. RGB divides the instances within the benchmark into 4 separate testbeds based on the aforementioned fundamental abilities required to resolve the case. Then we evaluate 6 representative LLMs on RGB to diagnose the challenges of current LLMs when applying RAG. Evaluation reveals that while LLMs exhibit a certain degree of noise robustness, they still struggle significantly in terms of negative rejection, information integration, and dealing with false information. The aforementioned assessment outcomes indicate that there is still a considerable journey ahead to effectively apply RAG to LLMs.",
+      "pdf_url": "https://arxiv.org/pdf/2309.01431v2"
+    },
+    {
+      "arxiv_id": "2405.19893",
+      "version": "v1",
+      "title": "Similarity is Not All You Need: Endowing Retrieval Augmented Generation with Multi Layered Thoughts",
+      "authors": [
+        "Chunjing Gan",
+        "Dan Yang",
+        "Binbin Hu",
+        "Hanxiao Zhang",
+        "Siyuan Li",
+        "Ziqi Liu",
+        "Yue Shen",
+        "Lin Ju",
+        "Zhiqiang Zhang",
+        "Jinjie Gu",
+        "Lei Liang",
+        "Jun Zhou"
+      ],
+      "published": "2024-05-30T09:50:38Z",
+      "updated": "2024-05-30T09:50:38Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "In recent years, large language models (LLMs) have made remarkable achievements in various domains. However, the untimeliness and cost of knowledge updates coupled with hallucination issues of LLMs have curtailed their applications in knowledge intensive tasks, where retrieval augmented generation (RAG) can be of help. Nevertheless, existing retrieval augmented models typically use similarity as a bridge between queries and documents and follow a retrieve then read procedure. In this work, we argue that similarity is not always the panacea and totally relying on similarity would sometimes degrade the performance of retrieval augmented generation. To this end, we propose MetRag, a Multi layEred Thoughts enhanced Retrieval Augmented Generation framework. To begin with, beyond existing similarity oriented thought, we embrace a small scale utility model that draws supervision from an LLM for utility oriented thought and further come up with a smarter model by comprehensively combining the similarity and utility oriented thoughts. Furthermore, given the fact that the retrieved document set tends to be huge and using them in isolation makes it difficult to capture the commonalities and characteristics among them, we propose to make an LLM as a task adaptive summarizer to endow retrieval augmented generation with compactness-oriented thought. Finally, with multi layered thoughts from the precedent stages, an LLM is called for knowledge augmented generation. Extensive experiments on knowledge-intensive tasks have demonstrated the superiority of MetRag.",
+      "pdf_url": "https://arxiv.org/pdf/2405.19893v1"
+    },
+    {
+      "arxiv_id": "2603.04647",
+      "version": "v1",
+      "title": "Coordinated Semantic Alignment and Evidence Constraints for Retrieval-Augmented Generation with Large Language Models",
+      "authors": [
+        "Xin Chen",
+        "Saili Uday Gadgil",
+        "Jiarong Qiu"
+      ],
+      "published": "2026-03-04T22:21:04Z",
+      "updated": "2026-03-04T22:21:04Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Retrieval augmented generation mitigates limitations of large language models in factual consistency and knowledge updating by introducing external knowledge. However, practical applications still suffer from semantic misalignment between retrieved results and generation objectives, as well as insufficient evidence utilization. To address these challenges, this paper proposes a retrieval augmented generation method that integrates semantic alignment with evidence constraints through coordinated modeling of retrieval and generation stages. The method first represents the relevance between queries and candidate evidence within a unified semantic space. This ensures that retrieved results remain semantically consistent with generation goals and reduces interference from noisy evidence and semantic drift. On this basis, an explicit evidence constraint mechanism is introduced. Retrieved evidence is transformed from an implicit context into a core control factor in generation. This restricts the expression scope of generated content and strengthens dependence on evidence. By jointly modeling semantic consistency and evidence constraints within a unified framework, the proposed approach improves factual reliability and verifiability while preserving natural language fluency. Comparative results show stable improvements across multiple generation quality metrics. This confirms the effectiveness and necessity of coordinated semantic alignment and evidence constraint modeling in retrieval augmented generation tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2603.04647v1"
+    },
+    {
+      "arxiv_id": "2607.01852",
+      "version": "v1",
+      "title": "Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts",
+      "authors": [
+        "Valentin J. J. Kreileder",
+        "Johannes Reisinger",
+        "Andreas Fischer"
+      ],
+      "published": "2026-07-02T08:12:35Z",
+      "updated": "2026-07-02T08:12:35Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Retrieval-Augmented Generation (RAG) systems use the question-answering capabilities of Large Language Models (LLMs) to access information outside their parameters. We evaluate if cluster-based semantic chunking improves retrieval and answer quality compared to fixed-size and recursive chunking evaluating on long, structured academic theses using the Retrieval Augmented Generation Assessment (RAGAs) framework. RAGAs based faithfulness shows limited reliability in this setup. Performance on fixed versus document specific questions varied substantially, likely related to the formatting of documents and preprocessing. Under the tested configuration, cluster-based chunking did not outperform simpler strategies.",
+      "pdf_url": "https://arxiv.org/pdf/2607.01852v1"
+    },
+    {
+      "arxiv_id": "2403.14197",
+      "version": "v1",
+      "title": "Context Quality Matters in Training Fusion-in-Decoder for Extractive Open-Domain Question Answering",
+      "authors": [
+        "Kosuke Akimoto",
+        "Kunihiro Takeoka",
+        "Masafumi Oyamada"
+      ],
+      "published": "2024-03-21T07:47:57Z",
+      "updated": "2024-03-21T07:47:57Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Retrieval-augmented generation models augment knowledge encoded in a language model by providing additional relevant external knowledge (context) during generation. Although it has been shown that the quantity and quality of context impact the performance of retrieval-augmented generation models during inference, limited research explores how these characteristics affect model training. This paper explores how context quantity and quality during model training affect the performance of Fusion-in-Decoder (FiD), the state-of-the-art retrieval-augmented generation model, in extractive open-domain question answering tasks. Experimental results suggest that FiD models overfit to context quality during training and show suboptimal performance when evaluated on different context quality. Through the experimental results, we also reveal FiD models trained with different context quality have different cross-attention distribution patterns. Specifically, as context quality during training increases, FiD models tend to attend more uniformly to each passage in context. Finally, based on these observations, we propose a method to mitigate overfitting to specific context quality by introducing bias to the cross-attention distribution, which we demonstrate to be effective in improving the performance of FiD models on different context quality.",
+      "pdf_url": "https://arxiv.org/pdf/2403.14197v1"
+    },
+    {
+      "arxiv_id": "2406.16167",
+      "version": "v1",
+      "title": "FS-RAG: A Frame Semantics Based Approach for Improved Factual Accuracy in Large Language Models",
+      "authors": [
+        "Harish Tayyar Madabushi"
+      ],
+      "published": "2024-06-23T17:18:19Z",
+      "updated": "2024-06-23T17:18:19Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "We present a novel extension to Retrieval Augmented Generation with the goal of mitigating factual inaccuracies in the output of large language models. Specifically, our method draws on the cognitive linguistic theory of frame semantics for the indexing and retrieval of factual information relevant to helping large language models answer queries. We conduct experiments to demonstrate the effectiveness of this method both in terms of retrieval effectiveness and in terms of the relevance of the frames and frame relations automatically generated. Our results show that this novel mechanism of Frame Semantic-based retrieval, designed to improve Retrieval Augmented Generation (FS-RAG), is effective and offers potential for providing data-driven insights into frame semantics theory. We provide open access to our program code and prompts.",
+      "pdf_url": "https://arxiv.org/pdf/2406.16167v1"
+    },
+    {
+      "arxiv_id": "2502.01113",
+      "version": "v3",
+      "title": "GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation",
+      "authors": [
+        "Linhao Luo",
+        "Zicheng Zhao",
+        "Gholamreza Haffari",
+        "Dinh Phung",
+        "Chen Gong",
+        "Shirui Pan"
+      ],
+      "published": "2025-02-03T07:04:29Z",
+      "updated": "2025-12-11T03:45:04Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Retrieval-augmented generation (RAG) has proven effective in integrating knowledge into large language models (LLMs). However, conventional RAGs struggle to capture complex relationships between pieces of knowledge, limiting their performance in intricate reasoning that requires integrating knowledge from multiple sources. Recently, graph-enhanced retrieval augmented generation (GraphRAG) builds graph structure to explicitly model these relationships, enabling more effective and efficient retrievers. Nevertheless, its performance is still hindered by the noise and incompleteness within the graph structure. To address this, we introduce GFM-RAG, a novel graph foundation model (GFM) for retrieval augmented generation. GFM-RAG is powered by an innovative graph neural network that reasons over graph structure to capture complex query-knowledge relationships. The GFM with 8M parameters undergoes a two-stage training process on large-scale datasets, comprising 60 knowledge graphs with over 14M triples and 700k documents. This results in impressive performance and generalizability for GFM-RAG, making it the first graph foundation model applicable to unseen datasets for retrieval without any fine-tuning required. Extensive experiments on three multi-hop QA datasets and seven domain-specific RAG datasets demonstrate that GFM-RAG achieves state-of-the-art performance while maintaining efficiency and alignment with neural scaling laws, highlighting its potential for further improvement.",
+      "pdf_url": "https://arxiv.org/pdf/2502.01113v3"
+    },
+    {
+      "arxiv_id": "2411.00437",
+      "version": "v2",
+      "title": "E2E-AFG: An End-to-End Model with Adaptive Filtering for Retrieval-Augmented Generation",
+      "authors": [
+        "Yun Jiang",
+        "Zilong Xie",
+        "Wei Zhang",
+        "Yun Fang",
+        "Shuai Pan"
+      ],
+      "published": "2024-11-01T08:02:09Z",
+      "updated": "2025-05-08T07:29:10Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Retrieval-augmented generation methods often neglect the quality of content retrieved from external knowledge bases, resulting in irrelevant information or potential misinformation that negatively affects the generation results of large language models. In this paper, we propose an end-to-end model with adaptive filtering for retrieval-augmented generation (E2E-AFG), which integrates answer existence judgment and text generation into a single end-to-end framework. This enables the model to focus more effectively on relevant content while reducing the influence of irrelevant information and generating accurate answers. We evaluate E2E-AFG on six representative knowledge-intensive language datasets, and the results show that it consistently outperforms baseline models across all tasks, demonstrating the effectiveness and robustness of the proposed approach.",
+      "pdf_url": "https://arxiv.org/pdf/2411.00437v2"
+    },
+    {
+      "arxiv_id": "2405.13002",
+      "version": "v1",
+      "title": "DuetRAG: Collaborative Retrieval-Augmented Generation",
+      "authors": [
+        "Dian Jiao",
+        "Li Cai",
+        "Jingsheng Huang",
+        "Wenqiao Zhang",
+        "Siliang Tang",
+        "Yueting Zhuang"
+      ],
+      "published": "2024-05-12T09:48:28Z",
+      "updated": "2024-05-12T09:48:28Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Retrieval-Augmented Generation (RAG) methods augment the input of Large Language Models (LLMs) with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks. However, contemporary RAG approaches suffer from irrelevant knowledge retrieval issues in complex domain questions (e.g., HotPot QA) due to the lack of corresponding domain knowledge, leading to low-quality generations. To address this issue, we propose a novel Collaborative Retrieval-Augmented Generation framework, DuetRAG. Our bootstrapping philosophy is to simultaneously integrate the domain fintuning and RAG models to improve the knowledge retrieval quality, thereby enhancing generation quality. Finally, we demonstrate DuetRAG' s matches with expert human researchers on HotPot QA.",
+      "pdf_url": "https://arxiv.org/pdf/2405.13002v1"
+    },
+    {
+      "arxiv_id": "2509.10467",
+      "version": "v1",
+      "title": "DSRAG: A Domain-Specific Retrieval Framework Based on Document-derived Multimodal Knowledge Graph",
+      "authors": [
+        "Mengzheng Yang",
+        "Yanfei Ren",
+        "David Osei Opoku",
+        "Ruochang Li",
+        "Peng Ren",
+        "Chunxiao Xing"
+      ],
+      "published": "2025-08-22T14:24:48Z",
+      "updated": "2025-08-22T14:24:48Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.MM"
+      ],
+      "summary": "Current general-purpose large language models (LLMs) commonly exhibit knowledge hallucination and insufficient domain-specific adaptability in domain-specific tasks, limiting their effectiveness in specialized question answering scenarios. Retrieval-augmented generation (RAG) effectively tackles these challenges by integrating external knowledge to enhance accuracy and relevance. However, traditional RAG still faces limitations in domain knowledge accuracy and context modeling.To enhance domain-specific question answering performance, this work focuses on a graph-based RAG framework, emphasizing the critical role of knowledge graph quality during the generation process. We propose DSRAG (Domain-Specific RAG), a multimodal knowledge graph-driven retrieval-augmented generation framework designed for domain-specific applications. Our approach leverages domain-specific documents as the primary knowledge source, integrating heterogeneous information such as text, images, and tables to construct a multimodal knowledge graph covering both conceptual and instance layers. Building on this foundation, we introduce semantic pruning and structured subgraph retrieval mechanisms, combining knowledge graph context and vector retrieval results to guide the language model towards producing more reliable responses. Evaluations using the Langfuse multidimensional scoring mechanism show that our method excels in domain-specific question answering, validating the efficacy of integrating multimodal knowledge graphs with retrieval-augmented generation.",
+      "pdf_url": "https://arxiv.org/pdf/2509.10467v1"
+    },
+    {
+      "arxiv_id": "2402.11626",
+      "version": "v1",
+      "title": "Metacognitive Retrieval-Augmented Large Language Models",
+      "authors": [
+        "Yujia Zhou",
+        "Zheng Liu",
+        "Jiajie Jin",
+        "Jian-Yun Nie",
+        "Zhicheng Dou"
+      ],
+      "published": "2024-02-18T15:41:31Z",
+      "updated": "2024-02-18T15:41:31Z",
+      "categories": [
+        "cs.CL",
+        "cs.IR"
+      ],
+      "summary": "Retrieval-augmented generation have become central in natural language processing due to their efficacy in generating factual content. While traditional methods employ single-time retrieval, more recent approaches have shifted towards multi-time retrieval for multi-hop reasoning tasks. However, these strategies are bound by predefined reasoning steps, potentially leading to inaccuracies in response generation. This paper introduces MetaRAG, an approach that combines the retrieval-augmented generation process with metacognition. Drawing from cognitive psychology, metacognition allows an entity to self-reflect and critically evaluate its cognitive processes. By integrating this, MetaRAG enables the model to monitor, evaluate, and plan its response strategies, enhancing its introspective reasoning abilities. Through a three-step metacognitive regulation pipeline, the model can identify inadequacies in initial cognitive responses and fixes them. Empirical evaluations show that MetaRAG significantly outperforms existing methods.",
+      "pdf_url": "https://arxiv.org/pdf/2402.11626v1"
+    },
+    {
+      "arxiv_id": "2607.24767",
+      "version": "v1",
+      "title": "The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance",
+      "authors": [
+        "German Garrido-Lestache Belinchon",
+        "Hugo Garrido-Lestache Belinchon"
+      ],
+      "published": "2026-06-08T13:55:14Z",
+      "updated": "2026-06-08T13:55:14Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Retrieval-Augmented Generation (RAG) systems have emerged as a powerful process for allowing large language models (LLMs) to retrieve relevant information to use as source material during text generation. A critical yet under-explored component of these systems is the granularity at which source documents are segmented into retrievable chunks. The size of these chunks has the potential to significantly influence generation quality, contextual correctness, retrieval precision, and computational efficiency. Despite its importance, chunk size is often selected without proper evaluation of its impact on generation quality. Smaller chunks, such as individual sentences, may allow for precise retrieval by narrowing the focus of each chunk. However, they contain less information, which may limit the model's ability to generate coherent responses. Larger chunks, such as entire chapters, contain lots of broad information that may improve correctness, but also introduce additional noise and increase computational cost. Because larger chunks contain more information, the number of chunks returned to the model must also be considered. This paper evaluates how chunk size, along with the number of retrieved segments, influences generation quality and retrieval effectiveness. By comparing these configurations, this study seeks to better understand how document segmentation affects the performance and efficiency of Retrieval-Augmented Generation systems. segmentation affects the performance and efficiency of Retrieval-Augmented Generation systems.",
+      "pdf_url": "https://arxiv.org/pdf/2607.24767v1"
+    },
+    {
+      "arxiv_id": "2310.06626",
+      "version": "v1",
+      "title": "Topic-DPR: Topic-based Prompts for Dense Passage Retrieval",
+      "authors": [
+        "Qingfa Xiao",
+        "Shuangyin Li",
+        "Lei Chen"
+      ],
+      "published": "2023-10-10T13:45:24Z",
+      "updated": "2023-10-10T13:45:24Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Prompt-based learning's efficacy across numerous natural language processing tasks has led to its integration into dense passage retrieval. Prior research has mainly focused on enhancing the semantic understanding of pre-trained language models by optimizing a single vector as a continuous prompt. This approach, however, leads to a semantic space collapse; identical semantic information seeps into all representations, causing their distributions to converge in a restricted region. This hinders differentiation between relevant and irrelevant passages during dense retrieval. To tackle this issue, we present Topic-DPR, a dense passage retrieval model that uses topic-based prompts. Unlike the single prompt method, multiple topic-based prompts are established over a probabilistic simplex and optimized simultaneously through contrastive learning. This encourages representations to align with their topic distributions, improving space uniformity. Furthermore, we introduce a novel positive and negative sampling strategy, leveraging semi-structured data to boost dense retrieval efficiency. Experimental results from two datasets affirm that our method surpasses previous state-of-the-art retrieval techniques.",
+      "pdf_url": "https://arxiv.org/pdf/2310.06626v1"
+    },
+    {
+      "arxiv_id": "2410.20315",
+      "version": "v1",
+      "title": "Deep Learning Based Dense Retrieval: A Comparative Study",
+      "authors": [
+        "Ming Zhong",
+        "Zhizhi Wu",
+        "Nanako Honda"
+      ],
+      "published": "2024-10-27T02:52:36Z",
+      "updated": "2024-10-27T02:52:36Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Dense retrievers have achieved state-of-the-art performance in various information retrieval tasks, but their robustness against tokenizer poisoning remains underexplored. In this work, we assess the vulnerability of dense retrieval systems to poisoned tokenizers by evaluating models such as BERT, Dense Passage Retrieval (DPR), Contriever, SimCSE, and ANCE. We find that supervised models like BERT and DPR experience significant performance degradation when tokenizers are compromised, while unsupervised models like ANCE show greater resilience. Our experiments reveal that even small perturbations can severely impact retrieval accuracy, highlighting the need for robust defenses in critical applications.",
+      "pdf_url": "https://arxiv.org/pdf/2410.20315v1"
+    },
+    {
+      "arxiv_id": "2208.07670",
+      "version": "v3",
+      "title": "ConTextual Masked Auto-Encoder for Dense Passage Retrieval",
+      "authors": [
+        "Xing Wu",
+        "Guangyuan Ma",
+        "Meng Lin",
+        "Zijia Lin",
+        "Zhongyuan Wang",
+        "Songlin Hu"
+      ],
+      "published": "2022-08-16T11:17:22Z",
+      "updated": "2022-12-01T23:01:41Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Dense passage retrieval aims to retrieve the relevant passages of a query from a large corpus based on dense representations (i.e., vectors) of the query and the passages. Recent studies have explored improving pre-trained language models to boost dense retrieval performance. This paper proposes CoT-MAE (ConTextual Masked Auto-Encoder), a simple yet effective generative pre-training method for dense passage retrieval. CoT-MAE employs an asymmetric encoder-decoder architecture that learns to compress the sentence semantics into a dense vector through self-supervised and context-supervised masked auto-encoding. Precisely, self-supervised masked auto-encoding learns to model the semantics of the tokens inside a text span, and context-supervised masked auto-encoding learns to model the semantical correlation between the text spans. We conduct experiments on large-scale passage retrieval benchmarks and show considerable improvements over strong baselines, demonstrating the high efficiency of CoT-MAE. Our code is available at https://github.com/caskcsg/ir/tree/main/cotmae.",
+      "pdf_url": "https://arxiv.org/pdf/2208.07670v3"
+    },
+    {
+      "arxiv_id": "2108.03937",
+      "version": "v1",
+      "title": "DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval",
+      "authors": [
+        "Sophia Althammer",
+        "Arian Askari",
+        "Suzan Verberne",
+        "Allan Hanbury"
+      ],
+      "published": "2021-08-09T11:07:11Z",
+      "updated": "2021-08-09T11:07:11Z",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "In this paper, we present our approaches for the case law retrieval and the legal case entailment task in the Competition on Legal Information Extraction/Entailment (COLIEE) 2021. As first stage retrieval methods combined with neural re-ranking methods using contextualized language models like BERT achieved great performance improvements for information retrieval in the web and news domain, we evaluate these methods for the legal domain. A distinct characteristic of legal case retrieval is that the query case and case description in the corpus tend to be long documents and therefore exceed the input length of BERT. We address this challenge by combining lexical and dense retrieval methods on the paragraph-level of the cases for the first stage retrieval. Here we demonstrate that the retrieval on the paragraph-level outperforms the retrieval on the document-level. Furthermore the experiments suggest that dense retrieval methods outperform lexical retrieval. For re-ranking we address the problem of long documents by summarizing the cases and fine-tuning a BERT-based re-ranker with the summaries. Overall, our best results were obtained with a combination of BM25 and dense passage retrieval using domain-specific embeddings.",
+      "pdf_url": "https://arxiv.org/pdf/2108.03937v1"
+    },
+    {
+      "arxiv_id": "2304.03031",
+      "version": "v6",
+      "title": "Evidentiality-aware Retrieval for Overcoming Abstractiveness in Open-Domain Question Answering",
+      "authors": [
+        "Yongho Song",
+        "Dahyun Lee",
+        "Myungha Jang",
+        "Seung-won Hwang",
+        "Kyungjae Lee",
+        "Dongha Lee",
+        "Jinyeong Yeo"
+      ],
+      "published": "2023-04-06T12:42:37Z",
+      "updated": "2024-02-01T17:36:39Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "The long-standing goal of dense retrievers in abtractive open-domain question answering (ODQA) tasks is to learn to capture evidence passages among relevant passages for any given query, such that the reader produce factually correct outputs from evidence passages. One of the key challenge is the insufficient amount of training data with the supervision of the answerability of the passages. Recent studies rely on iterative pipelines to annotate answerability using signals from the reader, but their high computational costs hamper practical applications. In this paper, we instead focus on a data-centric approach and propose Evidentiality-Aware Dense Passage Retrieval (EADPR), which leverages synthetic distractor samples to learn to discriminate evidence passages from distractors. We conduct extensive experiments to validate the effectiveness of our proposed method on multiple abstractive ODQA tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2304.03031v6"
+    },
+    {
+      "arxiv_id": "2203.10053",
+      "version": "v1",
+      "title": "RELIC: Retrieving Evidence for Literary Claims",
+      "authors": [
+        "Katherine Thai",
+        "Yapei Chang",
+        "Kalpesh Krishna",
+        "Mohit Iyyer"
+      ],
+      "published": "2022-03-18T16:56:08Z",
+      "updated": "2022-03-18T16:56:08Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Humanities scholars commonly provide evidence for claims that they make about a work of literature (e.g., a novel) in the form of quotations from the work. We collect a large-scale dataset (RELiC) of 78K literary quotations and surrounding critical analysis and use it to formulate the novel task of literary evidence retrieval, in which models are given an excerpt of literary analysis surrounding a masked quotation and asked to retrieve the quoted passage from the set of all passages in the work. Solving this retrieval task requires a deep understanding of complex literary and linguistic phenomena, which proves challenging to methods that overwhelmingly rely on lexical and semantic similarity matching. We implement a RoBERTa-based dense passage retriever for this task that outperforms existing pretrained information retrieval baselines; however, experiments and analysis by human domain experts indicate that there is substantial room for improvement over our dense retriever.",
+      "pdf_url": "https://arxiv.org/pdf/2203.10053v1"
+    },
+    {
+      "arxiv_id": "2208.00511",
+      "version": "v2",
+      "title": "Aggretriever: A Simple Approach to Aggregate Textual Representations for Robust Dense Passage Retrieval",
+      "authors": [
+        "Sheng-Chieh Lin",
+        "Minghan Li",
+        "Jimmy Lin"
+      ],
+      "published": "2022-07-31T20:27:35Z",
+      "updated": "2023-05-24T22:46:03Z",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "Pre-trained language models have been successful in many knowledge-intensive NLP tasks. However, recent work has shown that models such as BERT are not ``structurally ready'' to aggregate textual information into a [CLS] vector for dense passage retrieval (DPR). This ``lack of readiness'' results from the gap between language model pre-training and DPR fine-tuning. Previous solutions call for computationally expensive techniques such as hard negative mining, cross-encoder distillation, and further pre-training to learn a robust DPR model. In this work, we instead propose to fully exploit knowledge in a pre-trained language model for DPR by aggregating the contextualized token embeddings into a dense vector, which we call agg*. By concatenating vectors from the [CLS] token and agg*, our Aggretriever model substantially improves the effectiveness of dense retrieval models on both in-domain and zero-shot evaluations without introducing substantial training overhead. Code is available at https://github.com/castorini/dhr",
+      "pdf_url": "https://arxiv.org/pdf/2208.00511v2"
+    },
+    {
+      "arxiv_id": "2305.13197",
+      "version": "v1",
+      "title": "Challenging Decoder helps in Masked Auto-Encoder Pre-training for Dense Passage Retrieval",
+      "authors": [
+        "Zehan Li",
+        "Yanzhao Zhang",
+        "Dingkun Long",
+        "Pengjun Xie"
+      ],
+      "published": "2023-05-22T16:27:10Z",
+      "updated": "2023-05-22T16:27:10Z",
+      "categories": [
+        "cs.IR",
+        "cs.CL"
+      ],
+      "summary": "Recently, various studies have been directed towards exploring dense passage retrieval techniques employing pre-trained language models, among which the masked auto-encoder (MAE) pre-training architecture has emerged as the most promising. The conventional MAE framework relies on leveraging the passage reconstruction of decoder to bolster the text representation ability of encoder, thereby enhancing the performance of resulting dense retrieval systems. Within the context of building the representation ability of the encoder through passage reconstruction of decoder, it is reasonable to postulate that a ``more demanding'' decoder will necessitate a corresponding increase in the encoder's ability. To this end, we propose a novel token importance aware masking strategy based on pointwise mutual information to intensify the challenge of the decoder. Importantly, our approach can be implemented in an unsupervised manner, without adding additional expenses to the pre-training phase. Our experiments verify that the proposed method is both effective and robust on large-scale supervised passage retrieval datasets and out-of-domain zero-shot retrieval benchmarks.",
+      "pdf_url": "https://arxiv.org/pdf/2305.13197v1"
+    },
+    {
+      "arxiv_id": "2402.11035",
+      "version": "v3",
+      "title": "Dense Passage Retrieval: Is it Retrieving?",
+      "authors": [
+        "Benjamin Reichman",
+        "Larry Heck"
+      ],
+      "published": "2024-02-16T19:28:52Z",
+      "updated": "2024-10-03T23:40:56Z",
+      "categories": [
+        "cs.CL",
+        "cs.IR"
+      ],
+      "summary": "Dense passage retrieval (DPR) is the first step in the retrieval augmented generation (RAG) paradigm for improving the performance of large language models (LLM). DPR fine-tunes pre-trained networks to enhance the alignment of the embeddings between queries and relevant textual data. A deeper understanding of DPR fine-tuning will be required to fundamentally unlock the full potential of this approach. In this work, we explore DPR-trained models mechanistically by using a combination of probing, layer activation analysis, and model editing. Our experiments show that DPR training decentralizes how knowledge is stored in the network, creating multiple access pathways to the same information. We also uncover a limitation in this training style: the internal knowledge of the pre-trained model bounds what the retrieval model can retrieve. These findings suggest a few possible directions for dense retrieval: (1) expose the DPR training process to more knowledge so more can be decentralized, (2) inject facts as decentralized representations, (3) model and incorporate knowledge uncertainty in the retrieval process, and (4) directly map internal model knowledge to a knowledge base.",
+      "pdf_url": "https://arxiv.org/pdf/2402.11035v3"
+    },
+    {
+      "arxiv_id": "2201.01614",
+      "version": "v2",
+      "title": "PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval",
+      "authors": [
+        "Sophia Althammer",
+        "Sebastian Hofst\u00e4tter",
+        "Mete Sertkan",
+        "Suzan Verberne",
+        "Allan Hanbury"
+      ],
+      "published": "2022-01-05T13:51:18Z",
+      "updated": "2022-08-14T23:32:23Z",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "Dense passage retrieval (DPR) models show great effectiveness gains in first stage retrieval for the web domain. However in the web domain we are in a setting with large amounts of training data and a query-to-passage or a query-to-document retrieval task. We investigate in this paper dense document-to-document retrieval with limited labelled target data for training, in particular legal case retrieval. In order to use DPR models for document-to-document retrieval, we propose a Paragraph Aggregation Retrieval Model (PARM) which liberates DPR models from their limited input length. PARM retrieves documents on the paragraph-level: for each query paragraph, relevant documents are retrieved based on their paragraphs. Then the relevant results per query paragraph are aggregated into one ranked list for the whole query document. For the aggregation we propose vector-based aggregation with reciprocal rank fusion (VRRF) weighting, which combines the advantages of rank-based aggregation and topical aggregation based on the dense embeddings. Experimental results show that VRRF outperforms rank-based aggregation strategies for dense document-to-document retrieval with PARM. We compare PARM to document-level retrieval and demonstrate higher retrieval effectiveness of PARM for lexical and dense first-stage retrieval on two different legal case retrieval collections. We investigate how to train the dense retrieval model for PARM on limited target data with labels on the paragraph or the document-level. In addition, we analyze the differences of the retrieved results of lexical and dense retrieval with PARM.",
+      "pdf_url": "https://arxiv.org/pdf/2201.01614v2"
+    },
+    {
+      "arxiv_id": "2401.13463",
+      "version": "v3",
+      "title": "SpeechDPR: End-to-End Spoken Passage Retrieval for Open-Domain Spoken Question Answering",
+      "authors": [
+        "Chyi-Jiunn Lin",
+        "Guan-Ting Lin",
+        "Yung-Sung Chuang",
+        "Wei-Lun Wu",
+        "Shang-Wen Li",
+        "Abdelrahman Mohamed",
+        "Hung-yi Lee",
+        "Lin-shan Lee"
+      ],
+      "published": "2024-01-24T14:08:38Z",
+      "updated": "2024-08-24T20:28:38Z",
+      "categories": [
+        "cs.CL",
+        "cs.IR",
+        "cs.SD",
+        "eess.AS"
+      ],
+      "summary": "Spoken Question Answering (SQA) is essential for machines to reply to user's question by finding the answer span within a given spoken passage. SQA has been previously achieved without ASR to avoid recognition errors and Out-of-Vocabulary (OOV) problems. However, the real-world problem of Open-domain SQA (openSQA), in which the machine needs to first retrieve passages that possibly contain the answer from a spoken archive in addition, was never considered. This paper proposes the first known end-to-end framework, Speech Dense Passage Retriever (SpeechDPR), for the retrieval component of the openSQA problem. SpeechDPR learns a sentence-level semantic representation by distilling knowledge from the cascading model of unsupervised ASR (UASR) and text dense retriever (TDR). No manually transcribed speech data is needed. Initial experiments showed performance comparable to the cascading model of UASR and TDR, and significantly better when UASR was poor, verifying this approach is more robust to speech recognition errors.",
+      "pdf_url": "https://arxiv.org/pdf/2401.13463v3"
+    },
+    {
+      "arxiv_id": "2205.00970",
+      "version": "v3",
+      "title": "LIDER: An Efficient High-dimensional Learned Index for Large-scale Dense Passage Retrieval",
+      "authors": [
+        "Yifan Wang",
+        "Haodi Ma",
+        "Daisy Zhe Wang"
+      ],
+      "published": "2022-05-02T15:15:41Z",
+      "updated": "2022-10-10T01:49:19Z",
+      "categories": [
+        "cs.IR",
+        "cs.DB"
+      ],
+      "summary": "Many recent approaches of passage retrieval are using dense embeddings generated from deep neural models, called \"dense passage retrieval\". The state-of-the-art end-to-end dense passage retrieval systems normally deploy a deep neural model followed by an approximate nearest neighbor (ANN) search module. The model generates embeddings of the corpus and queries, which are then indexed and searched by the high-performance ANN module. With the increasing data scale, the ANN module unavoidably becomes the bottleneck on efficiency. An alternative is the learned index, which achieves significantly high search efficiency by learning the data distribution and predicting the target data location. But most of the existing learned indexes are designed for low dimensional data, which are not suitable for dense passage retrieval with high-dimensional dense embeddings. In this paper, we propose LIDER, an efficient high-dimensional Learned Index for large-scale DEnse passage Retrieval. LIDER has a clustering-based hierarchical architecture formed by two layers of core models. As the basic unit of LIDER to index and search data, a core model includes an adapted recursive model index (RMI) and a dimension reduction component which consists of an extended SortingKeys-LSH (SK-LSH) and a key re-scaling module. The dimension reduction component reduces the high-dimensional dense embeddings into one-dimensional keys and sorts them in a specific order, which are then used by the RMI to make fast prediction. Experiments show that LIDER has a higher search speed with high retrieval quality comparing to the state-of-the-art ANN indexes on passage retrieval tasks, e.g., on large-scale data it achieves 1.2x search speed and significantly higher retrieval quality than the fastest baseline in our evaluation. Furthermore, LIDER has a better capability of speed-quality trade-off.",
+      "pdf_url": "https://arxiv.org/pdf/2205.00970v3"
+    },
+    {
+      "arxiv_id": "2303.05153",
+      "version": "v1",
+      "title": "Can a Frozen Pretrained Language Model be used for Zero-shot Neural Retrieval on Entity-centric Questions?",
+      "authors": [
+        "Yasuto Hoshi",
+        "Daisuke Miyashita",
+        "Yasuhiro Morioka",
+        "Youyang Ng",
+        "Osamu Torii",
+        "Jun Deguchi"
+      ],
+      "published": "2023-03-09T10:12:18Z",
+      "updated": "2023-03-09T10:12:18Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Neural document retrievers, including dense passage retrieval (DPR), have outperformed classical lexical-matching retrievers, such as BM25, when fine-tuned and tested on specific question-answering datasets. However, it has been shown that the existing dense retrievers do not generalize well not only out of domain but even in domain such as Wikipedia, especially when a named entity in a question is a dominant clue for retrieval. In this paper, we propose an approach toward in-domain generalization using the embeddings generated by the frozen language model trained with the entities in the domain. By not fine-tuning, we explore the possibility that the rich knowledge contained in a pretrained language model can be used for retrieval tasks. The proposed method outperforms conventional DPRs on entity-centric questions in Wikipedia domain and achieves almost comparable performance to BM25 and state-of-the-art SPAR model. We also show that the contextualized keys lead to strong improvements compared to BM25 when the entity names consist of common words. Our results demonstrate the feasibility of the zero-shot retrieval method for entity-centric questions of Wikipedia domain, where DPR has struggled to perform.",
+      "pdf_url": "https://arxiv.org/pdf/2303.05153v1"
+    },
+    {
+      "arxiv_id": "2203.06942",
+      "version": "v2",
+      "title": "Hyperlink-induced Pre-training for Passage Retrieval in Open-domain Question Answering",
+      "authors": [
+        "Jiawei Zhou",
+        "Xiaoguang Li",
+        "Lifeng Shang",
+        "Lan Luo",
+        "Ke Zhan",
+        "Enrui Hu",
+        "Xinyu Zhang",
+        "Hao Jiang",
+        "Zhao Cao",
+        "Fan Yu",
+        "Xin Jiang",
+        "Qun Liu",
+        "Lei Chen"
+      ],
+      "published": "2022-03-14T09:09:49Z",
+      "updated": "2022-04-12T09:33:54Z",
+      "categories": [
+        "cs.CL",
+        "cs.IR"
+      ],
+      "summary": "To alleviate the data scarcity problem in training question answering systems, recent works propose additional intermediate pre-training for dense passage retrieval (DPR). However, there still remains a large discrepancy between the provided upstream signals and the downstream question-passage relevance, which leads to less improvement. To bridge this gap, we propose the HyperLink-induced Pre-training (HLP), a method to pre-train the dense retriever with the text relevance induced by hyperlink-based topology within Web documents. We demonstrate that the hyperlink-based structures of dual-link and co-mention can provide effective relevance signals for large-scale pre-training that better facilitate downstream passage retrieval. We investigate the effectiveness of our approach across a wide range of open-domain QA datasets under zero-shot, few-shot, multi-hop, and out-of-domain scenarios. The experiments show our HLP outperforms the BM25 by up to 7 points as well as other pre-training methods by more than 10 points in terms of top-20 retrieval accuracy under the zero-shot scenario. Furthermore, HLP significantly outperforms other pre-training methods under the other scenarios.",
+      "pdf_url": "https://arxiv.org/pdf/2203.06942v2"
+    },
+    {
+      "arxiv_id": "2108.06027",
+      "version": "v2",
+      "title": "PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval",
+      "authors": [
+        "Ruiyang Ren",
+        "Shangwen Lv",
+        "Yingqi Qu",
+        "Jing Liu",
+        "Wayne Xin Zhao",
+        "QiaoQiao She",
+        "Hua Wu",
+        "Haifeng Wang",
+        "Ji-Rong Wen"
+      ],
+      "published": "2021-08-13T02:07:43Z",
+      "updated": "2023-04-23T17:06:18Z",
+      "categories": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Recently, dense passage retrieval has become a mainstream approach to finding relevant information in various natural language processing tasks. A number of studies have been devoted to improving the widely adopted dual-encoder architecture. However, most of the previous studies only consider query-centric similarity relation when learning the dual-encoder retriever. In order to capture more comprehensive similarity relations, we propose a novel approach that leverages both query-centric and PAssage-centric sImilarity Relations (called PAIR) for dense passage retrieval. To implement our approach, we make three major technical contributions by introducing formal formulations of the two kinds of similarity relations, generating high-quality pseudo labeled data via knowledge distillation, and designing an effective two-stage training procedure that incorporates passage-centric similarity relation constraint. Extensive experiments show that our approach significantly outperforms previous state-of-the-art models on both MSMARCO and Natural Questions datasets.",
+      "pdf_url": "https://arxiv.org/pdf/2108.06027v2"
+    },
+    {
+      "arxiv_id": "2502.13490",
+      "version": "v1",
+      "title": "What are Models Thinking about? Understanding Large Language Model Hallucinations \"Psychology\" through Model Inner State Analysis",
+      "authors": [
+        "Peiran Wang",
+        "Yang Liu",
+        "Yunfei Lu",
+        "Jue Hong",
+        "Ye Wu"
+      ],
+      "published": "2025-02-19T07:23:18Z",
+      "updated": "2025-02-19T07:23:18Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Large language model (LLM) systems suffer from the models' unstable ability to generate valid and factual content, resulting in hallucination generation. Current hallucination detection methods heavily rely on out-of-model information sources, such as RAG to assist the detection, thus bringing heavy additional latency. Recently, internal states of LLMs' inference have been widely used in numerous research works, such as prompt injection detection, etc. Considering the interpretability of LLM internal states and the fact that they do not require external information sources, we introduce such states into LLM hallucination detection. In this paper, we systematically analyze different internal states' revealing features during inference forward and comprehensively evaluate their ability in hallucination detection. Specifically, we cut the forward process of a large language model into three stages: understanding, query, generation, and extracting the internal state from these stages. By analyzing these states, we provide a deep understanding of why the hallucinated content is generated and what happened in the internal state of the models. Then, we introduce these internal states into hallucination detection and conduct comprehensive experiments to discuss the advantages and limitations.",
+      "pdf_url": "https://arxiv.org/pdf/2502.13490v1"
+    },
+    {
+      "arxiv_id": "2312.14504",
+      "version": "v2",
+      "title": "Theory of Hallucinations based on Equivariance",
+      "authors": [
+        "Hisaichi Shibata"
+      ],
+      "published": "2023-12-22T08:08:45Z",
+      "updated": "2024-01-04T02:49:21Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "summary": "This study aims to acquire knowledge for creating very large language models that are immune to hallucinations. Hallucinations in contemporary large language models are often attributed to a misunderstanding of real-world social relationships. Therefore, I hypothesize that very large language models capable of thoroughly grasping all these relationships will be free from hallucinations. Additionally, I propose that certain types of equivariant language models are adept at learning and understanding these relationships. Building on this, I have developed a specialized cross-entropy error function to create a hallucination scale for language models, which measures their extent of equivariance acquisition. Utilizing this scale, I tested language models for their ability to acquire character-level equivariance. In particular, I introduce and employ a novel technique based on T5 (Text To Text Transfer Transformer) that efficiently understands permuted input texts without the need for explicit dictionaries to convert token IDs (integers) to texts (strings). This T5 model demonstrated a moderate ability to acquire character-level equivariance. Additionally, I discovered scale laws that can aid in developing hallucination-free language models at the character level. This methodology can be extended to assess equivariance acquisition at the word level, paving the way for very large language models that can comprehensively understand relationships and, consequently, avoid hallucinations.",
+      "pdf_url": "https://arxiv.org/pdf/2312.14504v2"
+    },
+    {
+      "arxiv_id": "2602.07253",
+      "version": "v4",
+      "title": "From Out-of-Distribution Detection to Hallucination Detection: A Geometric View",
+      "authors": [
+        "Litian Liu",
+        "Reza Pourreza",
+        "Yubing Jian",
+        "Yao Qin",
+        "Roland Memisevic"
+      ],
+      "published": "2026-02-06T23:05:48Z",
+      "updated": "2026-06-04T17:49:13Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Detecting hallucinations in large language models is a critical open problem with significant implications for safety and reliability. While existing hallucination detection methods achieve strong performance in question-answering tasks, they remain less effective on tasks requiring reasoning. In this work, we revisit hallucination detection through the lens of out-of-distribution (OOD) detection, a well-studied problem in areas like computer vision. Treating next-token prediction in language models as a classification task allows us to apply OOD techniques, provided appropriate modifications are made to account for the structural differences in large language models. We show that OOD-based approaches yield training-free, single-sample-based detectors, achieving strong accuracy in hallucination detection for reasoning tasks. Overall, our work suggests that reframing hallucination detection as OOD detection provides a promising and scalable pathway toward language model safety.",
+      "pdf_url": "https://arxiv.org/pdf/2602.07253v4"
+    },
+    {
+      "arxiv_id": "2410.15778",
+      "version": "v2",
+      "title": "Reducing Hallucinations in Vision-Language Models via Latent Space Steering",
+      "authors": [
+        "Sheng Liu",
+        "Haotian Ye",
+        "Lei Xing",
+        "James Zou"
+      ],
+      "published": "2024-10-21T08:42:30Z",
+      "updated": "2024-10-22T05:01:28Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "cs.MM"
+      ],
+      "summary": "Hallucination poses a challenge to the deployment of large vision-language models (LVLMs) in applications. Unlike in large language models (LLMs), hallucination in LVLMs often arises from misalignments between visual inputs and textual outputs. This paper investigates the underlying mechanisms of hallucination, focusing on the unique structure of LVLMs that distinguishes them from large language models (LLMs). We identify that hallucinations often arise from the sensitivity of text decoders to vision inputs, a natural phenomenon when image encoders and text decoders are pre-trained separately. Inspired by this, we introduce Visual and Textual Intervention (VTI), a novel technique designed to reduce hallucinations by steering latent space representations during inference to enhance the stability of vision features. As a task-agnostic test-time intervention, VTI can be easily applied to any problem without additional cost. Extensive experiments demonstrate that it can effectively reduce hallucinations and outperform baseline methods across multiple metrics, highlighting the critical role of vision feature stability in LVLMs.",
+      "pdf_url": "https://arxiv.org/pdf/2410.15778v2"
+    },
+    {
+      "arxiv_id": "2407.04831",
+      "version": "v2",
+      "title": "Code Hallucination",
+      "authors": [
+        "Mirza Masfiqur Rahman",
+        "Ashish Kundu"
+      ],
+      "published": "2024-07-05T19:37:37Z",
+      "updated": "2024-08-08T01:01:47Z",
+      "categories": [
+        "cs.AI",
+        "cs.SE"
+      ],
+      "summary": "Generative models such as large language models are extensively used as code copilots and for whole program generation. However, the programs they generate often have questionable correctness, authenticity and reliability in terms of integration as they might not follow the user requirements, provide incorrect and/or nonsensical outputs, or even contain semantic/syntactic errors - overall known as LLM hallucination. In this work, we present several types of code hallucination. We have generated such hallucinated code manually using large language models. We also present a technique - HallTrigger, in order to demonstrate efficient ways of generating arbitrary code hallucination. Our method leverages 3 different dynamic attributes of LLMs to craft prompts that can successfully trigger hallucinations from models without the need to access model architecture or parameters. Results from popular blackbox models suggest that HallTrigger is indeed effective and the pervasive LLM hallucination have sheer impact on software development.",
+      "pdf_url": "https://arxiv.org/pdf/2407.04831v2"
+    },
+    {
+      "arxiv_id": "2401.00396",
+      "version": "v2",
+      "title": "RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models",
+      "authors": [
+        "Cheng Niu",
+        "Yuanhao Wu",
+        "Juno Zhu",
+        "Siliang Xu",
+        "Kashun Shum",
+        "Randy Zhong",
+        "Juntong Song",
+        "Tong Zhang"
+      ],
+      "published": "2023-12-31T04:43:45Z",
+      "updated": "2024-05-17T06:29:31Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Retrieval-augmented generation (RAG) has become a main technique for alleviating hallucinations in large language models (LLMs). Despite the integration of RAG, LLMs may still present unsupported or contradictory claims to the retrieved contents. In order to develop effective hallucination prevention strategies under RAG, it is important to create benchmark datasets that can measure the extent of hallucination. This paper presents RAGTruth, a corpus tailored for analyzing word-level hallucinations in various domains and tasks within the standard RAG frameworks for LLM applications. RAGTruth comprises nearly 18,000 naturally generated responses from diverse LLMs using RAG. These responses have undergone meticulous manual annotations at both the individual cases and word levels, incorporating evaluations of hallucination intensity. We not only benchmark hallucination frequencies across different LLMs, but also critically assess the effectiveness of several existing hallucination detection methodologies. Furthermore, we show that using a high-quality dataset such as RAGTruth, it is possible to finetune a relatively small LLM and achieve a competitive level of performance in hallucination detection when compared to the existing prompt-based approaches using state-of-the-art large language models such as GPT-4.",
+      "pdf_url": "https://arxiv.org/pdf/2401.00396v2"
+    },
+    {
+      "arxiv_id": "2308.15126",
+      "version": "v3",
+      "title": "Evaluation and Analysis of Hallucination in Large Vision-Language Models",
+      "authors": [
+        "Junyang Wang",
+        "Yiyang Zhou",
+        "Guohai Xu",
+        "Pengcheng Shi",
+        "Chenlin Zhao",
+        "Haiyang Xu",
+        "Qinghao Ye",
+        "Ming Yan",
+        "Ji Zhang",
+        "Jihua Zhu",
+        "Jitao Sang",
+        "Haoyu Tang"
+      ],
+      "published": "2023-08-29T08:51:24Z",
+      "updated": "2023-10-10T11:57:26Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "summary": "Large Vision-Language Models (LVLMs) have recently achieved remarkable success. However, LVLMs are still plagued by the hallucination problem, which limits the practicality in many scenarios. Hallucination refers to the information of LVLMs' responses that does not exist in the visual input, which poses potential risks of substantial consequences. There has been limited work studying hallucination evaluation in LVLMs. In this paper, we propose Hallucination Evaluation based on Large Language Models (HaELM), an LLM-based hallucination evaluation framework. HaELM achieves an approximate 95% performance comparable to ChatGPT and has additional advantages including low cost, reproducibility, privacy preservation and local deployment. Leveraging the HaELM, we evaluate the hallucination in current LVLMs. Furthermore, we analyze the factors contributing to hallucination in LVLMs and offer helpful suggestions to mitigate the hallucination problem. Our training data and human annotation hallucination data will be made public soon.",
+      "pdf_url": "https://arxiv.org/pdf/2308.15126v3"
+    },
+    {
+      "arxiv_id": "2404.07461",
+      "version": "v2",
+      "title": "An Audit on the Perspectives and Challenges of Hallucinations in NLP",
+      "authors": [
+        "Pranav Narayanan Venkit",
+        "Tatiana Chakravorti",
+        "Vipul Gupta",
+        "Heidi Biggs",
+        "Mukund Srinath",
+        "Koustava Goswami",
+        "Sarah Rajtmajer",
+        "Shomir Wilson"
+      ],
+      "published": "2024-04-11T03:51:29Z",
+      "updated": "2024-09-14T03:14:09Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "We audit how hallucination in large language models (LLMs) is characterized in peer-reviewed literature, using a critical examination of 103 publications across NLP research. Through the examination of the literature, we identify a lack of agreement with the term `hallucination' in the field of NLP. Additionally, to compliment our audit, we conduct a survey with 171 practitioners from the field of NLP and AI to capture varying perspectives on hallucination. Our analysis calls for the necessity of explicit definitions and frameworks outlining hallucination within NLP, highlighting potential challenges, and our survey inputs provide a thematic understanding of the influence and ramifications of hallucination in society.",
+      "pdf_url": "https://arxiv.org/pdf/2404.07461v2"
+    },
+    {
+      "arxiv_id": "2410.11366",
+      "version": "v1",
+      "title": "LargePiG: Your Large Language Model is Secretly a Pointer Generator",
+      "authors": [
+        "Zhongxiang Sun",
+        "Zihua Si",
+        "Xiaoxue Zang",
+        "Kai Zheng",
+        "Yang Song",
+        "Xiao Zhang",
+        "Jun Xu"
+      ],
+      "published": "2024-10-15T07:41:40Z",
+      "updated": "2024-10-15T07:41:40Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Recent research on query generation has focused on using Large Language Models (LLMs), which despite bringing state-of-the-art performance, also introduce issues with hallucinations in the generated queries. In this work, we introduce relevance hallucination and factuality hallucination as a new typology for hallucination problems brought by query generation based on LLMs. We propose an effective way to separate content from form in LLM-generated queries, which preserves the factual knowledge extracted and integrated from the inputs and compiles the syntactic structure, including function words, using the powerful linguistic capabilities of the LLM. Specifically, we introduce a model-agnostic and training-free method that turns the Large Language Model into a Pointer-Generator (LargePiG), where the pointer attention distribution leverages the LLM's inherent attention weights, and the copy probability is derived from the difference between the vocabulary distribution of the model's high layers and the last layer. To validate the effectiveness of LargePiG, we constructed two datasets for assessing the hallucination problems in query generation, covering both document and video scenarios. Empirical studies on various LLMs demonstrated the superiority of LargePiG on both datasets. Additional experiments also verified that LargePiG could reduce hallucination in large vision language models and improve the accuracy of document-based question-answering and factuality evaluation tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2410.11366v1"
+    },
+    {
+      "arxiv_id": "2305.11747",
+      "version": "v3",
+      "title": "HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models",
+      "authors": [
+        "Junyi Li",
+        "Xiaoxue Cheng",
+        "Wayne Xin Zhao",
+        "Jian-Yun Nie",
+        "Ji-Rong Wen"
+      ],
+      "published": "2023-05-19T15:36:27Z",
+      "updated": "2023-10-23T01:49:32Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Large language models (LLMs), such as ChatGPT, are prone to generate hallucinations, i.e., content that conflicts with the source or cannot be verified by the factual knowledge. To understand what types of content and to which extent LLMs are apt to hallucinate, we introduce the Hallucination Evaluation benchmark for Large Language Models (HaluEval), a large collection of generated and human-annotated hallucinated samples for evaluating the performance of LLMs in recognizing hallucination. To generate these samples, we propose a ChatGPT-based two-step framework, i.e., sampling-then-filtering. Besides, we also hire some human labelers to annotate the hallucinations in ChatGPT responses. The empirical results suggest that ChatGPT is likely to generate hallucinated content in specific topics by fabricating unverifiable information (i.e., about $19.5\\%$ responses). Moreover, existing LLMs face great challenges in recognizing the hallucinations in texts. However, our experiments also prove that providing external knowledge or adding reasoning steps can help LLMs recognize hallucinations. Our benchmark can be accessed at https://github.com/RUCAIBox/HaluEval.",
+      "pdf_url": "https://arxiv.org/pdf/2305.11747v3"
+    },
+    {
+      "arxiv_id": "2603.05828",
+      "version": "v1",
+      "title": "HART: Data-Driven Hallucination Attribution and Evidence-Based Tracing for Large Language Models",
+      "authors": [
+        "Shize Liang",
+        "Hongzhi Wang"
+      ],
+      "published": "2026-03-06T02:23:55Z",
+      "updated": "2026-03-06T02:23:55Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Large language models (LLMs) have demonstrated remarkable performance in text generation and knowledge-intensive question answering. Nevertheless, they are prone to producing hallucinated content, which severely undermines their reliability in high-stakes application domains. Existing hallucination attribution approaches, based on either external knowledge retrieval or internal model mechanisms, primarily focus on semantic similarity matching or representation-level discrimination. As a result, they have difficulty establishing structured correspondences at the span level between hallucination types, underlying error generation mechanisms, and external factual evidence, thereby limiting the interpretability of hallucinated fragments and the traceability of supporting or opposing evidence. To address these limitations, we propose HART, a fine-grained hallucination attribution and evidence retrieval framework for large language models. HART formalizes hallucination tracing as a structured modeling task comprising four stages: span localization, mechanism attribution, evidence retrieval, and causal tracing. Based upon this formulation, we develop the first structured dataset tailored for hallucination tracing, in which hallucination types, error mechanisms, and sets of counterfactual evidence are jointly annotated to enable causal-level interpretability evaluation. Experimental results on the proposed dataset demonstrate that HART substantially outperforms strong retrieval baselines, including BM25 and DPR, validating the effectiveness and generalization capability of the proposed tracing paradigm for hallucination analysis and evidence alignment.",
+      "pdf_url": "https://arxiv.org/pdf/2603.05828v1"
+    },
+    {
+      "arxiv_id": "2310.03951",
+      "version": "v2",
+      "title": "Chain of Natural Language Inference for Reducing Large Language Model Ungrounded Hallucinations",
+      "authors": [
+        "Deren Lei",
+        "Yaxi Li",
+        "Mengya Hu",
+        "Mingyu Wang",
+        "Vincent Yun",
+        "Emily Ching",
+        "Eslam Kamal"
+      ],
+      "published": "2023-10-06T00:10:46Z",
+      "updated": "2023-10-09T18:15:21Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Large language models (LLMs) can generate fluent natural language texts when given relevant documents as background context. This ability has attracted considerable interest in developing industry applications of LLMs. However, LLMs are prone to generate hallucinations that are not supported by the provided sources. In this paper, we propose a hierarchical framework to detect and mitigate such ungrounded hallucination. Our framework uses Chain of Natural Language Inference (CoNLI) for hallucination detection and hallucination reduction via post-editing. Our approach achieves state-of-the-art performance on hallucination detection and enhances text quality through rewrite, using LLMs without any fine-tuning or domain-specific prompt engineering. We show that this simple plug-and-play framework can serve as an effective choice for hallucination detection and reduction, achieving competitive performance across various contexts.",
+      "pdf_url": "https://arxiv.org/pdf/2310.03951v2"
+    },
+    {
+      "arxiv_id": "2401.08358",
+      "version": "v1",
+      "title": "Hallucination Detection and Hallucination Mitigation: An Investigation",
+      "authors": [
+        "Junliang Luo",
+        "Tianyu Li",
+        "Di Wu",
+        "Michael Jenkin",
+        "Steve Liu",
+        "Gregory Dudek"
+      ],
+      "published": "2024-01-16T13:36:07Z",
+      "updated": "2024-01-16T13:36:07Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Large language models (LLMs), including ChatGPT, Bard, and Llama, have achieved remarkable successes over the last two years in a range of different applications. In spite of these successes, there exist concerns that limit the wide application of LLMs. A key problem is the problem of hallucination. Hallucination refers to the fact that in addition to correct responses, LLMs can also generate seemingly correct but factually incorrect responses. This report aims to present a comprehensive review of the current literature on both hallucination detection and hallucination mitigation. We hope that this report can serve as a good reference for both engineers and researchers who are interested in LLMs and applying them to real world tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2401.08358v1"
+    },
+    {
+      "arxiv_id": "2403.06710",
+      "version": "v1",
+      "title": "HILL: A Hallucination Identifier for Large Language Models",
+      "authors": [
+        "Florian Leiser",
+        "Sven Eckhardt",
+        "Valentin Leuthe",
+        "Merlin Knaeble",
+        "Alexander Maedche",
+        "Gerhard Schwabe",
+        "Ali Sunyaev"
+      ],
+      "published": "2024-03-11T13:36:00Z",
+      "updated": "2024-03-11T13:36:00Z",
+      "categories": [
+        "cs.HC"
+      ],
+      "summary": "Large language models (LLMs) are prone to hallucinations, i.e., nonsensical, unfaithful, and undesirable text. Users tend to overrely on LLMs and corresponding hallucinations which can lead to misinterpretations and errors. To tackle the problem of overreliance, we propose HILL, the \"Hallucination Identifier for Large Language Models\". First, we identified design features for HILL with a Wizard of Oz approach with nine participants. Subsequently, we implemented HILL based on the identified design features and evaluated HILL's interface design by surveying 17 participants. Further, we investigated HILL's functionality to identify hallucinations based on an existing question-answering dataset and five user interviews. We find that HILL can correctly identify and highlight hallucinations in LLM responses which enables users to handle LLM responses with more caution. With that, we propose an easy-to-implement adaptation to existing LLMs and demonstrate the relevance of user-centered designs of AI artifacts.",
+      "pdf_url": "https://arxiv.org/pdf/2403.06710v1"
+    },
+    {
+      "arxiv_id": "2507.01446",
+      "version": "v1",
+      "title": "Using multi-agent architecture to mitigate the risk of LLM hallucinations",
+      "authors": [
+        "Abd Elrahman Amer",
+        "Magdi Amer"
+      ],
+      "published": "2025-07-02T08:06:02Z",
+      "updated": "2025-07-02T08:06:02Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "Improving customer service quality and response time are critical factors for maintaining customer loyalty and increasing a company's market share. While adopting emerging technologies such as Large Language Models (LLMs) is becoming a necessity to achieve these goals, the risk of hallucination remains a major challenge. In this paper, we present a multi-agent system to handle customer requests sent via SMS. This system integrates LLM based agents with fuzzy logic to mitigate hallucination risks.",
+      "pdf_url": "https://arxiv.org/pdf/2507.01446v1"
+    },
+    {
+      "arxiv_id": "2311.09277",
+      "version": "v1",
+      "title": "Contrastive Chain-of-Thought Prompting",
+      "authors": [
+        "Yew Ken Chia",
+        "Guizhen Chen",
+        "Luu Anh Tuan",
+        "Soujanya Poria",
+        "Lidong Bing"
+      ],
+      "published": "2023-11-15T18:54:01Z",
+      "updated": "2023-11-15T18:54:01Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Despite the success of chain of thought in enhancing language model reasoning, the underlying process remains less well understood. Although logically sound reasoning appears inherently crucial for chain of thought, prior studies surprisingly reveal minimal impact when using invalid demonstrations instead. Furthermore, the conventional chain of thought does not inform language models on what mistakes to avoid, which potentially leads to more errors. Hence, inspired by how humans can learn from both positive and negative examples, we propose contrastive chain of thought to enhance language model reasoning. Compared to the conventional chain of thought, our approach provides both valid and invalid reasoning demonstrations, to guide the model to reason step-by-step while reducing reasoning mistakes. To improve generalization, we introduce an automatic method to construct contrastive demonstrations. Our experiments on reasoning benchmarks demonstrate that contrastive chain of thought can serve as a general enhancement of chain-of-thought prompting.",
+      "pdf_url": "https://arxiv.org/pdf/2311.09277v1"
+    },
+    {
+      "arxiv_id": "2506.02878",
+      "version": "v2",
+      "title": "CoT is Not True Reasoning, It Is Just a Tight Constraint to Imitate: A Theory Perspective",
+      "authors": [
+        "Jintian Shao",
+        "Yiming Cheng"
+      ],
+      "published": "2025-06-03T13:45:01Z",
+      "updated": "2025-06-06T22:13:39Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Chain-of-Thought (CoT) prompting has demonstrably enhanced the performance of Large Language Models on tasks requiring multi-step inference. This success has led to widespread claims of emergent reasoning capabilities in these models. In this paper, we present a theoretical counter-perspective: Chain-of-Thought (CoT) does not elicit genuine, abstract reasoning. Instead, we argue that Chain-of-Thought functions as a powerful structural constraint that guides Large Language Models to imitate the form of reasoning. By forcing the generation of intermediate steps, Chain-of-Thought leverages the model immense capacity for sequence prediction and pattern matching, effectively constraining its output to sequences that resemble coherent thought processes. Chain-of-Thought (CoT) prompting has demonstrably enhanced the performance of Large Language Models on tasks requiring multi-step inference. This success has led to widespread claims of emergent reasoning capabilities in these models. In this paper, we present a theoretical counter-perspective: Chain-of-Thought (CoT) does not elicit genuine, abstract reasoning. Instead, we argue that Chain-of-Thought functions as a powerful structural constraint that guides Large Language Models to imitate the form of reasoning. By forcing the generation of intermediate steps, Chain-of-Thought leverages the model immense capacity for sequence prediction and pattern matching, effectively constraining its output to sequences that resemble coherent thought processes.",
+      "pdf_url": "https://arxiv.org/pdf/2506.02878v2"
+    },
+    {
+      "arxiv_id": "2201.11903",
+      "version": "v6",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "authors": [
+        "Jason Wei",
+        "Xuezhi Wang",
+        "Dale Schuurmans",
+        "Maarten Bosma",
+        "Brian Ichter",
+        "Fei Xia",
+        "Ed Chi",
+        "Quoc Le",
+        "Denny Zhou"
+      ],
+      "published": "2022-01-28T02:33:07Z",
+      "updated": "2023-01-10T23:07:57Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "We explore how generating a chain of thought -- a series of intermediate reasoning steps -- significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.",
+      "pdf_url": "https://arxiv.org/pdf/2201.11903v6"
+    },
+    {
+      "arxiv_id": "2311.01460",
+      "version": "v1",
+      "title": "Implicit Chain of Thought Reasoning via Knowledge Distillation",
+      "authors": [
+        "Yuntian Deng",
+        "Kiran Prasad",
+        "Roland Fernandez",
+        "Paul Smolensky",
+        "Vishrav Chaudhary",
+        "Stuart Shieber"
+      ],
+      "published": "2023-11-02T17:59:49Z",
+      "updated": "2023-11-02T17:59:49Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "summary": "To augment language models with the ability to reason, researchers usually prompt or finetune them to produce chain of thought reasoning steps before producing the final answer. However, although people use natural language to reason effectively, it may be that LMs could reason more effectively with some intermediate computation that is not in natural language. In this work, we explore an alternative reasoning approach: instead of explicitly producing the chain of thought reasoning steps, we use the language model's internal hidden states to perform implicit reasoning. The implicit reasoning steps are distilled from a teacher model trained on explicit chain-of-thought reasoning, and instead of doing reasoning \"horizontally\" by producing intermediate words one-by-one, we distill it such that the reasoning happens \"vertically\" among the hidden states in different layers. We conduct experiments on a multi-digit multiplication task and a grade school math problem dataset and find that this approach enables solving tasks previously not solvable without explicit chain-of-thought, at a speed comparable to no chain-of-thought.",
+      "pdf_url": "https://arxiv.org/pdf/2311.01460v1"
+    },
+    {
+      "arxiv_id": "2410.23703",
+      "version": "v1",
+      "title": "OCEAN: Offline Chain-of-thought Evaluation and Alignment in Large Language Models",
+      "authors": [
+        "Junda Wu",
+        "Xintong Li",
+        "Ruoyu Wang",
+        "Yu Xia",
+        "Yuxin Xiong",
+        "Jianing Wang",
+        "Tong Yu",
+        "Xiang Chen",
+        "Branislav Kveton",
+        "Lina Yao",
+        "Jingbo Shang",
+        "Julian McAuley"
+      ],
+      "published": "2024-10-31T07:48:44Z",
+      "updated": "2024-10-31T07:48:44Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "summary": "Offline evaluation of LLMs is crucial in understanding their capacities, though current methods remain underexplored in existing research. In this work, we focus on the offline evaluation of the chain-of-thought capabilities and show how to optimize LLMs based on the proposed evaluation method. To enable offline feedback with rich knowledge and reasoning paths, we use knowledge graphs (e.g., Wikidata5m) to provide feedback on the generated chain of thoughts. Due to the heterogeneity between LLM reasoning and KG structures, direct interaction and feedback from KGs on LLM behavior are challenging, as they require accurate entity linking and grounding of LLM-generated chains of thought in the KG. To address the above challenge, we propose an offline chain-of-thought evaluation framework, OCEAN, which models chain-of-thought reasoning in LLMs as an MDP and evaluate the policy's alignment with KG preference modeling. To overcome the reasoning heterogeneity and grounding problems, we leverage on-policy KG exploration and RL to model a KG policy that generates token-level likelihood distributions for LLM-generated chain-of-thought reasoning paths, simulating KG reasoning preference. Then we incorporate the knowledge-graph feedback on the validity and alignment of the generated reasoning paths into inverse propensity scores and propose KG-IPS estimator. Theoretically, we prove the unbiasedness of the proposed KG-IPS estimator and provide a lower bound on its variance. With the off-policy evaluated value function, we can directly enable off-policy optimization to further enhance chain-of-thought alignment. Our empirical study shows that OCEAN can be efficiently optimized for generating chain-of-thought reasoning paths with higher estimated values without affecting LLMs' general abilities in downstream tasks or their internal knowledge.",
+      "pdf_url": "https://arxiv.org/pdf/2410.23703v1"
+    },
+    {
+      "arxiv_id": "2509.01236",
+      "version": "v1",
+      "title": "Rethinking the Chain-of-Thought: The Roles of In-Context Learning and Pre-trained Priors",
+      "authors": [
+        "Hao Yang",
+        "Zhiyu Yang",
+        "Yunjie Zhang",
+        "Shanyi Zhu",
+        "Lin Yang"
+      ],
+      "published": "2025-09-01T08:24:28Z",
+      "updated": "2025-09-01T08:24:28Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Chain-of-Thought reasoning has emerged as a pivotal methodology for enhancing model inference capabilities. Despite growing interest in Chain-of-Thought reasoning, its underlying mechanisms remain unclear. This paper explores the working mechanisms of Chain-of-Thought reasoning from the perspective of the dual relationship between in-context learning and pretrained priors. We first conduct a fine-grained lexical-level analysis of rationales to examine the model's reasoning behavior. Then, by incrementally introducing noisy exemplars, we examine how the model balances pretrained priors against erroneous in-context information. Finally, we investigate whether prompt engineering can induce slow thinking in large language models. Our extensive experiments reveal three key findings: (1) The model not only quickly learns the reasoning structure at the lexical level but also grasps deeper logical reasoning patterns, yet it heavily relies on pretrained priors. (2) Providing sufficient exemplars shifts the model's decision-making from pretrained priors to in-context signals, while misleading prompts introduce instability. (3) Long Chain-of-Thought prompting can induce the model to generate longer reasoning chains, thereby improving its performance on downstream tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2509.01236v1"
+    },
+    {
+      "arxiv_id": "2305.12147",
+      "version": "v2",
+      "title": "LogiCoT: Logical Chain-of-Thought Instruction-Tuning",
+      "authors": [
+        "Hanmeng Liu",
+        "Zhiyang Teng",
+        "Leyang Cui",
+        "Chaoli Zhang",
+        "Qiji Zhou",
+        "Yue Zhang"
+      ],
+      "published": "2023-05-20T09:23:09Z",
+      "updated": "2023-10-28T04:22:58Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Generative Pre-trained Transformer 4 (GPT-4) demonstrates impressive chain-of-thought reasoning ability. Recent work on self-instruction tuning, such as Alpaca, has focused on enhancing the general proficiency of models. These instructions enable the model to achieve performance comparable to GPT-3.5 on general tasks like open-domain text generation and paraphrasing. However, they fall short of helping the model handle complex reasoning tasks. To bridge the gap, this paper presents LogiCoT, a new instruction-tuning dataset for Logical Chain-of-Thought reasoning with GPT-4. We elaborate on the process of harvesting instructions for prompting GPT-4 to generate chain-of-thought rationales. LogiCoT serves as an instruction set for teaching models of logical reasoning and elicits general reasoning skills.",
+      "pdf_url": "https://arxiv.org/pdf/2305.12147v2"
+    },
+    {
+      "arxiv_id": "2407.03600",
+      "version": "v2",
+      "title": "Chain-of-Thought Augmentation with Logit Contrast for Enhanced Reasoning in Language Models",
+      "authors": [
+        "Jay Shim",
+        "Grant Kruttschnitt",
+        "Alyssa Ma",
+        "Daniel Kim",
+        "Benjamin Chek",
+        "Athul Anand",
+        "Kevin Zhu",
+        "Sean O'Brien"
+      ],
+      "published": "2024-07-04T03:20:31Z",
+      "updated": "2024-08-27T08:00:03Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Rapidly increasing model scales coupled with steering methods such as chain-of-thought prompting have led to drastic improvements in language model reasoning. At the same time, models struggle with compositional generalization and are far from human performance on many reasoning-based benchmarks. Leveraging the success of chain-of-thought prompting, and also taking inspiration from context-aware decoding (CAD), we explore input-based contrasting methods to further encourage the type of reasoning induced by chain-of-thought prompting. While work remains to stabilize these results across datasets and models, the improvements we find warrant further investigation into input-based steering methods for context-aware reasoning.",
+      "pdf_url": "https://arxiv.org/pdf/2407.03600v2"
+    },
+    {
+      "arxiv_id": "2411.09111",
+      "version": "v8",
+      "title": "Reducing Reasoning Costs: The Path of Optimization for Chain of Thought via Sparse Attention Mechanism",
+      "authors": [
+        "Libo Wang"
+      ],
+      "published": "2024-11-14T00:59:13Z",
+      "updated": "2025-07-09T19:21:45Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "summary": "In order to address the chain of thought in the large language model inference cost surge, this research proposes to use a sparse attention mechanism that only focuses on a few relevant tokens. The researcher constructed a new attention mechanism and used GiantRabbit trained with custom GPTs as an experimental tool. The experiment tested and compared the reasoning time, correctness score and chain of thought length of this model and o1 Preview in solving the linear algebra test questions of MIT OpenCourseWare. The results show that GiantRabbit's reasoning time and chain of thought length are significantly lower than o1 Preview. It verifies the feasibility of sparse attention mechanism for optimizing chain of thought reasoning. Detailed architectural details and experimental process have been uploaded to Github, the link is:https://github.com/brucewang123456789/GeniusTrail.git.",
+      "pdf_url": "https://arxiv.org/pdf/2411.09111v8"
+    },
+    {
+      "arxiv_id": "2309.08589",
+      "version": "v2",
+      "title": "Chain-of-Thought Reasoning is a Policy Improvement Operator",
+      "authors": [
+        "Hugh Zhang",
+        "David C. Parkes"
+      ],
+      "published": "2023-09-15T17:44:17Z",
+      "updated": "2023-11-08T18:10:10Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "Large language models have astounded the world with fascinating new capabilities. However, they currently lack the ability to teach themselves new skills, relying instead on large amounts of human-generated training data. We introduce SECToR (Self-Education via Chain-of-Thought Reasoning), a proof-of-concept demonstration that language models can teach themselves new skills using chain-of-thought reasoning. During the self-learning loop, SECToR asks models to solve addition problems using chain-of-thought reasoning before training the next version of the model to solve those same problems directly without using such reasoning. This process often results in an improved model which can, when again augmented with chain-of-thought reasoning, solve even harder problems than the original model, allowing the self-learning loop to continue. Language models trained via SECToR autonomously learn to add up to the longest-length-digit numbers without access to any ground truth examples beyond an initial supervised fine-tuning phase consisting only of numbers with 6 or fewer digits. Our central hypothesis is that chain-of-thought reasoning can act as a policy improvement operator, similarly to how Monte-Carlo Tree Search is used in AlphaZero (Silver et al., 2017). We hope that this research can lead to new directions in which language models can learn to teach themselves without the need for human demonstrations.",
+      "pdf_url": "https://arxiv.org/pdf/2309.08589v2"
+    },
+    {
+      "arxiv_id": "2203.11171",
+      "version": "v4",
+      "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "authors": [
+        "Xuezhi Wang",
+        "Jason Wei",
+        "Dale Schuurmans",
+        "Quoc Le",
+        "Ed Chi",
+        "Sharan Narang",
+        "Aakanksha Chowdhery",
+        "Denny Zhou"
+      ],
+      "published": "2022-03-21T17:48:52Z",
+      "updated": "2023-03-07T17:57:37Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks. In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths. Self-consistency leverages the intuition that a complex reasoning problem typically admits multiple different ways of thinking leading to its unique correct answer. Our extensive empirical evaluation shows that self-consistency boosts the performance of chain-of-thought prompting with a striking margin on a range of popular arithmetic and commonsense reasoning benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%) and ARC-challenge (+3.9%).",
+      "pdf_url": "https://arxiv.org/pdf/2203.11171v4"
+    },
+    {
+      "arxiv_id": "2505.24133",
+      "version": "v4",
+      "title": "R-KV: Redundancy-aware KV Cache Compression for Reasoning Models",
+      "authors": [
+        "Zefan Cai",
+        "Wen Xiao",
+        "Hanshi Sun",
+        "Cheng Luo",
+        "Yikai Zhang",
+        "Ke Wan",
+        "Yucheng Li",
+        "Yeyang Zhou",
+        "Li-Wen Chang",
+        "Jiuxiang Gu",
+        "Zhen Dong",
+        "Anima Anandkumar",
+        "Abedelkadir Asi",
+        "Junjie Hu"
+      ],
+      "published": "2025-05-30T02:03:24Z",
+      "updated": "2026-01-22T01:31:36Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Reasoning models have demonstrated impressive performance in self-reflection and chain-of-thought reasoning. However, they often produce excessively long outputs, leading to prohibitively large key-value (KV) caches during inference. While chain-of-thought inference significantly improves performance on complex reasoning tasks, it can also lead to reasoning failures when deployed with existing KV cache compression approaches. To address this, we propose Redundancy-aware KV Cache Compression for Reasoning models (R-KV), a novel method specifically targeting redundant tokens in reasoning models. Our method preserves nearly 100% of the full KV cache performance using only 10% of the KV cache, substantially outperforming existing KV cache baselines, which reach only 60% of the performance. Remarkably, R-KV even achieves 105% of full KV cache performance with 16% of the KV cache. This KV-cache reduction also leads to a 90% memory saving and a 6.6X throughput over standard chain-of-thought reasoning inference. Experimental results show that R-KV consistently outperforms existing KV cache compression baselines across two mathematical reasoning datasets.",
+      "pdf_url": "https://arxiv.org/pdf/2505.24133v4"
+    },
+    {
+      "arxiv_id": "2608.30679",
+      "version": "v1",
+      "title": "LCoT-GV: Graph Attention Networks for Verifying Long Reasoning Chains in Large Language Models",
+      "authors": [
+        "B\u00e9r\u00e9nice Jaulmes",
+        "Mehwish Alam"
+      ],
+      "published": "2026-08-31T12:21:22Z",
+      "updated": "2026-08-31T12:21:22Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Large Reasoning Models produce Long Chains-of-Thought (LCoTs) which involve breaking down the problem into smaller reasoning steps before reaching the conclusion. However, these steps often contain contradictions, unsupported inferences, or irrelevant steps, even when the final answer is correct. We propose Long Chain-of-Thought Graph Verifier (LCoT-GV), a graph-based framework that represents LCoTs as reasoning graphs. Each node in the graph represents a reasoning step and the edges encode semantic and logical relations. A Graph Attention Network is then trained to predict chain-of-thought correctness from the reasoning graph. We construct a new graph-oriented verification dataset from multiple reasoning benchmarks for question answering in various domains. The results show that our method is competitive with the most similar approaches.",
+      "pdf_url": "https://arxiv.org/pdf/2608.30679v1"
+    },
+    {
+      "arxiv_id": "2210.01240",
+      "version": "v4",
+      "title": "Language Models Are Greedy Reasoners: A Systematic Formal Analysis of Chain-of-Thought",
+      "authors": [
+        "Abulhair Saparov",
+        "He He"
+      ],
+      "published": "2022-10-03T21:34:32Z",
+      "updated": "2023-03-02T03:54:28Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Large language models (LLMs) have shown remarkable reasoning capabilities given chain-of-thought prompts (examples with intermediate reasoning steps). Existing benchmarks measure reasoning ability indirectly, by evaluating accuracy on downstream tasks such as mathematical reasoning. However, it is unclear how these models obtain the answers and whether they rely on simple heuristics rather than the generated chain-of-thought. To enable systematic exploration of the reasoning ability of LLMs, we present a new synthetic question-answering dataset called PrOntoQA, where each example is generated from a synthetic world model represented in first-order logic. This allows us to parse the generated chain-of-thought into symbolic proofs for formal analysis. Our analysis on InstructGPT and GPT-3 shows that LLMs are quite capable of making correct individual deduction steps, and so are generally capable of reasoning, even in fictional contexts. However, they have difficulty with proof planning: When multiple valid deduction steps are available, they are not able to systematically explore the different options.",
+      "pdf_url": "https://arxiv.org/pdf/2210.01240v4"
+    },
+    {
+      "arxiv_id": "2305.02317",
+      "version": "v3",
+      "title": "Visual Chain of Thought: Bridging Logical Gaps with Multimodal Infillings",
+      "authors": [
+        "Daniel Rose",
+        "Vaishnavi Himakunthala",
+        "Andy Ouyang",
+        "Ryan He",
+        "Alex Mei",
+        "Yujie Lu",
+        "Michael Saxon",
+        "Chinmay Sonar",
+        "Diba Mirza",
+        "William Yang Wang"
+      ],
+      "published": "2023-05-03T17:58:29Z",
+      "updated": "2024-01-23T02:29:35Z",
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "summary": "Recent advances in large language models elicit reasoning in a chain-of-thought that allows models to decompose problems in a human-like fashion. Though this paradigm improves multi-step reasoning ability in language models, it is limited by being unimodal and applied mainly to question-answering tasks. We claim that incorporating visual augmentation into reasoning is essential, especially for complex, imaginative tasks. Consequently, we introduce VCoT, a novel method that leverages chain-of-thought prompting with vision-language grounding to recursively bridge the logical gaps within sequential data. Our method uses visual guidance to generate synthetic multimodal infillings that add consistent and novel information to reduce the logical gaps for downstream tasks that can benefit from temporal reasoning, as well as provide interpretability into models' multi-step reasoning. We apply VCoT to the Visual Storytelling and WikiHow summarization datasets and demonstrate through human evaluation that VCoT offers novel and consistent synthetic data augmentation beating chain-of-thought baselines, which can be used to enhance downstream performance.",
+      "pdf_url": "https://arxiv.org/pdf/2305.02317v3"
+    },
+    {
+      "arxiv_id": "2306.05301",
+      "version": "v2",
+      "title": "ToolAlpaca: Generalized Tool Learning for Language Models with 3000 Simulated Cases",
+      "authors": [
+        "Qiaoyu Tang",
+        "Ziliang Deng",
+        "Hongyu Lin",
+        "Xianpei Han",
+        "Qiao Liang",
+        "Boxi Cao",
+        "Le Sun"
+      ],
+      "published": "2023-06-08T15:46:32Z",
+      "updated": "2023-09-07T12:20:45Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Enabling large language models to utilize real-world tools effectively is crucial for achieving embodied intelligence. Existing approaches to tool learning have either primarily relied on extremely large language models, such as GPT-4, to attain generalized tool-use abilities in a zero-shot manner, or utilized supervised learning to train limited scopes of tools on compact models. However, it remains uncertain whether smaller language models can achieve generalized tool-use abilities without tool-specific training. To address this question, this paper introduces ToolAlpaca, a novel framework designed to automatically generate a diverse tool-use corpus and learn generalized tool-use abilities on compact language models with minimal human intervention. Specifically, ToolAlpaca first automatically creates a highly diversified tool-use corpus by building a multi-agent simulation environment. The corpus contains 3938 tool-use instances from more than 400 real-world tool APIs spanning 50 distinct categories. Subsequently, the constructed corpus is employed to fine-tune compact language models, resulting in two models, namely ToolAlpaca-7B and ToolAlpaca-13B, respectively. Finally, we evaluate the ability of these models to utilize previously unseen tools without specific training. Experimental results demonstrate that ToolAlpaca achieves effective generalized tool-use capabilities comparable to those of extremely large language models like GPT-3.5, demonstrating that learning generalized tool-use ability is feasible for compact language models.",
+      "pdf_url": "https://arxiv.org/pdf/2306.05301v2"
+    },
+    {
+      "arxiv_id": "2608.18171",
+      "version": "v1",
+      "title": "Looped Language Models Improve Compositional Tool Calling",
+      "authors": [
+        "Andrei Cristian Popescu",
+        "Haitz S\u00e1ez de Oc\u00e1riz Borde",
+        "Pietro Li\u00f2"
+      ],
+      "published": "2026-08-17T18:17:54Z",
+      "updated": "2026-08-17T18:17:54Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "summary": "Looped language models have shown promising results on reasoning benchmarks, yet their potential for agentic tool use remains largely unexplored. We study this question in compositional tool-calling settings, where models must coordinate multiple API calls, maintain intermediate state, and preserve dependencies across tool interactions. We evaluate native and retrofitted looped language models on API-Bank, BFCL, and NESTful, comparing looped and non-looped models trained under matched supervised fine-tuning recipes and varying recurrent depth at inference time. In controlled experiments, recurrent computation generally benefits compositional and dependency-aware tool use, while providing smaller and more model-dependent gains on isolated API invocation. Accuracy on multi-step tool use generally increases with recurrent depth; adaptive inference, however, achieves a more favorable compute-performance trade-off by allocating additional computation only when needed. Our results suggest that looped language models are a promising architecture for agentic systems that require reliable planning, coordination, and execution of compositional tool use workflows.",
+      "pdf_url": "https://arxiv.org/pdf/2608.18171v1"
+    },
+    {
+      "arxiv_id": "2609.15066",
+      "version": "v1",
+      "title": "Salesforce Koa: An Enterprise Language Model for Agentic Tool Use",
+      "authors": [
+        "Zixiang Chen",
+        "Sufeng Niu",
+        "Yingchi Liu",
+        "Wenting Zhao",
+        "Akshara Prabhakar",
+        "Shubham Mehrotra",
+        "Bin Bi",
+        "Zhujun Lan",
+        "Katherine Tan",
+        "Mohammad Ramezanali",
+        "Tulika Manoj Awalgaonkar",
+        "Monojit Banerjee",
+        "Jielin Qiu",
+        "Shiva Kumar Pentyala",
+        "Zhepeng Cen",
+        "Anupam Tripathi",
+        "Ali Ziaei",
+        "Regunathan Radhakrishnan",
+        "Darvish Lee Shadravan",
+        "Shelby Heinecke",
+        "Sitaram Asur",
+        "Silvio Savarese",
+        "James Zhu",
+        "Phil Mui",
+        "Huan Wang"
+      ],
+      "published": "2026-09-14T05:30:28Z",
+      "updated": "2026-09-14T05:30:28Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "summary": "We present Salesforce Koa, an enterprise language model built by post-training the open-weight Nemotron-3-Super-120B foundation model with reinforcement learning using Group Relative Policy Optimization (GRPO). Salesforce Koa is trained on public and synthetically generated data, with no customer data, to improve tool use and agentic capabilities while preserving strong general-purpose performance. Its distinctive component is a simulation-to-reward pipeline that expands workflow specifications into persona-conditioned multi-turn tasks with task-resolution rewards grounded in successful tool use for data-dependent requests. For enterprise domains, these specifications are written in Agent Script, Salesforce's declarative language for building Agentforce agents; for public tool-use domains, we synthesize the workflow structure directly. The same simulation and grounded-reward machinery drives GRPO across both. Across public tool-use, agentic-reasoning, and enterprise Customer Relationship Management (CRM) benchmarks, Salesforce Koa improves over its open-weight base, with the clearest gains on multi-turn tool use, and surpasses a strong proprietary baseline while remaining below the strongest frontier models. These results show that specification-driven reinforcement learning is a practical path to specializing open-weight foundation models for enterprise agentic tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2609.15066v1"
+    },
+    {
+      "arxiv_id": "2601.15724",
+      "version": "v2",
+      "title": "VideoThinker: Building Agentic VideoLLMs with LLM-Guided Tool Reasoning",
+      "authors": [
+        "Chenglin Li",
+        "Qianglong Chen",
+        "Feng Han",
+        "Yikun Wang",
+        "Xingxi Yin",
+        "Yan Gong",
+        "Ruilin Li",
+        "Yin Zhang",
+        "Jiaqi Wang"
+      ],
+      "published": "2026-01-22T07:47:29Z",
+      "updated": "2026-04-19T09:17:00Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "summary": "Long-form video understanding remains a fundamental challenge for current Video Large Language Models. Most existing models rely on static reasoning over uniformly sampled frames, which weakens temporal localization and leads to substantial information loss in long videos. Agentic tools such as temporal retrieval, spatial zoom, and temporal zoom offer a natural way to overcome these limitations by enabling adaptive exploration of key moments. However, constructing agentic video understanding data requires models that already possess strong long-form video comprehension, creating a circular dependency. We address this challenge with VideoThinker, an agentic Video Large Language Model trained entirely on synthetic tool interaction trajectories. Our key idea is to convert videos into rich captions and employ a powerful agentic language model to generate multi-step tool use sequences in caption space. These trajectories are subsequently grounded back to video by replacing captions with the corresponding frames, yielding a large-scale interleaved video and tool reasoning dataset without requiring any long-form understanding from the underlying model. Training on this synthetic agentic dataset equips VideoThinker with dynamic reasoning capabilities, adaptive temporal exploration, and multi-step tool use. Remarkably, VideoThinker significantly outperforms both caption-only language model agents and strong video model baselines across long-video benchmarks, demonstrating the effectiveness of tool augmented synthetic data and adaptive retrieval and zoom reasoning for long-form video understanding.",
+      "pdf_url": "https://arxiv.org/pdf/2601.15724v2"
+    },
+    {
+      "arxiv_id": "2509.04518",
+      "version": "v2",
+      "title": "Advancing SLM Tool-Use Capability using Reinforcement Learning",
+      "authors": [
+        "Dhruvi Paprunia",
+        "Vansh Kharidia",
+        "Pankti Doshi"
+      ],
+      "published": "2025-09-03T07:41:14Z",
+      "updated": "2025-09-08T19:46:21Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "In an era where tool-augmented AI agents are becoming increasingly vital, our findings highlight the ability of Group Relative Policy Optimization (GRPO) to empower SLMs, which are traditionally constrained in tool use. The ability to use tools effectively has become a defining feature of Large Language Models (LLMs), allowing them to access external data and internal resources. As AI agents grow more sophisticated, tool-use capabilities have become indispensable. While LLMs have made significant progress in this area, Small Language Models (SLMs) still face challenges in accurately integrating tool use, especially in resource-constrained settings. This study investigates how Reinforcement Learning, specifically Group Relative Policy Optimization (GRPO), can enhance the tool-use accuracy of SLMs. By designing a well-defined reward system that reinforces structured JSON output, correct tool selection, and precise parameter usage, we demonstrate that GRPO enables SLMs to achieve significant improvements in tool-use capabilities (function calling/JSON output). Our approach provides a computationally efficient training method that enhances SLMs practical deployment in real-world AI applications.",
+      "pdf_url": "https://arxiv.org/pdf/2509.04518v2"
+    },
+    {
+      "arxiv_id": "2606.04990",
+      "version": "v5",
+      "title": "From Agent Traces to Trust: A Survey of Evidence Tracing and Execution Provenance in LLM Agents",
+      "authors": [
+        "Yiqi Wang",
+        "Jiaqi Zhang",
+        "Zhangkai Wu",
+        "Taotao Cai",
+        "Zirui Liu",
+        "Zequn Sun",
+        "Manqing Dong",
+        "Mingkai Zheng",
+        "Yiqun Duan",
+        "Xuefei Yin",
+        "Yanming Zhu"
+      ],
+      "published": "2026-06-03T15:12:47Z",
+      "updated": "2026-09-10T03:32:44Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "summary": "Large language model (LLM)-based agents are evolving from passive text generators into autonomous systems capable of planning, tool use, retrieval, memory access, environmental interaction, and multi-agent collaboration. These capabilities expand agent autonomy, but also make agent behavior harder to verify, debug, and audit. Final-answer accuracy alone cannot explain how an output was produced, which evidence supported each claim, whether tool calls were justified, how memory influenced later decisions, or where failures originated. This survey examines evidence tracing and execution provenance as foundations for process-level accountability in trustworthy LLM agents. We define execution provenance as the typed graph of an agent execution and evidence tracing as its projection onto evidence-support relations. This perspective connects retrieval grounding, claim support, tool-use safety, memory lineage, observability, debugging, audit, and recovery within a unified framework. We introduce a taxonomy covering trace sources, evidence and execution units, provenance relations, tracing granularity and timing, representation forms, and trust functions. We then review key methodological directions, including provenance representation, evidence attribution, tool-use provenance, runtime guardrails, provenance-bearing memory, observability, and failure diagnosis. Finally, we discuss benchmarks, datasets, metrics, and open challenges for building provenance-aware, auditable, and recoverable agent systems.",
+      "pdf_url": "https://arxiv.org/pdf/2606.04990v5"
+    },
+    {
+      "arxiv_id": "2309.00986",
+      "version": "v1",
+      "title": "ModelScope-Agent: Building Your Customizable Agent System with Open-source Large Language Models",
+      "authors": [
+        "Chenliang Li",
+        "Hehong Chen",
+        "Ming Yan",
+        "Weizhou Shen",
+        "Haiyang Xu",
+        "Zhikai Wu",
+        "Zhicheng Zhang",
+        "Wenmeng Zhou",
+        "Yingda Chen",
+        "Chen Cheng",
+        "Hongzhu Shi",
+        "Ji Zhang",
+        "Fei Huang",
+        "Jingren Zhou"
+      ],
+      "published": "2023-09-02T16:50:30Z",
+      "updated": "2023-09-02T16:50:30Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Large language models (LLMs) have recently demonstrated remarkable capabilities to comprehend human intentions, engage in reasoning, and design planning-like behavior. To further unleash the power of LLMs to accomplish complex tasks, there is a growing trend to build agent framework that equips LLMs, such as ChatGPT, with tool-use abilities to connect with massive external APIs. In this work, we introduce ModelScope-Agent, a general and customizable agent framework for real-world applications, based on open-source LLMs as controllers. It provides a user-friendly system library, with customizable engine design to support model training on multiple open-source LLMs, while also enabling seamless integration with both model APIs and common APIs in a unified way. To equip the LLMs with tool-use abilities, a comprehensive framework has been proposed spanning over tool-use data collection, tool retrieval, tool registration, memory control, customized model training, and evaluation for practical real-world applications. Finally, we showcase ModelScopeGPT, a real-world intelligent assistant of ModelScope Community based on the ModelScope-Agent framework, which is able to connect open-source LLMs with more than 1000 public AI models and localized community knowledge in ModelScope. The ModelScope-Agent library\\footnote{https://github.com/modelscope/modelscope-agent} and online demo\\footnote{https://modelscope.cn/studios/damo/ModelScopeGPT/summary} are now publicly available.",
+      "pdf_url": "https://arxiv.org/pdf/2309.00986v1"
+    },
+    {
+      "arxiv_id": "2502.09809",
+      "version": "v1",
+      "title": "AgentGuard: Repurposing Agentic Orchestrator for Safety Evaluation of Tool Orchestration",
+      "authors": [
+        "Jizhou Chen",
+        "Samuel Lee Cong"
+      ],
+      "published": "2025-02-13T23:00:33Z",
+      "updated": "2025-02-13T23:00:33Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "summary": "The integration of tool use into large language models (LLMs) enables agentic systems with real-world impact. In the meantime, unlike standalone LLMs, compromised agents can execute malicious workflows with more consequential impact, signified by their tool-use capability. We propose AgentGuard, a framework to autonomously discover and validate unsafe tool-use workflows, followed by generating safety constraints to confine the behaviors of agents, achieving the baseline of safety guarantee at deployment. AgentGuard leverages the LLM orchestrator's innate capabilities - knowledge of tool functionalities, scalable and realistic workflow generation, and tool execution privileges - to act as its own safety evaluator. The framework operates through four phases: identifying unsafe workflows, validating them in real-world execution, generating safety constraints, and validating constraint efficacy. The output, an evaluation report with unsafe workflows, test cases, and validated constraints, enables multiple security applications. We empirically demonstrate AgentGuard's feasibility with experiments. With this exploratory work, we hope to inspire the establishment of standardized testing and hardening procedures for LLM agents to enhance their trustworthiness in real-world applications.",
+      "pdf_url": "https://arxiv.org/pdf/2502.09809v1"
+    },
+    {
+      "arxiv_id": "2607.25297",
+      "version": "v1",
+      "title": "Hybrid Analysis for Secure MCP Tool Use in LLM Agents",
+      "authors": [
+        "Ping He",
+        "Yuexiang Xie",
+        "Yaliang Li",
+        "Shouling Ji"
+      ],
+      "published": "2026-07-28T05:17:34Z",
+      "updated": "2026-07-28T05:17:34Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "summary": "The rapid development of large language model (LLM) agents has enabled their broad adoption across diverse real-world tasks. To standardize interactions between LLM agents and external environments, Model Context Protocol (MCP) tools have emerged as a de facto standard and have been widely integrated into these systems. However, the use of MCP tools also introduces new safety risks, as LLM agents can be induced to perform malicious or unauthorized actions. Although prior work has proposed defenses for securing tool use in LLM agents, most methods rely on static analysis, i.e., inspecting prompts and generated outputs, which limits the defense effectiveness and robustness. To address these limitations, we propose MTGuard, a hybrid analysis-based defense framework designed to safeguard the use of MCP tools in LLM agents by leveraging lifecycle-aware static-dynamic co-analysis. Extensive evaluation demonstrates that MTGuard effectively mitigates multiple categories of harmful tool use across different LLM agents while maintaining performance on benign user tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2607.25297v1"
+    },
+    {
+      "arxiv_id": "2604.00835",
+      "version": "v2",
+      "title": "Agentic Tool Use in Large Language Models",
+      "authors": [
+        "Jinchao Hu",
+        "Meizhi Zhong",
+        "Kehai Chen",
+        "Xuefeng Bai",
+        "Min Zhang"
+      ],
+      "published": "2026-04-01T12:46:51Z",
+      "updated": "2026-06-29T05:50:41Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Large language models are increasingly being deployed as autonomous agents yet their real world effectiveness depends on reliable tools for information retrieval, computation and external action. Existing studies remain fragmented across tasks, tool types, and training settings, lacking a unified view of how tool-use methods differ and evolve. This paper organizes the literature into three paradigms: prompting as plug-and-play, supervised tool learning and reward-driven tool policy learning, analyzes their methods, strengths and failure modes, reviews the evaluation landscape and highlights key challenges, aiming to address this fragmentation and provide a more structured evolutionary view of agentic tool use.",
+      "pdf_url": "https://arxiv.org/pdf/2604.00835v2"
+    },
+    {
+      "arxiv_id": "2509.22504",
+      "version": "v3",
+      "title": "Estimating the Empowerment of Language Model Agents",
+      "authors": [
+        "Jinyeop Song",
+        "Jeff Gore",
+        "Max Kleiman-Weiner"
+      ],
+      "published": "2025-09-26T15:46:14Z",
+      "updated": "2026-05-28T15:39:50Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "summary": "As language model (LM) agents become increasingly capable and adopted in real-world applications, there is a growing need for scalable evaluation frameworks beyond costly, manually designed benchmarks. We propose information-theoretic evaluation based on empowerment, an information-theoretic measure of an agent's influence on future states through its actions. To handle the unique challenges of text-based environments, we introduce EELMA (Estimating Empowerment of Language Model Agents), an algorithm for approximating effective empowerment from multi-turn text interactions. We demonstrate EELMA on textual games and realistic web and tool-use environments, showing that empowerment strongly correlates with average task performance. We further analyze how empowerment varies across models, environment complexity, and agent configurations, and show that high-empowerment states and actions often mark pivotal moments for general capabilities. These results establish empowerment as a goal-agnostic metric that complements task-success measures for LM-agent evaluation.",
+      "pdf_url": "https://arxiv.org/pdf/2509.22504v3"
+    },
+    {
+      "arxiv_id": "2410.21620",
+      "version": "v1",
+      "title": "Asynchronous Tool Usage for Real-Time Agents",
+      "authors": [
+        "Antonio A. Ginart",
+        "Naveen Kodali",
+        "Jason Lee",
+        "Caiming Xiong",
+        "Silvio Savarese",
+        "John Emmons"
+      ],
+      "published": "2024-10-28T23:57:19Z",
+      "updated": "2024-10-28T23:57:19Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "While frontier large language models (LLMs) are capable tool-using agents, current AI systems still operate in a strict turn-based fashion, oblivious to passage of time. This synchronous design forces user queries and tool-use to occur sequentially, preventing the systems from multitasking and reducing interactivity. To address this limitation, we introduce asynchronous AI agents capable of parallel processing and real-time tool-use. Our key contribution is an event-driven finite-state machine architecture for agent execution and prompting, integrated with automatic speech recognition and text-to-speech. Drawing inspiration from the concepts originally developed for real-time operating systems, this work presents both a conceptual framework and practical tools for creating AI agents capable of fluid, multitasking interactions.",
+      "pdf_url": "https://arxiv.org/pdf/2410.21620v1"
+    },
+    {
+      "arxiv_id": "2604.26752",
+      "version": "v3",
+      "title": "GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents",
+      "authors": [
+        "GLM-V Team",
+        ":",
+        "Wenyi Hong",
+        "Xiaotao Gu",
+        "Ziyang Pan",
+        "Zhen Yang",
+        "Yuting Wang",
+        "Yue Wang",
+        "Yuanchang Yue",
+        "Yu Wang",
+        "Yanling Wang",
+        "Yan Wang",
+        "Xijun Liu",
+        "Wenmeng Yu",
+        "Weihan Wang",
+        "Wei Li",
+        "Shuaiqi Duan",
+        "Sheng Yang",
+        "Ruiliang Lv",
+        "Mingdao Liu",
+        "Lihang Pan",
+        "Ke Ning",
+        "Junhui Ji",
+        "Jinjiang Wang",
+        "Jing Chen",
+        "Jiazheng Xu",
+        "Jiale Zhu",
+        "Jiale Cheng",
+        "Ji Qi",
+        "Guobing Gan",
+        "Guo Wang",
+        "Cong Yao",
+        "Zijun Dou",
+        "Zihao Zhou",
+        "Zihan Wang",
+        "Zhiqi Ge",
+        "Zhijie Li",
+        "Zhenyu Hou",
+        "Zhao Xue",
+        "Zehui Wang",
+        "Zehan Qi",
+        "Zehai He",
+        "Yutao Zhang",
+        "Yusen Liu",
+        "Yukuo Cen",
+        "Yuchen Li",
+        "Yuan Wang",
+        "Yu Yang",
+        "Yongbin Liu",
+        "Yijian Lu",
+        "Yifan Xu",
+        "Yanzi Wang",
+        "Yanxiao Zhao",
+        "Yanfeng Wang",
+        "Yadong Xue",
+        "Yabo Xu",
+        "Xinyu Zhang",
+        "Xinyu Liu",
+        "Xiao Liu",
+        "Wenyi Zhao",
+        "Wenkai Li",
+        "Tianyu Tong",
+        "Tianshu Zhang",
+        "Shudan Zhang",
+        "Shengdong Yan",
+        "Qinkai Zheng",
+        "Mingde Xu",
+        "Licheng Bao",
+        "lat Long long",
+        "Jiaxing Xu",
+        "Jiaxin Fan",
+        "Jiawen Qian",
+        "Jiali Chen",
+        "Jiahui Lin",
+        "Jiadai Sun",
+        "Haozhi Zheng",
+        "Haoran Wang",
+        "Haochen Li",
+        "Hanyu Lai",
+        "Han Xu",
+        "Fan Yang",
+        "Dan Zhang",
+        "Da Yin",
+        "Chuangxin Zhao",
+        "Chengcheng Wu",
+        "Boyan Shi",
+        "Bowen Lv",
+        "Bowei Jia",
+        "Bo Li",
+        "Bin Chen",
+        "Baoxu Wang",
+        "Peng Zhang",
+        "Debing Liu",
+        "Bin Xu",
+        "Juanzi Li",
+        "Minlie Huang",
+        "Yuxiao Dong",
+        "Jie Tang"
+      ],
+      "published": "2026-04-29T14:49:37Z",
+      "updated": "2026-05-12T15:07:13Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "We present GLM-5V-Turbo, a step toward native foundation models for multimodal agents. As foundation models are increasingly deployed in real environments, agentic capability depends not only on language reasoning, but also on the ability to perceive, interpret, and act over heterogeneous contexts such as images, videos, webpages, documents, GUIs. GLM-5V-Turbo is built around this objective: multimodal perception is integrated as a core component of reasoning, planning, tool use, and execution, rather than as an auxiliary interface to a language model. This report summarizes the main improvements behind GLM-5V-Turbo across model design, multimodal training, reinforcement learning, toolchain expansion, and integration with agent frameworks. These developments lead to strong performance in multimodal coding, visual tool use, and framework-based agentic tasks, while preserving competitive text-only coding capability. More importantly, our development process offers practical insights for building multimodal agents, highlighting the central role of multimodal perception, hierarchical optimization, and reliable end-to-end verification.",
+      "pdf_url": "https://arxiv.org/pdf/2604.26752v3"
+    },
+    {
+      "arxiv_id": "2510.01279",
+      "version": "v1",
+      "title": "TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture",
+      "authors": [
+        "Yongchao Chen",
+        "Jiefeng Chen",
+        "Rui Meng",
+        "Ji Yin",
+        "Na Li",
+        "Chuchu Fan",
+        "Chi Wang",
+        "Tomas Pfister",
+        "Jinsung Yoon"
+      ],
+      "published": "2025-09-30T19:19:56Z",
+      "updated": "2025-09-30T19:19:56Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "While integrating tools like Code Interpreter and Search has significantly enhanced Large Language Model (LLM) reasoning in models like ChatGPT Agent and Gemini-Pro, practical guidance on optimal tool use is lacking. The core challenge is effectively combining textual reasoning, coding, and search for diverse questions. In this paper, we propose Tool-Use Mixture (TUMIX), an ensemble framework that runs multiple agents in parallel, each employing distinct tool-use strategies and answer paths. Agents in TUMIX iteratively share and refine responses based on the question and previous answers. In experiments, TUMIX achieves significant gains over state-of-the-art tool-augmented and test-time scaling methods, delivering an average accuracy improvement of up to 3.55% over the best baseline on Gemini-2.5-Pro and Gemini-2.5-Flash across key reasoning benchmarks, with near-equal inference costs. We find that agent diversity and quality are crucial and can be enhanced by using LLMs to auto-optimize agent designs. Furthermore, TUMIX can halt refinement upon reaching sufficient confidence, preserving performance at only 49% of the inference cost. Further scaling can achieve higher performance, albeit at a greater cost.",
+      "pdf_url": "https://arxiv.org/pdf/2510.01279v1"
+    },
+    {
+      "arxiv_id": "2510.04851",
+      "version": "v1",
+      "title": "LEGOMem: Modular Procedural Memory for Multi-agent LLM Systems for Workflow Automation",
+      "authors": [
+        "Dongge Han",
+        "Camille Couturier",
+        "Daniel Madrigal Diaz",
+        "Xuchao Zhang",
+        "Victor R\u00fchle",
+        "Saravan Rajmohan"
+      ],
+      "published": "2025-10-06T14:39:53Z",
+      "updated": "2025-10-06T14:39:53Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "summary": "We introduce LEGOMem, a modular procedural memory framework for multi-agent large language model (LLM) systems in workflow automation. LEGOMem decomposes past task trajectories into reusable memory units and flexibly allocates them across orchestrators and task agents to support planning and execution. To explore the design space of memory in multi-agent systems, we use LEGOMem as a lens and conduct a systematic study of procedural memory in multi-agent systems, examining where memory should be placed, how it should be retrieved, and which agents benefit most. Experiments on the OfficeBench benchmark show that orchestrator memory is critical for effective task decomposition and delegation, while fine-grained agent memory improves execution accuracy. We find that even teams composed of smaller language models can benefit substantially from procedural memory, narrowing the performance gap with stronger agents by leveraging prior execution traces for more accurate planning and tool use. These results position LEGOMem as both a practical framework for memory-augmented agent systems and a research tool for understanding memory design in multi-agent workflow automation.",
+      "pdf_url": "https://arxiv.org/pdf/2510.04851v1"
+    },
+    {
+      "arxiv_id": "2410.15821",
+      "version": "v1",
+      "title": "The effect of fine-tuning on language model toxicity",
+      "authors": [
+        "Will Hawkins",
+        "Brent Mittelstadt",
+        "Chris Russell"
+      ],
+      "published": "2024-10-21T09:39:09Z",
+      "updated": "2024-10-21T09:39:09Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "Fine-tuning language models has become increasingly popular following the proliferation of open models and improvements in cost-effective parameter efficient fine-tuning. However, fine-tuning can influence model properties such as safety. We assess how fine-tuning can impact different open models' propensity to output toxic content. We assess the impacts of fine-tuning Gemma, Llama, and Phi models on toxicity through three experiments. We compare how toxicity is reduced by model developers during instruction-tuning. We show that small amounts of parameter-efficient fine-tuning on developer-tuned models via low-rank adaptation on a non-adversarial dataset can significantly alter these results across models. Finally, we highlight the impact of this in the wild, demonstrating how toxicity rates of models fine-tuned by community contributors can deviate in hard-to-predict ways.",
+      "pdf_url": "https://arxiv.org/pdf/2410.15821v1"
+    },
+    {
+      "arxiv_id": "2512.22378",
+      "version": "v1",
+      "title": "Towards Efficient Post-Training via Fourier-Driven Adapter Architectures",
+      "authors": [
+        "Donggyun Bae",
+        "Jongil Park"
+      ],
+      "published": "2025-12-26T20:50:49Z",
+      "updated": "2025-12-26T20:50:49Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "We propose a novel framework, termed Fourier-Activated Adapter (FAA), for parameter-efficient fine-tuning of large pre-trained language models. By incorporating random Fourier features into lightweight adapter modules, FAA decomposes intermediate representations into complementary low- and high-frequency components, enabling frequency-aware modulation of semantic information. This design allows the model to selectively emphasize informative frequency bands during adaptation while preserving the representational capacity of the frozen backbone. Extensive experiments on GLUE, E2E NLG, and instruction-tuning benchmarks demonstrate that FAA consistently achieves competitive or superior performance compared to existing parameter-efficient fine-tuning methods, while maintaining low computational and memory overhead. Ablation studies further verify the effectiveness of frequency-aware activation and adaptive weighting mechanisms, highlighting FAA as a robust and efficient approach for post-training large language models.",
+      "pdf_url": "https://arxiv.org/pdf/2512.22378v1"
+    },
+    {
+      "arxiv_id": "2604.18041",
+      "version": "v1",
+      "title": "JudgeMeNot: Personalizing Large Language Models to Emulate Judicial Reasoning in Hebrew",
+      "authors": [
+        "Itay Razumenko",
+        "Arnon Sturm",
+        "Nir Grinberg"
+      ],
+      "published": "2026-04-20T10:05:19Z",
+      "updated": "2026-04-20T10:05:19Z",
+      "categories": [
+        "cs.CL",
+        "cs.CY"
+      ],
+      "summary": "Despite significant advances in large language models, personalizing them for individual decision-makers remains an open problem. Here, we introduce a synthetic-organic supervision pipeline that transforms raw judicial decisions into instruction-tuning data, enabling parameter-efficient fine-tuning of personalized models for individual judges in low-resource settings. We compare our approach to state-of-the-art personalization techniques across three different tasks and settings. The results show that Causal Language Modeling followed by synthetically generated instruction-tuning significantly outperforms all other baselines, providing significant improvements across lexical, stylistic, and semantic similarity. Notably, our model-generated outputs are indistinguishable from the reasoning of human judges, highlighting the viability of efficient personalization, even in low-resource settings.",
+      "pdf_url": "https://arxiv.org/pdf/2604.18041v1"
+    },
+    {
+      "arxiv_id": "2509.04753",
+      "version": "v1",
+      "title": "A Study of Large Language Models for Patient Information Extraction: Model Architecture, Fine-Tuning Strategy, and Multi-task Instruction Tuning",
+      "authors": [
+        "Cheng Peng",
+        "Xinyu Dong",
+        "Mengxian Lyu",
+        "Daniel Paredes",
+        "Yaoyun Zhang",
+        "Yonghui Wu"
+      ],
+      "published": "2025-09-05T02:07:40Z",
+      "updated": "2025-09-05T02:07:40Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Natural language processing (NLP) is a key technology to extract important patient information from clinical narratives to support healthcare applications. The rapid development of large language models (LLMs) has revolutionized many NLP tasks in the clinical domain, yet their optimal use in patient information extraction tasks requires further exploration. This study examines LLMs' effectiveness in patient information extraction, focusing on LLM architectures, fine-tuning strategies, and multi-task instruction tuning techniques for developing robust and generalizable patient information extraction systems. This study aims to explore key concepts of using LLMs for clinical concept and relation extraction tasks, including: (1) encoder-only or decoder-only LLMs, (2) prompt-based parameter-efficient fine-tuning (PEFT) algorithms, and (3) multi-task instruction tuning on few-shot learning performance. We benchmarked a suite of LLMs, including encoder-based LLMs (BERT, GatorTron) and decoder-based LLMs (GatorTronGPT, Llama 3.1, GatorTronLlama), across five datasets. We compared traditional full-size fine-tuning and prompt-based PEFT. We explored a multi-task instruction tuning framework that combines both tasks across four datasets to evaluate the zero-shot and few-shot learning performance using the leave-one-dataset-out strategy.",
+      "pdf_url": "https://arxiv.org/pdf/2509.04753v1"
+    },
+    {
+      "arxiv_id": "2402.15896",
+      "version": "v2",
+      "title": "Multimodal Instruction Tuning with Conditional Mixture of LoRA",
+      "authors": [
+        "Ying Shen",
+        "Zhiyang Xu",
+        "Qifan Wang",
+        "Yu Cheng",
+        "Wenpeng Yin",
+        "Lifu Huang"
+      ],
+      "published": "2024-02-24T20:15:31Z",
+      "updated": "2024-12-06T00:41:15Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "Multimodal Large Language Models (MLLMs) have demonstrated remarkable proficiency in diverse tasks across different domains, with an increasing focus on improving their zero-shot generalization capabilities for unseen multimodal tasks. Multimodal instruction tuning has emerged as a successful strategy for achieving zero-shot generalization by fine-tuning pre-trained models on diverse multimodal tasks through instructions. As MLLMs grow in complexity and size, the need for parameter-efficient fine-tuning methods like Low-Rank Adaption (LoRA), which fine-tunes with a minimal set of parameters, becomes essential. However, applying LoRA in multimodal instruction tuning presents the challenge of task interference, which leads to performance degradation, especially when dealing with a broad array of multimodal tasks. To address this, this paper introduces a novel approach that integrates multimodal instruction tuning with Conditional Mixture-of-LoRA (MixLoRA). It innovates upon LoRA by dynamically constructing low-rank adaptation matrices tailored to the unique demands of each input instance, aiming to mitigate task interference. Experimental results on various multimodal evaluation datasets indicate that MixLoRA not only outperforms the conventional LoRA with the same or even higher ranks, demonstrating its efficacy and adaptability in diverse multimodal tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2402.15896v2"
+    },
+    {
+      "arxiv_id": "2512.22337",
+      "version": "v1",
+      "title": "The Effectiveness of Approximate Regularized Replay for Efficient Supervised Fine-Tuning of Large Language Models",
+      "authors": [
+        "Matthew Riemer",
+        "Erik Miehling",
+        "Miao Liu",
+        "Djallel Bouneffouf",
+        "Murray Campbell"
+      ],
+      "published": "2025-12-26T18:55:42Z",
+      "updated": "2025-12-26T18:55:42Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "summary": "Although parameter-efficient fine-tuning methods, such as LoRA, only modify a small subset of parameters, they can have a significant impact on the model. Our instruction-tuning experiments show that LoRA-based supervised fine-tuning can catastrophically degrade model capabilities, even when trained on very small datasets for relatively few steps. With that said, we demonstrate that while the most straightforward approach (that is likely the most used in practice) fails spectacularly, small tweaks to the training procedure with very little overhead can virtually eliminate the problem. Particularly, in this paper we consider a regularized approximate replay approach which penalizes KL divergence with respect to the initial model and interleaves in data for next token prediction from a different, yet similar, open access corpus to what was used in pre-training. When applied to Qwen instruction-tuned models, we find that this recipe preserves general knowledge in the model without hindering plasticity to new tasks by adding a modest amount of computational overhead.",
+      "pdf_url": "https://arxiv.org/pdf/2512.22337v1"
+    },
+    {
+      "arxiv_id": "2606.17296",
+      "version": "v1",
+      "title": "Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration",
+      "authors": [
+        "Xiwen Wei",
+        "Mark Nutter",
+        "Madhusudhanan Srinivasan",
+        "Radu Marculescu"
+      ],
+      "published": "2026-06-15T21:05:57Z",
+      "updated": "2026-06-15T21:05:57Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "Unified multimodal models (UMMs) have recently emerged as a promising paradigm for integrating multimodal understanding and generation within a single autoregressive transformer. However, during multimodal instruction tuning, these models often exhibit pronounced modality imbalance: language gradients dominate optimization, thus leading to lower image generation quality, especially under parameter-efficient fine-tuning such as LoRA. In this work, we systematically analyze modality imbalance in LoRA-based fine-tuning of UMMs for interleaved text-image generation. We show that vision modality performance degrades substantially more than text modality performance when compared to unimodal counterparts, and that modality-specific gradients can differ by orders of magnitude across various tasks and layers. Motivated by this observation, we reformulate the multimodal instruction tuning as a bi-objective optimization problem and propose Pareto LoRA, a Pareto-optimal gradient integration strategy that balances the text and image objectives by modulating the gradient direction and strength. Experiments on the CoMM benchmark with Emu2 demonstrate that Pareto LoRA consistently improves multimodal generation balance, achieving up to 44.9% gains in perceptual image quality over vanilla LoRA while maintaining comparable text performance.",
+      "pdf_url": "https://arxiv.org/pdf/2606.17296v1"
+    },
+    {
+      "arxiv_id": "2512.00219",
+      "version": "v1",
+      "title": "Minimal-Edit Instruction Tuning for Low-Resource Indic GEC",
+      "authors": [
+        "Akhil Rajeev P"
+      ],
+      "published": "2025-11-28T21:38:27Z",
+      "updated": "2025-11-28T21:38:27Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "Grammatical error correction for Indic languages faces limited supervision, diverse scripts, and rich morphology. We propose an augmentation-free setup that uses instruction-tuned large language models and conservative decoding. A 12B GEMMA 3 model is instruction-tuned in bnb 4-bit precision with parameter-efficient fine-tuning (PEFT) and Alpaca-style formatting. Decoding follows a deterministic, constraint-aware procedure with a lightweight normaliser that encourages minimal, meaning-preserving edits. We operationalise inference, subsequent to instruction fine-tuning (IFT), via a fixed, language-specific prompt directly synthesised from a deterministic error classifier's taxonomy, label distributions, and precedence ordering computed on the training corpus. Under the official untuned GLEU evaluation, the system scores 92.41 on Malayalam, sixth overall, and 81.44 on Hindi, third overall. These results indicate that classifier-informed prompt design, adapter-based instruction tuning, and deterministic decoding provide a reproducible and a computationally efficient alternative to augmentation-centred pipelines for Indic GEC. The approach also motivates future work on stronger morphosyntactic constraints and human-centred evaluation of conservative edits.",
+      "pdf_url": "https://arxiv.org/pdf/2512.00219v1"
+    },
+    {
+      "arxiv_id": "2510.22691",
+      "version": "v1",
+      "title": "SALSA: Single-pass Autoregressive LLM Structured Classification",
+      "authors": [
+        "Ruslan Berdichevsky",
+        "Shai Nahum-Gefen",
+        "Elad Ben Zaken"
+      ],
+      "published": "2025-10-26T14:28:42Z",
+      "updated": "2025-10-26T14:28:42Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "summary": "Despite their impressive generalization capabilities, instruction-tuned Large Language Models often underperform on text classification benchmarks. We introduce SALSA, a coherent pipeline that combines structured prompting, class-to-token mapping, and parameter-efficient fine-tuning, thereby avoiding cold-start training. Each class label is mapped to a distinct output token, and prompts are constructed to elicit a single-token response. During inference, the model's output is projected only onto the logits of the relevant class tokens, enabling efficient and accurate classification in a single forward pass. SALSA achieves state-of-the-art results across diverse benchmarks, demonstrating its robustness and scalability for LLM-based classification applications.",
+      "pdf_url": "https://arxiv.org/pdf/2510.22691v1"
+    },
+    {
+      "arxiv_id": "2310.19975",
+      "version": "v3",
+      "title": "BioInstruct: Instruction Tuning of Large Language Models for Biomedical Natural Language Processing",
+      "authors": [
+        "Hieu Tran",
+        "Zhichao Yang",
+        "Zonghai Yao",
+        "Hong Yu"
+      ],
+      "published": "2023-10-30T19:38:50Z",
+      "updated": "2024-06-06T21:16:12Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "To enhance the performance of large language models (LLMs) in biomedical natural language processing (BioNLP) by introducing a domain-specific instruction dataset and examining its impact when combined with multi-task learning principles. We created the BioInstruct, comprising 25,005 instructions to instruction-tune LLMs(LLaMA 1 & 2, 7B & 13B version). The instructions were created by prompting the GPT-4 language model with three-seed samples randomly drawn from an 80 human curated instructions. We employed Low-Rank Adaptation(LoRA) for parameter-efficient fine-tuning. We then evaluated these instruction-tuned LLMs on several BioNLP tasks, which can be grouped into three major categories: question answering(QA), information extraction(IE), and text generation(GEN). We also examined whether categories(e.g., QA, IE, and generation) of instructions impact model performance. Comparing with LLMs without instruction-tuned, our instruction-tuned LLMs demonstrated marked performance gains: 17.3% in QA, 5.7% in IE, and 96% in Generation tasks. Our 7B-parameter instruction-tuned LLaMA 1 model was competitive or even surpassed other LLMs in the biomedical domain that were also fine-tuned from LLaMA 1 with vast domain-specific data or a variety of tasks. Our results also show that the performance gain is significantly higher when instruction fine-tuning is conducted with closely related tasks. Our findings align with the observations of multi-task learning, suggesting the synergies between two tasks. The BioInstruct dataset serves as a valuable resource and instruction tuned LLMs lead to the best performing BioNLP applications.",
+      "pdf_url": "https://arxiv.org/pdf/2310.19975v3"
+    },
+    {
+      "arxiv_id": "2512.00878",
+      "version": "v1",
+      "title": "Less is More: Resource-Efficient Low-Rank Adaptation",
+      "authors": [
+        "Chunlin Tian",
+        "Xuyang Wei",
+        "Huanrong Liu",
+        "Zhijiang Guo",
+        "Li Li"
+      ],
+      "published": "2025-11-30T12:52:04Z",
+      "updated": "2025-11-30T12:52:04Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "Low-Rank Adaptation (LoRA) is a widely adopted parameter-efficient fine-tuning (PEFT) method for Large Language Models (LLMs), but it still incurs notable overhead and suffers from parameter interference in complex datasets. While recent works decouple LoRA update matrices to exploit matrix-wise asymmetry, training costs remain high. We revisit LoRA from the perspective of inter-matrix and intra-layer parameter redundancy and propose Resource-Efficient Low-Rank Adaptation, EffiLoRA, a lightweight and generalizable approach for language, multimodal, and diffusion models. EffiLoRA employs a unified A matrix across all transformer layers and introduces a runtime selective B matrices update to dynamically trade-off the system resource budget and model performance. EffiLoRA consistently outperforms LoRA across diverse modalities, including commonsense reasoning, visual instruction tuning, and image generation, demonstrating improved efficiency and robustness.",
+      "pdf_url": "https://arxiv.org/pdf/2512.00878v1"
+    },
+    {
+      "arxiv_id": "2312.11875",
+      "version": "v3",
+      "title": "Sparse is Enough in Fine-tuning Pre-trained Large Language Models",
+      "authors": [
+        "Weixi Song",
+        "Zuchao Li",
+        "Lefei Zhang",
+        "Hai Zhao",
+        "Bo Du"
+      ],
+      "published": "2023-12-19T06:06:30Z",
+      "updated": "2024-06-08T03:29:17Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "summary": "With the prevalence of pre-training-fine-tuning paradigm, how to efficiently adapt the pre-trained model to the downstream tasks has been an intriguing issue. Parameter-Efficient Fine-Tuning (PEFT) methods have been proposed for low-cost adaptation. Although PEFT has demonstrated effectiveness and been widely applied, the underlying principles are still unclear. In this paper, we adopt the PAC-Bayesian generalization error bound, viewing pre-training as a shift of prior distribution which leads to a tighter bound for generalization error. We validate this shift from the perspectives of oscillations in the loss landscape and the quasi-sparsity in gradient distribution. Based on this, we propose a gradient-based sparse fine-tuning algorithm, named Sparse Increment Fine-Tuning (SIFT), and validate its effectiveness on a range of tasks including the GLUE Benchmark and Instruction-tuning. The code is accessible at https://github.com/song-wx/SIFT/.",
+      "pdf_url": "https://arxiv.org/pdf/2312.11875v3"
+    },
+    {
+      "arxiv_id": "2401.00788",
+      "version": "v1",
+      "title": "Astraios: Parameter-Efficient Instruction Tuning Code Large Language Models",
+      "authors": [
+        "Terry Yue Zhuo",
+        "Armel Zebaze",
+        "Nitchakarn Suppattarachai",
+        "Leandro von Werra",
+        "Harm de Vries",
+        "Qian Liu",
+        "Niklas Muennighoff"
+      ],
+      "published": "2024-01-01T15:30:19Z",
+      "updated": "2024-01-01T15:30:19Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "summary": "The high cost of full-parameter fine-tuning (FFT) of Large Language Models (LLMs) has led to a series of parameter-efficient fine-tuning (PEFT) methods. However, it remains unclear which methods provide the best cost-performance trade-off at different model scales. We introduce Astraios, a suite of 28 instruction-tuned OctoCoder models using 7 tuning methods and 4 model sizes up to 16 billion parameters. Through investigations across 5 tasks and 8 different datasets encompassing both code comprehension and code generation tasks, we find that FFT generally leads to the best downstream performance across all scales, and PEFT methods differ significantly in their efficacy based on the model scale. LoRA usually offers the most favorable trade-off between cost and performance. Further investigation into the effects of these methods on both model robustness and code security reveals that larger models tend to demonstrate reduced robustness and less security. At last, we explore the relationships among updated parameters, cross-entropy loss, and task performance. We find that the tuning effectiveness observed in small models generalizes well to larger models, and the validation loss in instruction tuning can be a reliable indicator of overall downstream performance.",
+      "pdf_url": "https://arxiv.org/pdf/2401.00788v1"
+    },
+    {
+      "arxiv_id": "2505.20154",
+      "version": "v1",
+      "title": "UORA: Uniform Orthogonal Reinitialization Adaptation in Parameter-Efficient Fine-Tuning of Large Models",
+      "authors": [
+        "Xueyan Zhang",
+        "Jinman Zhao",
+        "Zhifei Yang",
+        "Yibo Zhong",
+        "Shuhao Guan",
+        "Linbo Cao",
+        "Yining Wang"
+      ],
+      "published": "2025-05-26T15:56:40Z",
+      "updated": "2025-05-26T15:56:40Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "This paper introduces Uniform Orthogonal Reinitialization Adaptation (UORA), a novel parameter-efficient fine-tuning (PEFT) approach for Large Language Models (LLMs). UORA achieves state-of-the-art performance and parameter efficiency by leveraging a low-rank approximation method to reduce the number of trainable parameters. Unlike existing methods such as LoRA and VeRA, UORA employs an interpolation-based reparametrization mechanism that selectively reinitializes rows and columns in frozen projection matrices, guided by the vector magnitude heuristic. This results in substantially fewer trainable parameters compared to LoRA and outperforms VeRA in computation and storage efficiency. Comprehensive experiments across various benchmarks demonstrate UORA's superiority in achieving competitive fine-tuning performance with negligible computational overhead. We demonstrate its performance on GLUE and E2E benchmarks and its effectiveness in instruction-tuning large language models and image classification models. Our contributions establish a new paradigm for scalable and resource-efficient fine-tuning of LLMs.",
+      "pdf_url": "https://arxiv.org/pdf/2505.20154v1"
+    },
+    {
+      "arxiv_id": "2402.09353",
+      "version": "v6",
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "authors": [
+        "Shih-Yang Liu",
+        "Chien-Yi Wang",
+        "Hongxu Yin",
+        "Pavlo Molchanov",
+        "Yu-Chiang Frank Wang",
+        "Kwang-Ting Cheng",
+        "Min-Hung Chen"
+      ],
+      "published": "2024-02-14T17:59:34Z",
+      "updated": "2024-07-09T05:59:16Z",
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "summary": "Among the widely used parameter-efficient fine-tuning (PEFT) methods, LoRA and its variants have gained considerable popularity because of avoiding additional inference costs. However, there still often exists an accuracy gap between these methods and full fine-tuning (FT). In this work, we first introduce a novel weight decomposition analysis to investigate the inherent differences between FT and LoRA. Aiming to resemble the learning capacity of FT from the findings, we propose Weight-Decomposed Low-Rank Adaptation (DoRA). DoRA decomposes the pre-trained weight into two components, magnitude and direction, for fine-tuning, specifically employing LoRA for directional updates to efficiently minimize the number of trainable parameters. By employing \\ours, we enhance both the learning capacity and training stability of LoRA while avoiding any additional inference overhead. \\ours~consistently outperforms LoRA on fine-tuning LLaMA, LLaVA, and VL-BART on various downstream tasks, such as commonsense reasoning, visual instruction tuning, and image/video-text understanding. Code is available at https://github.com/NVlabs/DoRA.",
+      "pdf_url": "https://arxiv.org/pdf/2402.09353v6"
+    },
+    {
+      "arxiv_id": "2602.16719",
+      "version": "v1",
+      "title": "GPU-Accelerated Algorithms for Graph Vector Search: Taxonomy, Empirical Study, and Research Directions",
+      "authors": [
+        "Yaowen Liu",
+        "Xuejia Chen",
+        "Anxin Tian",
+        "Haoyang Li",
+        "Qinbin Li",
+        "Xin Zhang",
+        "Alexander Zhou",
+        "Chen Jason Zhang",
+        "Qing Li",
+        "Lei Chen"
+      ],
+      "published": "2026-02-10T16:18:04Z",
+      "updated": "2026-02-10T16:18:04Z",
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
+      "summary": "Approximate Nearest Neighbor Search (ANNS) underpins many large-scale data mining and machine learning applications, with efficient retrieval increasingly hinging on GPU acceleration as dataset sizes grow. Although graph-based approaches represent the state of the art in approximate nearest neighbor search, there is a lack of systematic understanding regarding their optimization for modern GPU architectures and their end-to-end effectiveness in practical scenarios. In this work, we present a comprehensive survey and experimental study of GPU-accelerated graph-based vector search algorithms. We establish a detailed taxonomy of GPU optimization strategies and clarify the mapping between algorithmic tasks and hardware execution units within GPUs. Through a thorough evaluation of six leading algorithms on eight large-scale benchmark datasets, we assess both graph index construction and query search performance. Our analysis reveals that distance computation remains the primary computational bottleneck, while data transfer between the host CPU and GPU emerges as the dominant factor influencing real-world latency at large scale. We also highlight key trade-offs in scalability and memory usage across different system designs. Our findings offer clear guidelines for designing scalable and robust GPU-powered approximate nearest neighbor search systems, and provide a comprehensive benchmark for the knowledge discovery and data mining community.",
+      "pdf_url": "https://arxiv.org/pdf/2602.16719v1"
+    },
+    {
+      "arxiv_id": "1609.07228",
+      "version": "v3",
+      "title": "EFANNA : An Extremely Fast Approximate Nearest Neighbor Search Algorithm Based on kNN Graph",
+      "authors": [
+        "Cong Fu",
+        "Deng Cai"
+      ],
+      "published": "2016-09-23T04:34:54Z",
+      "updated": "2016-12-03T06:31:31Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "Approximate nearest neighbor (ANN) search is a fundamental problem in many areas of data mining, machine learning and computer vision. The performance of traditional hierarchical structure (tree) based methods decreases as the dimensionality of data grows, while hashing based methods usually lack efficiency in practice. Recently, the graph based methods have drawn considerable attention. The main idea is that \\emph{a neighbor of a neighbor is also likely to be a neighbor}, which we refer as \\emph{NN-expansion}. These methods construct a $k$-nearest neighbor ($k$NN) graph offline. And at online search stage, these methods find candidate neighbors of a query point in some way (\\eg, random selection), and then check the neighbors of these candidate neighbors for closer ones iteratively. Despite some promising results, there are mainly two problems with these approaches: 1) These approaches tend to converge to local optima. 2) Constructing a $k$NN graph is time consuming. We find that these two problems can be nicely solved when we provide a good initialization for NN-expansion. In this paper, we propose EFANNA, an extremely fast approximate nearest neighbor search algorithm based on $k$NN Graph. Efanna nicely combines the advantages of hierarchical structure based methods and nearest-neighbor-graph based methods. Extensive experiments have shown that EFANNA outperforms the state-of-art algorithms both on approximate nearest neighbor search and approximate nearest neighbor graph construction. To the best of our knowledge, EFANNA is the fastest algorithm so far both on approximate nearest neighbor graph construction and approximate nearest neighbor search. A library EFANNA based on this research is released on Github.",
+      "pdf_url": "https://arxiv.org/pdf/1609.07228v3"
+    },
+    {
+      "arxiv_id": "2410.04462",
+      "version": "v1",
+      "title": "Tensor-Train Point Cloud Compression and Efficient Approximate Nearest-Neighbor Search",
+      "authors": [
+        "Georgii Novikov",
+        "Alexander Gneushev",
+        "Alexey Kadeishvili",
+        "Ivan Oseledets"
+      ],
+      "published": "2024-10-06T12:25:41Z",
+      "updated": "2024-10-06T12:25:41Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "summary": "Nearest-neighbor search in large vector databases is crucial for various machine learning applications. This paper introduces a novel method using tensor-train (TT) low-rank tensor decomposition to efficiently represent point clouds and enable fast approximate nearest-neighbor searches. We propose a probabilistic interpretation and utilize density estimation losses like Sliced Wasserstein to train TT decompositions, resulting in robust point cloud compression. We reveal an inherent hierarchical structure within TT point clouds, facilitating efficient approximate nearest-neighbor searches. In our paper, we provide detailed insights into the methodology and conduct comprehensive comparisons with existing methods. We demonstrate its effectiveness in various scenarios, including out-of-distribution (OOD) detection problems and approximate nearest-neighbor (ANN) search tasks.",
+      "pdf_url": "https://arxiv.org/pdf/2410.04462v1"
+    },
+    {
+      "arxiv_id": "1512.01775",
+      "version": "v1",
+      "title": "Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings",
+      "authors": [
+        "Yair Bartal",
+        "Lee-Ad Gottlieb"
+      ],
+      "published": "2015-12-06T11:02:39Z",
+      "updated": "2015-12-06T11:02:39Z",
+      "categories": [
+        "cs.CG",
+        "cs.DS"
+      ],
+      "summary": "While the problem of approximate nearest neighbor search has been well-studied for Euclidean space and $\\ell_1$, few non-trivial algorithms are known for $\\ell_p$ when ($2 < p < \\infty$). In this paper, we revisit this fundamental problem and present approximate nearest-neighbor search algorithms which give the first non-trivial approximation factor guarantees in this setting.",
+      "pdf_url": "https://arxiv.org/pdf/1512.01775v1"
+    },
+    {
+      "arxiv_id": "cs/0703101",
+      "version": "v1",
+      "title": "A Note on Approximate Nearest Neighbor Methods",
+      "authors": [
+        "Thomas M. Breuel"
+      ],
+      "published": "2007-03-21T20:47:33Z",
+      "updated": "2007-03-21T20:47:33Z",
+      "categories": [
+        "cs.IR",
+        "cs.CC",
+        "cs.CV"
+      ],
+      "summary": "A number of authors have described randomized algorithms for solving the epsilon-approximate nearest neighbor problem. In this note I point out that the epsilon-approximate nearest neighbor property often fails to be a useful approximation property, since epsilon-approximate solutions fail to satisfy the necessary preconditions for using nearest neighbors for classification and related tasks.",
+      "pdf_url": "https://arxiv.org/pdf/cs/0703101v1"
+    },
+    {
+      "arxiv_id": "2506.03437",
+      "version": "v2",
+      "title": "Quake: Adaptive Indexing for Vector Search",
+      "authors": [
+        "Jason Mohoney",
+        "Devesh Sarda",
+        "Mengze Tang",
+        "Shihabur Rahman Chowdhury",
+        "Anil Pacaci",
+        "Ihab F. Ilyas",
+        "Theodoros Rekatsinas",
+        "Shivaram Venkataraman"
+      ],
+      "published": "2025-06-03T22:37:37Z",
+      "updated": "2025-06-06T19:58:25Z",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "Vector search, the task of finding the k-nearest neighbors of a query vector against a database of high-dimensional vectors, underpins many machine learning applications, including retrieval-augmented generation, recommendation systems, and information retrieval. However, existing approximate nearest neighbor (ANN) methods perform poorly under dynamic and skewed workloads where data distributions evolve. We introduce Quake, an adaptive indexing system that maintains low latency and high recall in such environments. Quake employs a multi-level partitioning scheme that adjusts to updates and changing access patterns, guided by a cost model that predicts query latency based on partition sizes and access frequencies. Quake also dynamically sets query execution parameters to meet recall targets using a novel recall estimation model. Furthermore, Quake utilizes NUMA-aware intra-query parallelism for improved memory bandwidth utilization during search. To evaluate Quake, we prepare a Wikipedia vector search workload and develop a workload generator to create vector search workloads with configurable access patterns. Our evaluation shows that on dynamic workloads, Quake achieves query latency reductions of 1.5-38x and update latency reductions of 4.5-126x compared to state-of-the-art indexes such as SVS, DiskANN, HNSW, and SCANN.",
+      "pdf_url": "https://arxiv.org/pdf/2506.03437v2"
+    },
+    {
+      "arxiv_id": "2512.09331",
+      "version": "v2",
+      "title": "Passing the Baton: High Throughput Distributed Disk-Based Vector Search with BatANN",
+      "authors": [
+        "Nam Anh Dang",
+        "Ben Landrum",
+        "Ken Birman"
+      ],
+      "published": "2025-12-10T05:38:59Z",
+      "updated": "2026-04-04T09:04:44Z",
+      "categories": [
+        "cs.DC",
+        "cs.IR"
+      ],
+      "summary": "Vector search underpins modern information-retrieval systems, including retrieval-augmented generation (RAG) pipelines and search engines over unstructured text and images. As datasets scale to billions of vectors, disk-based vector search has emerged as a practical solution. However, looking to the future, we must anticipate datasets too large for any single server and throughput demands that exceed the limits of locally attached SSDs. We present BatANN, a distributed disk-based approximate nearest neighbor (ANN) system that retains the logarithmic search efficiency of a single global graph while achieving near-linear throughput scaling in the number of servers. Our core innovation is that when accessing a neighborhood which is stored on another machine, we send the full state of the query to the other machine to continue executing there for improved locality. On 1B-point datasets at 0.95 recall using 10 servers, BatANN achieves 3.5-5.59x of the scatter-gather baseline and 1.44-2.09x the throughput of DistributedANN, respectively, while maintaining mean latency below 3 ms. Moreover, we get these results on standard TCP. To our knowledge, BatANN is the first open-source distributed disk-based vector search system to operate over a single global graph.",
+      "pdf_url": "https://arxiv.org/pdf/2512.09331v2"
+    },
+    {
+      "arxiv_id": "2601.08528",
+      "version": "v1",
+      "title": "SVFusion: A CPU-GPU Co-Processing Architecture for Large-Scale Real-Time Vector Search",
+      "authors": [
+        "Yuchen Peng",
+        "Dingyu Yang",
+        "Zhongle Xie",
+        "Ji Sun",
+        "Lidan Shou",
+        "Ke Chen",
+        "Gang Chen"
+      ],
+      "published": "2026-01-13T13:12:07Z",
+      "updated": "2026-01-13T13:12:07Z",
+      "categories": [
+        "cs.DB"
+      ],
+      "summary": "Approximate Nearest Neighbor Search (ANNS) underpins modern applications such as information retrieval and recommendation. With the rapid growth of vector data, efficient indexing for real-time vector search has become rudimentary. Existing CPU-based solutions support updates but suffer from low throughput, while GPU-accelerated systems deliver high performance but face challenges with dynamic updates and limited GPU memory, resulting in a critical performance gap for continuous, large-scale vector search requiring both accuracy and speed. In this paper, we present SVFusion, a GPU-CPU-disk collaborative framework for real-time vector search that bridges sophisticated GPU computation with online updates. SVFusion leverages a hierarchical vector index architecture that employs CPU-GPU co-processing, along with a workload-aware vector caching mechanism to maximize the efficiency of limited GPU memory. It further enhances performance through real-time coordination with CUDA multi-stream optimization and adaptive resource management, along with concurrency control that ensures data consistency under interleaved queries and updates. Empirical results demonstrate that SVFusion achieves significant improvements in query latency and throughput, exhibiting a 20.9x higher throughput on average and 1.3x to 50.7x lower latency compared to baseline methods, while maintaining high recall for large-scale datasets under various streaming workloads.",
+      "pdf_url": "https://arxiv.org/pdf/2601.08528v1"
+    },
+    {
+      "arxiv_id": "2304.12139",
+      "version": "v1",
+      "title": "Anserini Gets Dense Retrieval: Integration of Lucene's HNSW Indexes",
+      "authors": [
+        "Xueguang Ma",
+        "Tommaso Teofili",
+        "Jimmy Lin"
+      ],
+      "published": "2023-04-24T14:44:27Z",
+      "updated": "2023-04-24T14:44:27Z",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "Anserini is a Lucene-based toolkit for reproducible information retrieval research in Java that has been gaining traction in the community. It provides retrieval capabilities for both \"traditional\" bag-of-words retrieval models such as BM25 as well as retrieval using learned sparse representations such as SPLADE. With Pyserini, which provides a Python interface to Anserini, users gain access to both sparse and dense retrieval models, as Pyserini implements bindings to the Faiss vector search library alongside Lucene inverted indexes in a uniform, consistent interface. Nevertheless, hybrid fusion techniques that integrate sparse and dense retrieval models need to stitch together results from two completely different \"software stacks\", which creates unnecessary complexities and inefficiencies. However, the introduction of HNSW indexes for dense vector search in Lucene promises the integration of both dense and sparse retrieval within a single software framework. We explore exactly this integration in the context of Anserini. Experiments on the MS MARCO passage and BEIR datasets show that our Anserini HNSW integration supports (reasonably) effective and (reasonably) efficient approximate nearest neighbor search for dense retrieval models, using only Lucene.",
+      "pdf_url": "https://arxiv.org/pdf/2304.12139v1"
+    },
+    {
+      "arxiv_id": "2604.09173",
+      "version": "v2",
+      "title": "Decoupling Vector Data and Index Storage for Space Efficiency",
+      "authors": [
+        "Yuanming Ren",
+        "Juncheng Zhang",
+        "Yanjing Ren",
+        "Rui Yang",
+        "Di Wu",
+        "Patrick P. C. Lee"
+      ],
+      "published": "2026-04-10T09:58:17Z",
+      "updated": "2026-05-15T14:16:47Z",
+      "categories": [
+        "cs.DB",
+        "cs.OS"
+      ],
+      "summary": "Managing large-scale vector datasets with disk-resident graph approximate nearest neighbor search (ANNS) systems incurs substantial storage overhead due to the co-location of vector data and auxiliary index metadata, which prevents the storage layer from exploiting their distinct compressibility. We present COMPASS, a component-aware compressed storage framework for disk-resident graph vector search. Leveraging data-index decoupling as a foundation, COMPASS losslessly compresses each component according to its distinct compressibility characteristics, thereby significantly reducing storage space. It further adapts the search and update paths to preserve their performance under compressed storage layouts. Evaluation on real-world public and proprietary billion-scale datasets shows that COMPASS reduces storage space by up to 58.7%, while delivering improved or competitive search and update performance compared to state-of-the-art disk-resident graph ANNS systems.",
+      "pdf_url": "https://arxiv.org/pdf/2604.09173v2"
+    }
+  ]
+}

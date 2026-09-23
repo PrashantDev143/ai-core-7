@@ -1,0 +1,31 @@
+.env
+.env.local
+.env.*.local
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+node_modules/
+dist/
+.vite/
+
+# Corpus PDFs are regenerable from the committed manifest, so only the
+# manifest is tracked.
+data/corpus/pdf/
+data/corpus/raw/
+data/models/
+
+*.log
+evals/**/scratch/
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

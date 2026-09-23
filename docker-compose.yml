@@ -1,0 +1,174 @@
+# docker compose up -d                                 postgres + redis (~500MB)
+# docker compose --profile observability up -d         + langfuse (~3GB more)
+
+name: aicore7
+
+services:
+
+  postgres:
+    image: pgvector/pgvector:0.8.6-pg17
+    container_name: aicore7-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aicore
+      POSTGRES_PASSWORD: aicore
+      POSTGRES_DB: aicore
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    mem_limit: 512m
+    healthcheck:
+      # pg_isready goes green before the init scripts run, which lets the app
+      # connect and then blow up on a missing extension.
+      test: ["CMD-SHELL", "pg_isready -U aicore -d aicore && psql -U aicore -d aicore -tAc \"select 1 from pg_extension where extname='vector'\" | grep -q 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    container_name: aicore7-redis
+    restart: unless-stopped
+    # allkeys-lru so a full cache evicts instead of rejecting writes.
+    # Password is required because langfuse-worker won't connect without one.
+    command: >
+      redis-server
+      --requirepass aicore_dev
+      --maxmemory 128mb
+      --maxmemory-policy allkeys-lru
+      --appendonly no
+    ports:
+      - "127.0.0.1:6380:6379"
+    mem_limit: 192m
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "aicore_dev", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 3s
+
+  # Langfuse stack below. Reuses the postgres and redis above rather than
+  # running its own, which is what the upstream compose file does.
+
+  clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:25.12
+    container_name: aicore7-clickhouse
+    profiles: ["observability"]
+    restart: unless-stopped
+    user: "101:101"
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: clickhouse
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - clickhouse_logs:/var/log/clickhouse-server
+    mem_limit: 1g
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  minio:
+    image: cgr.dev/chainguard/minio
+    container_name: aicore7-minio
+    profiles: ["observability"]
+    restart: unless-stopped
+    entrypoint: sh
+    command: -c 'mkdir -p /data/langfuse && minio server --address ":9000" --console-address ":9001" /data'
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: miniosecret
+    volumes:
+      - minio_data:/data
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+
+  langfuse-worker:
+    image: docker.langfuse.com/langfuse/langfuse-worker:4
+    container_name: aicore7-langfuse-worker
+    profiles: ["observability"]
+    restart: unless-stopped
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      clickhouse: { condition: service_healthy }
+      minio: { condition: service_healthy }
+    environment: &langfuse-env
+      # Prisma rejects the +psycopg marker SQLAlchemy needs, so this URL is
+      # spelled differently from DATABASE_URL in .env despite the same server.
+      DATABASE_URL: postgresql://aicore:aicore@postgres:5432/langfuse
+      SALT: "/1YZZnc5s6gRC3GhogSFaA=="
+      ENCRYPTION_KEY: "324eaffc22a7415c4cb389b41cc4d1f6f3bdce011ba0ba0e2fe2578a9774873d"
+      TELEMETRY_ENABLED: "false"
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: "lLju63E8BIQeUmurA0PTJAotX0HsnhlbfxWQ+xlTO5w="
+      CLICKHOUSE_URL: http://clickhouse:8123
+      CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: clickhouse
+      CLICKHOUSE_CLUSTER_ENABLED: "false"
+      # DB 1; the app cache owns DB 0. Nothing here may call FLUSHALL.
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_AUTH: aicore_dev
+      REDIS_DB: "1"
+      LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_EVENT_UPLOAD_REGION: auto
+      LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: miniosecret
+      LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: "true"
+      LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+      LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_MEDIA_UPLOAD_REGION: auto
+      LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: miniosecret
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: "true"
+      LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+    mem_limit: 768m
+
+  langfuse-web:
+    image: docker.langfuse.com/langfuse/langfuse:4
+    container_name: aicore7-langfuse-web
+    profiles: ["observability"]
+    restart: unless-stopped
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      clickhouse: { condition: service_healthy }
+      minio: { condition: service_healthy }
+    environment:
+      <<: *langfuse-env
+      # Seeds a project and fixed API keys on first boot so .env can be filled
+      # in before ever opening the UI.
+      LANGFUSE_INIT_ORG_ID: aicore7
+      LANGFUSE_INIT_ORG_NAME: AI-core 7
+      LANGFUSE_INIT_PROJECT_ID: aicore7
+      LANGFUSE_INIT_PROJECT_NAME: aicore7-rag
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: pk-lf-435c4a8c-cd9f-4cae-8e24-c8d981eca602
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: sk-lf-7e656791-14eb-4176-a678-22e62f38787d
+      LANGFUSE_INIT_USER_EMAIL: dev@localhost
+      LANGFUSE_INIT_USER_NAME: Dev
+      LANGFUSE_INIT_USER_PASSWORD: aicore-dev-password
+    ports:
+      - "127.0.0.1:3000:3000"
+    mem_limit: 1g
+
+volumes:
+  pgdata:
+  clickhouse_data:
+  clickhouse_logs:
+  minio_data:

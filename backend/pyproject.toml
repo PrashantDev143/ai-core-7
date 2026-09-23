@@ -1,0 +1,60 @@
+[project]
+name = "aicore7"
+version = "0.1.0"
+description = "Document Q&A and research assistant"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "psycopg[binary,pool]>=3.2",
+    "pgvector>=0.3.6",
+    "redis>=5.2",
+    "google-genai>=1.0",
+    "sentence-transformers>=3.3",
+    "pymupdf>=1.24",
+    "httpx>=0.27",
+    "structlog>=24.4",
+    "python-dotenv>=1.0",
+    "langgraph>=0.2",
+    "langfuse>=2.50",
+    # Keyless DuckDuckGo client. `duckduckgo-search` was renamed to `ddgs`;
+    # the agent degrades to recorded fixtures if it is missing or rate-limited.
+    "ddgs>=9.0",
+    # Non-autoregressive decision model, the alternative guardrail backend.
+    # Verified to install here: needs only torch>=2.0 and transformers>=4.48,
+    # both already required by sentence-transformers.
+    "laya>=0.3.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.7",
+]
+
+[project.scripts]
+aicore-ingest = "app.ingestion.cli:main"
+aicore-corpus = "scripts.fetch_corpus:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*", "scripts*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
