@@ -79,10 +79,16 @@ def build(titles: list[tuple[str, str]]) -> list[dict]:
 
     for title, _ in pool[PER_CATEGORY : PER_CATEGORY * 2]:
         key = _short(title)
+        # Expected sequence is verify_claim ALONE. The first version of this
+        # benchmark expected [search_corpus, verify_claim] and every agent run
+        # scored 0.5 recall — because verify_claim searches the corpus itself.
+        # The ground truth was wrong, not the agent. Expected trajectories
+        # encode assumptions about how tools compose, and a tool that does more
+        # than you assumed makes correct behaviour look like a failure.
         add("verify",
             f"Is it accurate that {key} improves retrieval accuracy? Verify first.",
-            ["search_corpus", "verify_claim"], [key.split()[0]], 3,
-            "explicit verification requested")
+            ["verify_claim"], [key.split()[0]], 2,
+            "verify_claim performs its own corpus lookup")
 
     for i in range(PER_CATEGORY):
         a = _short(pool[i][0], 7)

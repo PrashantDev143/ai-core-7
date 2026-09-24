@@ -1,0 +1,31 @@
+{
+  "query": "Who won the 2026 Turing Award",
+  "summary": "- Turing Award - Wikipedia: The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field o (https://en.wikipedia.org/wiki/Turing_Award)\n- Quantum pioneers win Turing Award for encryption breakthrough: A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ... (https://www.bbc.com/news/articles/c7474004g01o)\n- 2026 Turing Award Winners: Pioneers of Quantum Cryptography: The winners of this year's Turing Award - the most prestigious honour in computer science, often called the \"Nobel Prize for Computer Science\"- were announced a few days ago. They were American physicist Charles Henry Bennett and Canadian computer sc (https://www.uni.lodz.pl/en/news/details/2026-turing-award-winners-pioneers-of-quantum-cryptography)\n- Turing Award Goes to Inventors of Quantum Cryptography: On Wednesday, the Association for Computing Machinery said Charles Bennett, left, and Gilles Brassard had won this year's Turing Award, often called the Nobel Prize of computing. (https://www.nytimes.com/2026/03/18/technology/turing-award-winners-quantum-cryptography.html)\n- We heartily congratulate the Turing Award Prize Winners of 2026. # ...: Charles Bennett and Gilles Brassard have been named the winners of the A.M. Turing Award, one of the highest honors in computing, for their work establishing the foundations of quantum information theory. (https://x.com/abel_prize/status/2035991682005565889)",
+  "results": [
+    {
+      "title": "Turing Award - Wikipedia",
+      "href": "https://en.wikipedia.org/wiki/Turing_Award",
+      "body": "The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field of computer science and is often referred to as the \"Nobel Prize of Computing\". [2][3][4][5][6] As of 2026, 81 people have been awarded the prize ..."
+    },
+    {
+      "title": "Quantum pioneers win Turing Award for encryption breakthrough",
+      "href": "https://www.bbc.com/news/articles/c7474004g01o",
+      "body": "A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ..."
+    },
+    {
+      "title": "2026 Turing Award Winners: Pioneers of Quantum Cryptography",
+      "href": "https://www.uni.lodz.pl/en/news/details/2026-turing-award-winners-pioneers-of-quantum-cryptography",
+      "body": "The winners of this year's Turing Award - the most prestigious honour in computer science, often called the \"Nobel Prize for Computer Science\"- were announced a few days ago. They were American physicist Charles Henry Bennett and Canadian computer scientist Gilles Brassard. The award, conferred by the Association for Computing Machinery, is worth $1 million and has long honoured ..."
+    },
+    {
+      "title": "Turing Award Goes to Inventors of Quantum Cryptography",
+      "href": "https://www.nytimes.com/2026/03/18/technology/turing-award-winners-quantum-cryptography.html",
+      "body": "On Wednesday, the Association for Computing Machinery said Charles Bennett, left, and Gilles Brassard had won this year's Turing Award, often called the Nobel Prize of computing."
+    },
+    {
+      "title": "We heartily congratulate the Turing Award Prize Winners of 2026. # ...",
+      "href": "https://x.com/abel_prize/status/2035991682005565889",
+      "body": "Charles Bennett and Gilles Brassard have been named the winners of the A.M. Turing Award, one of the highest honors in computing, for their work establishing the foundations of quantum information theory."
+    }
+  ]
+}

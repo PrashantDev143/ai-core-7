@@ -31,7 +31,7 @@ from pydantic import BaseModel, Field
 
 from app.cache.service import get_cache
 from app.guardrails.faithfulness import check_faithfulness
-from app.guardrails.pipeline import guard_input
+from app.guardrails.pipeline import guard_input_classifier, guard_input_rules
 from app.observability.schema import Outcome, SpanKind, Trajectory
 from app.observability.tracer import get_tracer, record_tokens
 from app.retrieval.base import RetrievedChunk
@@ -148,10 +148,12 @@ async def _answer(
     )
     timings: dict[str, float] = {}
 
-    with tracer.span(trajectory, SpanKind.GUARDRAIL, "input_guard", query=query) as span:
+    # Stage 1 only. The classifier runs after the cache lookup, so a cache hit
+    # does not pay for a model call it does not need.
+    with tracer.span(trajectory, SpanKind.GUARDRAIL, "rules", query=query) as span:
         start = time.perf_counter()
-        decision = await guard_input(query, request_id=request_id)
-        timings["guardrail_ms"] = round((time.perf_counter() - start) * 1000, 2)
+        decision = await guard_input_rules(query, request_id=request_id)
+        timings["guardrail_rules_ms"] = round((time.perf_counter() - start) * 1000, 2)
         span.output = {"action": decision.action.value, "rule": decision.rule}
         trajectory.guardrail_action = decision.action.value
         if not decision.allowed:
@@ -194,6 +196,31 @@ async def _answer(
             result.timings_ms = timings
             trajectory.answer = result.answer
             return result
+
+    # Cache missed, so the expensive stage is now worth running.
+    with tracer.span(trajectory, SpanKind.GUARDRAIL, "classifier", query=query) as span:
+        start = time.perf_counter()
+        decision = await guard_input_classifier(query, decision)
+        timings["guardrail_classifier_ms"] = round((time.perf_counter() - start) * 1000, 2)
+        span.output = {"action": decision.action.value, "rule": decision.rule}
+        trajectory.guardrail_action = decision.action.value
+        if not decision.allowed:
+            span.outcome = Outcome.BLOCKED
+
+    if not decision.allowed:
+        result.blocked = True
+        result.answer = decision.message or "I can't process that request."
+        result.confidence = "low"
+        result.timings_ms = timings
+        trajectory.answer = result.answer
+        trajectory.outcome = Outcome.BLOCKED
+        return result
+
+    if decision.degraded and not result.caveats:
+        result.caveats.append(
+            "This question sits at the edge of what my sources cover, so treat "
+            "the answer with care."
+        )
 
     with tracer.span(trajectory, SpanKind.RETRIEVAL, "hybrid", query=query) as span:
         retrieval = await get_retrieval_service().retrieve(

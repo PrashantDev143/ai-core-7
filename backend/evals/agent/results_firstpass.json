@@ -1,0 +1,268 @@
+{
+  "summary": {
+    "tasks": 10,
+    "overall": {
+      "tool_precision": 0.925,
+      "tool_recall": 0.75,
+      "sequence_exact": 0.4,
+      "argument_score": 0.8,
+      "step_efficiency": 0.94,
+      "groundedness": 1.0
+    },
+    "budget_breach_rate": 0.0,
+    "error_rate": 0.0,
+    "mean_tokens": 1243.7,
+    "by_category": {
+      "single_hop": {
+        "n": 5,
+        "tool_precision": 0.85,
+        "tool_recall": 1.0,
+        "sequence_exact": 0.8,
+        "argument_score": 0.6,
+        "step_efficiency": 0.88,
+        "groundedness": 1.0,
+        "mean_steps": 2.4
+      },
+      "verify": {
+        "n": 5,
+        "tool_precision": 1.0,
+        "tool_recall": 0.5,
+        "sequence_exact": 0.0,
+        "argument_score": 1.0,
+        "step_efficiency": 1.0,
+        "groundedness": null,
+        "mean_steps": 2
+      }
+    }
+  },
+  "per_task": [
+    {
+      "task_id": "t001",
+      "category": "single_hop",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "predicted_tools": [
+        "search_corpus"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 1.0,
+      "sequence_exact": 1.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": 1.0,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 1132,
+      "duration_ms": 148320.15,
+      "answer_preview": "The work on approximate nearest neighbor search for l_p-spaces where 2 < p < infinity addresses the lack of non-trivial algorithms and approximation factor guar"
+    },
+    {
+      "task_id": "t002",
+      "category": "single_hop",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "predicted_tools": [
+        "search_corpus",
+        "search_corpus",
+        "search_corpus",
+        "search_corpus"
+      ],
+      "tool_precision": 0.25,
+      "tool_recall": 1.0,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 0.4,
+      "groundedness": 1.0,
+      "steps_used": 5,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 5033,
+      "duration_ms": 229448.25,
+      "answer_preview": "The work on EFANNA addresses the intrinsic difficulty of exact nearest neighbor search and the inefficiency of existing approximate nearest neighbor (ANN) appro"
+    },
+    {
+      "task_id": "t003",
+      "category": "single_hop",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "predicted_tools": [
+        "search_corpus"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 1.0,
+      "sequence_exact": 1.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": 1.0,
+      "steps_used": 1,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 364,
+      "duration_ms": 2051791.86,
+      "answer_preview": "I couldn't complete this research request."
+    },
+    {
+      "task_id": "t004",
+      "category": "single_hop",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "predicted_tools": [
+        "search_corpus"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 1.0,
+      "sequence_exact": 1.0,
+      "argument_score": 0.0,
+      "step_efficiency": 1.0,
+      "groundedness": 1.0,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 1040,
+      "duration_ms": 33971.89,
+      "answer_preview": "The work on PAIR addresses the limitation that existing dense passage retrieval studies mainly focus on learning the similarity relation between queries and pas"
+    },
+    {
+      "task_id": "t005",
+      "category": "single_hop",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "predicted_tools": [
+        "search_corpus"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 1.0,
+      "sequence_exact": 1.0,
+      "argument_score": 0.0,
+      "step_efficiency": 1.0,
+      "groundedness": 1.0,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 1049,
+      "duration_ms": 65553.83,
+      "answer_preview": "PARM addresses the challenges of applying dense passage retrieval models to dense document-to-document retrieval, specifically liberating them from their limite"
+    },
+    {
+      "task_id": "t006",
+      "category": "verify",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "predicted_tools": [
+        "verify_claim"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 0.5,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": null,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 775,
+      "duration_ms": 60010.0,
+      "answer_preview": "Yes, it is accurate that Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy, as verified by the literature [1]."
+    },
+    {
+      "task_id": "t007",
+      "category": "verify",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "predicted_tools": [
+        "verify_claim"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 0.5,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": null,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 778,
+      "duration_ms": 57790.98,
+      "answer_preview": "Yes, it is accurate. Hyperlink-induced Pre-training for Passage Retrieval in Open-domain Question Answering improves retrieval accuracy, as supported by the res"
+    },
+    {
+      "task_id": "t008",
+      "category": "verify",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "predicted_tools": [
+        "verify_claim"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 0.5,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": null,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 741,
+      "duration_ms": 82481.93,
+      "answer_preview": "Yes, it is accurate that RELIC (Retrieving Evidence for Literary Claims) improves retrieval accuracy, as verified by the literature in the corpus [1]."
+    },
+    {
+      "task_id": "t009",
+      "category": "verify",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "predicted_tools": [
+        "verify_claim"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 0.5,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": null,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 772,
+      "duration_ms": 38776.22,
+      "answer_preview": "No, it is not accurate. Self-Consistency Improves Chain of Thought Reasoning in Language Models is a decoding strategy focused on improving reasoning and proble"
+    },
+    {
+      "task_id": "t010",
+      "category": "verify",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "predicted_tools": [
+        "verify_claim"
+      ],
+      "tool_precision": 1.0,
+      "tool_recall": 0.5,
+      "sequence_exact": 0.0,
+      "argument_score": 1.0,
+      "step_efficiency": 1.0,
+      "groundedness": null,
+      "steps_used": 2,
+      "budget_breach": null,
+      "outcome": "ok",
+      "tokens": 753,
+      "duration_ms": 88634.13,
+      "answer_preview": "Yes, it is accurate that LIDER (An Efficient High-dimensional Learned Index for Large-scale Dense) improves retrieval accuracy while maintaining high efficiency"
+    }
+  ]
+}

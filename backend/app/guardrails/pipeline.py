@@ -78,7 +78,17 @@ class GuardDecision:
         }
 
 
-async def guard_input(query: str, *, request_id: uuid.UUID | None = None) -> GuardDecision:
+async def guard_input_rules(
+    query: str, *, request_id: uuid.UUID | None = None
+) -> GuardDecision:
+    """Stage 1 only: deterministic checks, microseconds, no model call.
+
+    Split out from the classifier stage so the cache can sit BETWEEN them.
+    Running the full guard before the cache made every cache hit pay a
+    multi-second classifier call — measured at ~8.7s on a lookup that took
+    3ms — which defeats the point of caching. Rules still run first, so a
+    prompt injection is rejected before it can be served from cache.
+    """
     settings = get_settings()
     start = time.perf_counter()
     rid = request_id or uuid.uuid4()
@@ -104,6 +114,13 @@ async def guard_input(query: str, *, request_id: uuid.UUID | None = None) -> Gua
         decision.action = Action.FLAG
         decision.rule = next(h.rule for h in hits if h.action is Action.FLAG)
 
+    decision.latency_ms = (time.perf_counter() - start) * 1000
+    return decision
+
+
+async def guard_input_classifier(query: str, decision: GuardDecision) -> GuardDecision:
+    """Stage 2: the typed classifier. Only reached on a cache miss."""
+    start = time.perf_counter()
     classifier = get_classifier()
     decision.classifier = classifier.name
     decision.stages_run.append(f"classifier:{classifier.name}")
@@ -156,6 +173,14 @@ async def guard_input(query: str, *, request_id: uuid.UUID | None = None) -> Gua
 
     decision.latency_ms = (time.perf_counter() - start) * 1000
     return decision
+
+
+async def guard_input(query: str, *, request_id: uuid.UUID | None = None) -> GuardDecision:
+    """Both stages back to back, for callers with no cache in between."""
+    decision = await guard_input_rules(query, request_id=request_id)
+    if not decision.allowed:
+        return decision
+    return await guard_input_classifier(query, decision)
 
 
 def _reject(decision, rule, reason, message, start) -> GuardDecision:

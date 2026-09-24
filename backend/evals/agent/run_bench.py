@@ -152,7 +152,13 @@ def print_report(summary: dict) -> None:
 
 async def main_async(args) -> int:
     payload = json.loads(args.tasks.read_text(encoding="utf-8"))
-    tasks = payload["tasks"][: args.limit] if args.limit else payload["tasks"]
+    # Stride, not truncate: tasks are grouped by category, so taking the first
+    # N would test two categories and silently skip the rest — including
+    # no_tool, which is the only one that measures over-calling.
+    tasks = payload["tasks"]
+    if args.limit and args.limit < len(tasks):
+        stride = len(tasks) / args.limit
+        tasks = [tasks[int(i * stride)] for i in range(args.limit)]
     print(f"running {len(tasks)} tasks", flush=True)
 
     rows, trajectories = [], []

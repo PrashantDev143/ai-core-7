@@ -12,6 +12,7 @@ watch a hit rate fall and have no idea whether the threshold is wrong, the
 traffic changed, or the embedding space moved.
 """
 
+import asyncio
 import json
 import logging
 import time
@@ -64,10 +65,33 @@ class CacheStats:
         return (self.exact_hits + self.semantic_hits) / self.lookups if self.lookups else 0.0
 
 
-async def current_corpus_version() -> str:
-    async with session_scope() as session:
-        version, _, _ = await compute_corpus_version(session)
-    return version
+# Recomputing the corpus version means reading every document row and hashing
+# it. Doing that on every cache lookup made an exact hit cost seconds — the
+# cache was slower than the thing it was caching. The corpus only changes on
+# ingestion, so it is memoised with a short TTL: bounded staleness, and a
+# re-index is picked up within the window.
+_CORPUS_VERSION_TTL = 60.0
+_corpus_version_cache: tuple[str, float] | None = None
+_version_lock = asyncio.Lock()
+
+
+async def current_corpus_version(*, force: bool = False) -> str:
+    global _corpus_version_cache
+
+    if not force and _corpus_version_cache is not None:
+        version, cached_at = _corpus_version_cache
+        if time.monotonic() - cached_at < _CORPUS_VERSION_TTL:
+            return version
+
+    async with _version_lock:
+        if not force and _corpus_version_cache is not None:
+            version, cached_at = _corpus_version_cache
+            if time.monotonic() - cached_at < _CORPUS_VERSION_TTL:
+                return version
+        async with session_scope() as session:
+            version, _, _ = await compute_corpus_version(session)
+        _corpus_version_cache = (version, time.monotonic())
+        return version
 
 
 def _to_bytes(vector: list[float]) -> bytes:

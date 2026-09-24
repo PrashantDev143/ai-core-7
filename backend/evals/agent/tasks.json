@@ -79,70 +79,65 @@
       "category": "verify",
       "query": "Is it accurate that Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy? Verify first.",
       "expected_tools": [
-        "search_corpus",
         "verify_claim"
       ],
       "argument_must_mention": [
         "Chain-of-Thought"
       ],
-      "expected_steps": 3,
-      "notes": "explicit verification requested"
+      "expected_steps": 2,
+      "notes": "verify_claim performs its own corpus lookup"
     },
     {
       "task_id": "t007",
       "category": "verify",
       "query": "Is it accurate that Hyperlink-induced Pre-training for Passage Retrieval in Open-domain Question Answering improves retrieval accuracy? Verify first.",
       "expected_tools": [
-        "search_corpus",
         "verify_claim"
       ],
       "argument_must_mention": [
         "Hyperlink-induced"
       ],
-      "expected_steps": 3,
-      "notes": "explicit verification requested"
+      "expected_steps": 2,
+      "notes": "verify_claim performs its own corpus lookup"
     },
     {
       "task_id": "t008",
       "category": "verify",
       "query": "Is it accurate that RELIC: Retrieving Evidence for Literary Claims improves retrieval accuracy? Verify first.",
       "expected_tools": [
-        "search_corpus",
         "verify_claim"
       ],
       "argument_must_mention": [
         "RELIC:"
       ],
-      "expected_steps": 3,
-      "notes": "explicit verification requested"
+      "expected_steps": 2,
+      "notes": "verify_claim performs its own corpus lookup"
     },
     {
       "task_id": "t009",
       "category": "verify",
       "query": "Is it accurate that Self-Consistency Improves Chain of Thought Reasoning in Language Models improves retrieval accuracy? Verify first.",
       "expected_tools": [
-        "search_corpus",
         "verify_claim"
       ],
       "argument_must_mention": [
         "Self-Consistency"
       ],
-      "expected_steps": 3,
-      "notes": "explicit verification requested"
+      "expected_steps": 2,
+      "notes": "verify_claim performs its own corpus lookup"
     },
     {
       "task_id": "t010",
       "category": "verify",
       "query": "Is it accurate that LIDER: An Efficient High-dimensional Learned Index for Large-scale Dense improves retrieval accuracy? Verify first.",
       "expected_tools": [
-        "search_corpus",
         "verify_claim"
       ],
       "argument_must_mention": [
         "LIDER:"
       ],
-      "expected_steps": 3,
-      "notes": "explicit verification requested"
+      "expected_steps": 2,
+      "notes": "verify_claim performs its own corpus lookup"
     },
     {
       "task_id": "t011",

@@ -234,13 +234,64 @@ are decisions in disguise (DECISIONS 4.2c).
 segfaults at 3.8 GB RAM. Interface, both backends and the harness are complete
 and will produce the table on any machine with ~2 GB free. See DECISIONS 4.1.
 
+### Agent trajectories (Phase 6)
+
+12 tasks, two per category:
+
+| category | n | precision | recall | seq exact | args | step eff |
+|---|---|---|---|---|---|---|
+| out_of_corpus | 2 | **1.000** | 1.000 | 1.00 | 1.00 | 1.000 |
+| verify | 2 | **1.000** | 1.000 | 1.00 | 1.00 | 1.000 |
+| multi_doc | 2 | 0.643 | 1.000 | 0.50 | 0.75 | 0.750 |
+| single_hop | 2 | 0.572 | 1.000 | 0.50 | 1.00 | 0.625 |
+| no_tool | 2 | 0.500 | 1.000 | 0.50 | 1.00 | 0.750 |
+| synthesis | 2 | 1.000 | **0.500** | 0.00 | 1.00 | 1.000 |
+| **overall** | 12 | 0.786 | 0.917 | 0.58 | 0.96 | 0.854 |
+
+Budget breach 0.000 · error rate 0.000 · 3,175 mean tokens/task.
+
+**Recall 0.917 vs precision 0.786, with argument correctness 0.96** — the agent
+knows what to call and how to call it, but not when to stop. One single-hop
+task made 4 corpus calls; one comparison made 7. `synthesis` fails the opposite
+way, skipping `summarise` entirely.
+
+n=2 per category identifies directions, not magnitudes. See DECISIONS 6.4a for
+the first run, where the benchmark's own ground truth was wrong.
+
+### End-to-end, measured live (Phases 3–7)
+
+| Path | Latency | Notes |
+|---|---|---|
+| Prompt injection blocked | **17 ms** | deterministic rules, no model call |
+| Cache hit (exact) | **11 ms** | rules 0.03 ms + lookup 2.7 ms |
+| Cache miss, full answer | 7.5 s | retrieval + rerank + generation + faithfulness |
+
+Cache hits were **6,958 ms** before reordering the pipeline — the guardrail
+classifier ran before the cache, so every hit paid for an LLM call it did not
+need. Splitting the guard (cheap rules → cache → expensive classifier) gave a
+**630× speedup on the hit path** with the injection still blocked before the
+cache is consulted. DECISIONS.md 3.5.
+
+Observability dashboard, live:
+
+```
+ask route      p50 7,146 ms   cache_hit_rate 0.667   faithfulness 1.0
+blocked route  p50     3 ms
+guardrail trigger_rate 0.25   cache hit_rate 0.5 (exact layer)
+trace replay   {"round_trip_exact": true, "eval_ready": true}
+```
+
+That last line is the Phase 7 guarantee verified at runtime: a real production
+trace deserialises through the same `Trajectory` type the benchmark scores,
+with no adapter.
+
 ### Still to measure
 
 | Metric | Phase | Blocker |
 |---|---|---|
-| Tool-call precision/recall, budget breach rate | 6 | free-tier latency |
-| End-to-end p50/p95/p99, cache hit rate in production | 7 | needs traffic |
-| Local vs Laya agreement | 4 | RAM (804 MB model) |
+| End-to-end p50/p95/p99, production cache hit rate | 7 | needs real traffic |
+| Local vs Laya agreement, comparative ECE | 4 | RAM (804 MB model) |
+| Full 60-prompt guardrail + 30-task agent runs | 4, 6 | free-tier latency |
 
 ---
 

@@ -1,0 +1,2490 @@
+[
+  {
+    "trace_id": "1e429eeb-f0a0-47c4-9c92-cd9f822e59d4",
+    "schema_version": "1.0",
+    "query": "What problem does the work on Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p address?",
+    "answer": "The work on approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) addresses the lack of non-trivial algorithms and approximation factor guarantees for this setting, presenting the first non-trivial approximation algorithms via embeddings [1].",
+    "session_id": null,
+    "started_at": "2026-09-24T16:59:57.264347+00:00",
+    "ended_at": null,
+    "duration_ms": 163601.46,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "45294997-4ed7-4bd2-ac88-79a7cef29d74",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:02:40.870828+00:00",
+        "ended_at": null,
+        "duration_ms": 63778.85,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for work related to Approximate nearest neighbor search for lp-spaces where p > 2 to understand what problem it addresses."
+        },
+        "output": {
+          "observation": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] A Note on Approximate Nearest Neighbor Methods (p.1): A Note on Approximate Nearest Neighbor Methods\nThomas Breuel\narXiv:cs/0703101v1 [cs.IR] 21 Mar 2007\n1\nBackground\nThe Nearest Neighbor Problem\nThe problem of \ufb01nding nearest neighbors to a query point in a database has a long history\nin comp"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 247,
+          "completion": 107
+        },
+        "model": null
+      },
+      {
+        "span_id": "730bd681-610b-4220-81ff-238ec818b161",
+        "parent_id": "45294997-4ed7-4bd2-ac88-79a7cef29d74",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:02:40.870828+00:00",
+        "ended_at": null,
+        "duration_ms": 60540.71,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "Approximate nearest neighbor search lp-spaces 2 < p",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] A Note on Approximate Nearest Neighbor Methods (p.1): A Note on Approximate Nearest Neighbor "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "c7774fcd-d7a7-4fd8-9aaa-4861a546fb89",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:02:40.870828+00:00",
+        "ended_at": null,
+        "duration_ms": 35690.12,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have found the paper addressing approximate nearest neighbor search for lp-spaces when 2 < p < infinity, which provides the first non-trivial approximation factor guarantees for this setting."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 607,
+          "completion": 152
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus for work related to Approximate nearest neighbor search for lp-spaces where p > 2 to understand what problem it addresses.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "Approximate nearest neighbor search lp-spaces 2 < p",
+              "top_k": 5
+            },
+            "result_summary": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] A Note on Approximate Nearest Neighbor Methods (p.1): A Note on Approximate Nearest Neighbor ",
+            "step": 1,
+            "duration_ms": 60540.71,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] A Note on Approximate Nearest Neighbor Methods (p.1): A Note on Approximate Nearest Neighbor Methods\nThomas Breuel\narXiv:cs/0703101v1 [cs.IR] 21 Mar 2007\n1\nBackground\nThe Nearest Neighbor Problem\nThe problem of \ufb01nding nearest neighbors to a query point in a database has a long history\nin computer science. Formally, we can state the problem as follows. Assume we are given\na space V of samples or objects, together with a function d : V \u00d7 V \u2192R. Commonly, V\nwill be a vector space and d is de\ufb01ned by a metric in that vector space; that is the case we\nwill be considering in this paper.\nThe nearest neighbor problem is the problem of \ufb01nding, given a \ufb01nite\n\n[3] SVFusion: A CPU-GPU Co-Processing Architecture for Large-Scale Real-Time Vector Search (p.2): Exact nearest neighbor search is computationally prohibitive for\nlarge datasets [60], leading most studies [19, 20, 35, 42] to adopt\n2\n\nTable 1: Summary of notations.\n\nNotation\nDefinition\n\ud835\udc4b\nthe set of \ud835\udc41\ud835\udc37-dimensional vectors\n\ud835\udc5e\na query vector\n\ud835\udc58\nthe number of returned results in ANNS\n\ud835\udc3a= (\ud835\udc49, \ud835\udc38)\na proximity graph with vertex set \ud835\udc49and edge set \ud835\udc38\n\ud835\udc4b\ud835\udc61\nthe dataset state at time \ud835\udc61\n\ud835\udc4b\ud835\udc3a\n\ud835\udc61\nthe vector subset residing in GPU memory at time \ud835\udc61\n\ud835\udc40\nthe GPU memory capacity (number of vectors)\n\ud835\udf06\ud835\udc65\nthe number of future accesses for vector \ud835\udc65\n\ud835\udc39\ud835\udc5f\ud835\udc52\ud835\udc50\ud835\udc52\ud835\udc5b\ud835\udc61(\ud835\udc65,\ud835\udc61)\nthe r",
+        "tokens": {
+          "prompt": 247,
+          "completion": 107
+        },
+        "duration_ms": 63778.85
+      },
+      {
+        "step": 2,
+        "thought": "I have found the paper addressing approximate nearest neighbor search for lp-spaces when 2 < p < infinity, which provides the first non-trivial approximation factor guarantees for this setting.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 607,
+          "completion": 152
+        },
+        "duration_ms": 35690.12
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1113
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 854,
+      "completion": 259
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "6f67c15b-5105-4c42-bacd-4d18923bc270",
+    "schema_version": "1.0",
+    "query": "What problem does the work on DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for address?",
+    "answer": "The work on DoSSIER@COLIEE 2021 addresses two main tasks in the Competition on Legal Information Extraction/Entailment (COLIEE): (1) the legal case retrieval task (Task 1), which aims to automatically identify supporting (\"noticed\") cases for a given query case from a corpus of candidate documents, and (2) the legal case entailment task (Task 2) [1], [2].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:02:40.886324+00:00",
+    "ended_at": null,
+    "duration_ms": 328268.34,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "a0a23cb4-4ade-427d-836f-a9f58c93a11d",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:08:09.158694+00:00",
+        "ended_at": null,
+        "duration_ms": 31643.61,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for information about DoSSIER@COLIEE 2021 to understand what problem it addresses."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 256,
+          "completion": 114
+        },
+        "model": null
+      },
+      {
+        "span_id": "85877cb6-0cbe-4207-8480-484ce592f4f0",
+        "parent_id": "a0a23cb4-4ade-427d-836f-a9f58c93a11d",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.159762+00:00",
+        "ended_at": null,
+        "duration_ms": 8378.97,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 Leveraging dense retrieval and summarization-based re-ranking",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "11e34144-00be-438a-9173-e19268adee46",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:08:09.160758+00:00",
+        "ended_at": null,
+        "duration_ms": 50153.53,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 by searching the corpus for more details from the paper."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided toge"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 678,
+          "completion": 112
+        },
+        "model": null
+      },
+      {
+        "span_id": "4af1fcaf-d1a4-4868-9e69-05ac5afcaf2c",
+        "parent_id": "11e34144-00be-438a-9173-e19268adee46",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.160758+00:00",
+        "ended_at": null,
+        "duration_ms": 7497.49,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 case law retrieval task problem",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "041597da-2901-45e9-9258-4cea7aab5bf5",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_3",
+        "started_at": "2026-09-24T17:08:09.161758+00:00",
+        "ended_at": null,
+        "duration_ms": 14726.93,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search for more details about the problem addressed by DoSSIER@COLIEE 2021 within the corpus."
+        },
+        "output": {
+          "observation": "[1] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1062,
+          "completion": 112
+        },
+        "model": null
+      },
+      {
+        "span_id": "8cce9604-ff35-4dbf-8bfb-60d831661b78",
+        "parent_id": "041597da-2901-45e9-9258-4cea7aab5bf5",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.162755+00:00",
+        "ended_at": null,
+        "duration_ms": 6274.72,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 case law retrieval task task 1 dataset objective",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "677a2639-6125-40be-8257-c1c1e2b9f61e",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_4",
+        "started_at": "2026-09-24T17:08:09.164074+00:00",
+        "ended_at": null,
+        "duration_ms": 23207.63,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 in the paper by searching for more details regarding their approach and task description."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1440,
+          "completion": 120
+        },
+        "model": null
+      },
+      {
+        "span_id": "a418424f-a31a-43b0-9350-89884bf09f83",
+        "parent_id": "677a2639-6125-40be-8257-c1c1e2b9f61e",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.165074+00:00",
+        "ended_at": null,
+        "duration_ms": 9578.8,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 dense retrieval summarization case law retrieval introduction abstract",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "0b74ed5b-1127-4ff3-a508-10e76fad0b80",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_5",
+        "started_at": "2026-09-24T17:08:09.165074+00:00",
+        "ended_at": null,
+        "duration_ms": 13603.5,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 by searching for more text inside the paper."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided toge"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1865,
+          "completion": 111
+        },
+        "model": null
+      },
+      {
+        "span_id": "77b2ef29-b7d5-4562-a2b1-ea1e34bb08a6",
+        "parent_id": "0b74ed5b-1127-4ff3-a508-10e76fad0b80",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.165074+00:00",
+        "ended_at": null,
+        "duration_ms": 5636.21,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 case law retrieval task problem introduction",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "e49f11c2-58c1-426b-aa6d-4b8c2e9f16af",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_6",
+        "started_at": "2026-09-24T17:08:09.166075+00:00",
+        "ended_at": null,
+        "duration_ms": 13800.5,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search for the specific introduction text of the DoSSIER@COLIEE 2021 paper to understand the exact problem it addresses."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the sour"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2250,
+          "completion": 113
+        },
+        "model": null
+      },
+      {
+        "span_id": "bfe9ff9c-b5fe-401a-a306-4a38cdf25f4a",
+        "parent_id": "e49f11c2-58c1-426b-aa6d-4b8c2e9f16af",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.166075+00:00",
+        "ended_at": null,
+        "duration_ms": 5577.19,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 case law retrieval task introduction aim",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "29e6cd11-1e33-4cbc-a13c-d846f1a806bb",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_7",
+        "started_at": "2026-09-24T17:08:09.166075+00:00",
+        "ended_at": null,
+        "duration_ms": 23564.95,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I will search the corpus for the task description and problem addressed by DoSSIER@COLIEE 2021 regarding case law retrieval and legal case entailment."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the query case [14].\n\nThe task consists of reading\na new case \ud835\udc44and selecting supporting cases \ud835\udc461,\ud835\udc462, . . . ,\ud835\udc46\ud835\udc5b(\"noticed\ncases\") from the whole \n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Cop"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2659,
+          "completion": 119
+        },
+        "model": null
+      },
+      {
+        "span_id": "64dfeaab-399a-42d3-b88f-ed54334684be",
+        "parent_id": "29e6cd11-1e33-4cbc-a13c-d846f1a806bb",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:08:09.166075+00:00",
+        "ended_at": null,
+        "duration_ms": 14097.54,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 Task 1 Task 2 aim problem description",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the query case [14].\n\nThe task consists of reading\na new case \ud835\udc44and selecting supporting cases \ud835\udc461,\ud835\udc462, . . . ,\ud835\udc46\ud835\udc5b(\"noticed\ncases\") from the whole \n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "d11d6e9a-8a85-423e-b5e8-1101d471704d",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_8",
+        "started_at": "2026-09-24T17:08:09.167075+00:00",
+        "ended_at": null,
+        "duration_ms": 100205.92,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have found the task description for the work on DoSSIER@COLIEE 2021, which addresses the legal case retrieval task (Task 1) aimed at automatically identifying supporting (noticed) cases for a given query case, as well as the legal case entailment task (Task 2)."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2634,
+          "completion": 217
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus for information about DoSSIER@COLIEE 2021 to understand what problem it addresses.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 Leveraging dense retrieval and summarization-based re-ranking",
+              "top_k": 5
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 1,
+            "duration_ms": 8378.97,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): In news and web search, contextualized language models like BERT\n[5] brought substantial effectiveness gains to the first stage retrieval\n[6, 8\u201310, 16, 27] as well as to the re-ranking stage [2, 7, 12, 13].\n\nWe aim to transfer these advantages also to the task of case law\nretrieval, however this task has specific challenges compared to\nretrieval tasks in the web and news domains: documents are written in domain specific language [24], there ",
+        "tokens": {
+          "prompt": 256,
+          "completion": 114
+        },
+        "duration_ms": 31643.61
+      },
+      {
+        "step": 2,
+        "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 by searching the corpus for more details from the paper.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 case law retrieval task problem",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document ",
+            "step": 2,
+            "duration_ms": 7497.49,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using",
+        "tokens": {
+          "prompt": 678,
+          "completion": 112
+        },
+        "duration_ms": 50153.53
+      },
+      {
+        "step": 3,
+        "thought": "I need to search for more details about the problem addressed by DoSSIER@COLIEE 2021 within the corpus.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 case law retrieval task task 1 dataset objective",
+              "top_k": 3
+            },
+            "result_summary": "[1] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law ",
+            "step": 3,
+            "duration_ms": 6274.72,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the que",
+        "tokens": {
+          "prompt": 1062,
+          "completion": 112
+        },
+        "duration_ms": 14726.93
+      },
+      {
+        "step": 4,
+        "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 in the paper by searching for more details regarding their approach and task description.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 dense retrieval summarization case law retrieval introduction abstract",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 4,
+            "duration_ms": 9578.8,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[3] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection wi",
+        "tokens": {
+          "prompt": 1440,
+          "completion": 120
+        },
+        "duration_ms": 23207.63
+      },
+      {
+        "step": 5,
+        "thought": "I need to find the specific problem addressed by DoSSIER@COLIEE 2021 by searching for more text inside the paper.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 case law retrieval task problem introduction",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document ",
+            "step": 5,
+            "duration_ms": 5636.21,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection with COLIEEDoc train/val/test.\n\nFor a broader evaluation, we\nevaluate our models additionally on the CaseLaw collection [24].\n\nIt contains\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using",
+        "tokens": {
+          "prompt": 1865,
+          "completion": 111
+        },
+        "duration_ms": 13603.5
+      },
+      {
+        "step": 6,
+        "thought": "I need to search for the specific introduction text of the DoSSIER@COLIEE 2021 paper to understand the exact problem it addresses.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 case law retrieval task introduction aim",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 6,
+            "duration_ms": 5577.19,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the query case [14].\n\nThe task consists of reading\na new case \ud835\udc44and selecting supporting cases \ud835\udc461,\ud835\udc462, . . . ,\ud835\udc46\ud835\udc5b(\"noticed\ncases\") from the whole \n\n[3] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection wi",
+        "tokens": {
+          "prompt": 2250,
+          "completion": 113
+        },
+        "duration_ms": 13800.5
+      },
+      {
+        "step": 7,
+        "thought": "I will search the corpus for the task description and problem addressed by DoSSIER@COLIEE 2021 regarding case law retrieval and legal case entailment.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 Task 1 Task 2 aim problem description",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the query case [14].\n\nThe task consists of reading\na new case \ud835\udc44and selecting supporting cases \ud835\udc461,\ud835\udc462, . . . ,\ud835\udc46\ud835\udc5b(\"noticed\ncases\") from the whole \n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 7,
+            "duration_ms": 14097.54,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): For Task 2 we submit 3 runs: one based on the ranking\non BM25, one based on the ranking of lawDPR and one with the\ncombination of BM25 and lawDPR.\n\nWe make the source code available at:\nhttps://github.com/sophiaalthammer/dossier_coliee.\n2\nTASK DESCRIPTION\n2.1\nTask 1: The Legal Case Retrieval Task\nThe aim of legal case retrieval is to design systems to automatically\nidentify the supporting cases of a given query case, which should be\nnoticed for solving the query case [14].\n\nThe task consists of reading\na new case \ud835\udc44and selecting supporting cases \ud835\udc461,\ud835\udc462, . . . ,\ud835\udc46\ud835\udc5b(\"noticed\ncases\") from the whole \n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[3] PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document Retrieval (p.6): Document-level labelled collections.\n\nIn Task 1 of COLIEE 2021 [29], the legal case\nretrieval task, query cases with their relevance judgements on the document-level are\nprovided together with a corpus of candidate documents.\n\nWe divide the training set of\nCOLIEEDoc into a training and validation set.\n\nThe validation set contains the last 100\nqueries of the training set from query case 550 to 650.\n\nWe will denote the training, validation and test collection wi",
+        "tokens": {
+          "prompt": 2659,
+          "completion": 119
+        },
+        "duration_ms": 23564.95
+      },
+      {
+        "step": 8,
+        "thought": "I have found the task description for the work on DoSSIER@COLIEE 2021, which addresses the legal case retrieval task (Task 1) aimed at automatically identifying supporting (noticed) cases for a given query case, as well as the legal case entailment task (Task 2).",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 2634,
+          "completion": 217
+        },
+        "duration_ms": 100205.92
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 8,
+      "tokens_used": 13862
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 12844,
+      "completion": 1018
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "12ccb44f-d1fa-42a6-953a-2722c3efdf75",
+    "schema_version": "1.0",
+    "query": "Is it accurate that Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy? Verify first.",
+    "answer": "Yes, it is accurate that Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves performance on tasks requiring multi-step reasoning, which can include complex retrieval and reasoning tasks [1].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:08:09.178118+00:00",
+    "ended_at": null,
+    "duration_ms": 57381.21,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "3990fafa-148a-43bf-894d-49ee9445b00a",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:09:06.561781+00:00",
+        "ended_at": null,
+        "duration_ms": 22613.66,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to verify if Chain-of-Thought Prompting improves retrieval accuracy by checking the relevant claim against the corpus."
+        },
+        "output": {
+          "observation": "verdict=supported score=1.00"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 250,
+          "completion": 106
+        },
+        "model": null
+      },
+      {
+        "span_id": "b62c1d24-2a0f-4e8d-aa69-d1d9bb4129e5",
+        "parent_id": "3990fafa-148a-43bf-894d-49ee9445b00a",
+        "kind": "tool",
+        "name": "verify_claim",
+        "started_at": "2026-09-24T17:09:06.561781+00:00",
+        "ended_at": null,
+        "duration_ms": 9579.84,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "claim": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy"
+        },
+        "output": {
+          "summary": "verdict=supported score=1.00"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "053341d6-3970-4d5b-a60c-a041dce49ac0",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:09:06.561781+00:00",
+        "ended_at": null,
+        "duration_ms": 25107.66,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have verified the claim and now I can provide the final answer citing the verified findings."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 284,
+          "completion": 124
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to verify if Chain-of-Thought Prompting improves retrieval accuracy by checking the relevant claim against the corpus.",
+        "tool_calls": [
+          {
+            "name": "verify_claim",
+            "arguments": {
+              "claim": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy"
+            },
+            "result_summary": "verdict=supported score=1.00",
+            "step": 1,
+            "duration_ms": 9579.84,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "verdict=supported score=1.00",
+        "tokens": {
+          "prompt": 250,
+          "completion": 106
+        },
+        "duration_ms": 22613.66
+      },
+      {
+        "step": 2,
+        "thought": "I have verified the claim and now I can provide the final answer citing the verified findings.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 284,
+          "completion": 124
+        },
+        "duration_ms": 25107.66
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 764
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 534,
+      "completion": 230
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "27c6e811-cfbd-4edf-a0fa-bbf9254622ef",
+    "schema_version": "1.0",
+    "query": "Is it accurate that RELIC: Retrieving Evidence for Literary Claims improves retrieval accuracy? Verify first.",
+    "answer": "Yes, it is accurate. RELIC (Retrieving Evidence for Literary Claims) successfully improves retrieval accuracy for literary evidence extraction and related tasks [1].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:09:06.587196+00:00",
+    "ended_at": null,
+    "duration_ms": 46893.45,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "0be4792e-712b-4b06-b984-10a0a7b37d63",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:09:53.481065+00:00",
+        "ended_at": null,
+        "duration_ms": 23544.11,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to verify the claim about RELIC improving retrieval accuracy by searching the corpus."
+        },
+        "output": {
+          "observation": "verdict=supported score=1.00"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 244,
+          "completion": 93
+        },
+        "model": null
+      },
+      {
+        "span_id": "288d00d4-3f4c-4ef3-903b-98a2181cb5ff",
+        "parent_id": "0be4792e-712b-4b06-b984-10a0a7b37d63",
+        "kind": "tool",
+        "name": "verify_claim",
+        "started_at": "2026-09-24T17:09:53.482046+00:00",
+        "ended_at": null,
+        "duration_ms": 8966.45,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "claim": "RELIC: Retrieving Evidence for Literary Claims improves retrieval accuracy"
+        },
+        "output": {
+          "summary": "verdict=supported score=1.00"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "56a819ce-9187-4745-b8b2-17ccba2c0c8b",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:09:53.482046+00:00",
+        "ended_at": null,
+        "duration_ms": 14344.29,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "The claim that RELIC improves retrieval accuracy has been verified as supported. I can now provide the final answer."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 272,
+          "completion": 116
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to verify the claim about RELIC improving retrieval accuracy by searching the corpus.",
+        "tool_calls": [
+          {
+            "name": "verify_claim",
+            "arguments": {
+              "claim": "RELIC: Retrieving Evidence for Literary Claims improves retrieval accuracy"
+            },
+            "result_summary": "verdict=supported score=1.00",
+            "step": 1,
+            "duration_ms": 8966.45,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "verdict=supported score=1.00",
+        "tokens": {
+          "prompt": 244,
+          "completion": 93
+        },
+        "duration_ms": 23544.11
+      },
+      {
+        "step": 2,
+        "thought": "The claim that RELIC improves retrieval accuracy has been verified as supported. I can now provide the final answer.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 272,
+          "completion": 116
+        },
+        "duration_ms": 14344.29
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 725
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 516,
+      "completion": 209
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "0bedd3c9-75e7-4e42-9293-096a26b57b80",
+    "schema_version": "1.0",
+    "query": "Compare the approaches taken in Approximate nearest neighbor search for $\\ell_p$-spaces ($2 and in Chain-of-Thought Prompting Elicits Reasoning in Large Language.",
+    "answer": "The two papers address fundamentally different domains and methodological challenges. 'Approximate nearest neighbor search for \\ell_p-spaces (2 < p < \\infty) via embeddings' focuses on algorithmic geometry and data structures, presenting novel approximation algorithms and factor guarantees for nearest neighbor search in \\ell_p-spaces where 2 < p < \\infty [1]. In contrast, 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models' addresses natural language processing and neural generation, demonstrating that prompting large language models to produce a series of intermediate reasoning steps significantly improves their complex reasoning performance [1]. While the former relies on mathematical embeddings and geometric space transformations, the latter relies on sequential token generation to elicit emergent reasoning capabilities in large-scale neural architectures.",
+    "session_id": null,
+    "started_at": "2026-09-24T17:09:53.484811+00:00",
+    "ended_at": null,
+    "duration_ms": 79984.31,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "fe13ee46-75b0-4bc3-96ca-1a9ae9867696",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:11:13.469716+00:00",
+        "ended_at": null,
+        "duration_ms": 25646.25,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for the two mentioned papers to compare their approaches."
+        },
+        "output": {
+          "observation": "[1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (p.1): Chain-of-Thought Prompting Elicits Reasoning\nin Large Language Models\nJason Wei\nXuezhi Wang\nDale Schuurmans\nMaarten Bosma\nBrian Ichter\nFei Xia\nEd H.\n\nChi\nQuoc V.\n\nLe\nDenny Zhou\narXiv:2201.11903v6 [cs.CL] 10 Jan 2023\nGoogle Research, Brain Team\n{jasonwei,dennyzhou}@google.com\nAbstract\nWe explore how generating a chain of thought\u2014a series of intermediate reasoning\nsteps\u2014signi\ufb01cantly improves the ability of large language models to perform\ncomplex reasoning.\n\nIn particular, we show how such reasoning abilities emerge\nnaturally in suf\ufb01ciently large language models via a simple method called chain-\n\n[2] Language Models Are Greedy Reasoners: A Systematic Formal Analysis of Chain-of-Thought (p.13): Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed H.\n\nChi, Quoc Le, and Denny Zhou.\n\nChain of thought prompting elicits reasoning in large language models.\n\nCoRR, abs/2201.11903,\n2022.\n\nURL https://arxiv.org/a"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 259,
+          "completion": 102
+        },
+        "model": null
+      },
+      {
+        "span_id": "fea15591-6692-4546-bc3c-8ae53e9da473",
+        "parent_id": "fe13ee46-75b0-4bc3-96ca-1a9ae9867696",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:11:13.470721+00:00",
+        "ended_at": null,
+        "duration_ms": 6799.65,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "Approximate nearest neighbor search and Chain-of-Thought Prompting Elicits Reasoning in Large Language",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (p.1): Chain-of-Thought Prompting Elicits Reasoning\nin Large Language Models\nJason Wei\nXuezhi Wang\nDale Schuurmans\nMaarten Bosma\nBrian Ichter\nFei Xia\nEd H.\n\nChi\nQuoc V.\n\nLe\nDenny Zhou\narXiv:2201.11903v6 [cs.CL] 10 Jan 2023\nGoogle Research, Brain Team\n{jasonwei,dennyzhou}@google.com\nAbstract\nWe explore how generating a chain of thought\u2014a series of intermediate reasoning\nsteps\u2014signi\ufb01cantly improves the ability of large language models to perform\ncomplex reasoning.\n\nIn particular, we show how such reasoning abilities emerge\nnaturally in suf\ufb01ciently large language models via a simple method called chain-\n\n[2] Language Models Are Greedy Reasoners: A Systematic Formal Analysis of Chain-of-Thought (p.13): Jason Wei, Xuezhi "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "75551fc1-4a84-4e0a-a9c9-a972e2d69542",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:11:13.470721+00:00",
+        "ended_at": null,
+        "duration_ms": 10241.54,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for the paper on approximate nearest neighbor search for lp-spaces to compare it with Chain-of-Thought prompting."
+        },
+        "output": {
+          "observation": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] Decoupling Vector Data and Index Storage for Space Efficiency (p.1): Abstract\nManaging large-scale vector datasets with disk-resident\ngraph approximate nearest neighbor search (ANNS) systems\nincurs substantial storage overhead due to the co-location of\nvector data and auxiliary index metadata"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 657,
+          "completion": 84
+        },
+        "model": null
+      },
+      {
+        "span_id": "e224375c-fade-445b-970f-d3119eadeb0a",
+        "parent_id": "75551fc1-4a84-4e0a-a9c9-a972e2d69542",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:11:13.470721+00:00",
+        "ended_at": null,
+        "duration_ms": 5336.93,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "Approximate nearest neighbor search for lp spaces",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] Decoupling Vector Data and Index Storage for Space Efficiency (p.1): Abstract\nManaging large-"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "34d01644-53c4-46c8-bf28-7ce2e19fd93b",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_3",
+        "started_at": "2026-09-24T17:11:13.470721+00:00",
+        "ended_at": null,
+        "duration_ms": 31592.07,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have found the relevant papers on both approximate nearest neighbor search in lp-spaces and chain-of-thought prompting in large language models, so I can now compare their approaches and provide the final answer."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 982,
+          "completion": 259
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus for the two mentioned papers to compare their approaches.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "Approximate nearest neighbor search and Chain-of-Thought Prompting Elicits Reasoning in Large Language",
+              "top_k": 5
+            },
+            "result_summary": "[1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (p.1): Chain-of-Thought Prompting Elicits Reasoning\nin Large Language Models\nJason Wei\nXuezhi Wang\nDale Schuurmans\nMaarten Bosma\nBrian Ichter\nFei Xia\nEd H.\n\nChi\nQuoc V.\n\nLe\nDenny Zhou\narXiv:2201.11903v6 [cs.CL] 10 Jan 2023\nGoogle Research, Brain Team\n{jasonwei,dennyzhou}@google.com\nAbstract\nWe explore how generating a chain of thought\u2014a series of intermediate reasoning\nsteps\u2014signi\ufb01cantly improves the ability of large language models to perform\ncomplex reasoning.\n\nIn particular, we show how such reasoning abilities emerge\nnaturally in suf\ufb01ciently large language models via a simple method called chain-\n\n[2] Language Models Are Greedy Reasoners: A Systematic Formal Analysis of Chain-of-Thought (p.13): Jason Wei, Xuezhi ",
+            "step": 1,
+            "duration_ms": 6799.65,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (p.1): Chain-of-Thought Prompting Elicits Reasoning\nin Large Language Models\nJason Wei\nXuezhi Wang\nDale Schuurmans\nMaarten Bosma\nBrian Ichter\nFei Xia\nEd H.\n\nChi\nQuoc V.\n\nLe\nDenny Zhou\narXiv:2201.11903v6 [cs.CL] 10 Jan 2023\nGoogle Research, Brain Team\n{jasonwei,dennyzhou}@google.com\nAbstract\nWe explore how generating a chain of thought\u2014a series of intermediate reasoning\nsteps\u2014signi\ufb01cantly improves the ability of large language models to perform\ncomplex reasoning.\n\nIn particular, we show how such reasoning abilities emerge\nnaturally in suf\ufb01ciently large language models via a simple method called chain-\n\n[2] Language Models Are Greedy Reasoners: A Systematic Formal Analysis of Chain-of-Thought (p.13): Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed H.\n\nChi, Quoc Le, and Denny Zhou.\n\nChain of thought prompting elicits reasoning in large language models.\n\nCoRR, abs/2201.11903,\n2022.\n\nURL https://arxiv.org/abs/2201.11903.\n\nSean Welleck, Jiacheng Liu, Ronan Le Bras, Hanna Hajishirzi, Yejin Choi, and Kyunghyun Cho.\n\nNaturalproofs: Mathematical theorem proving in natural language.\n\nIn Joaquin Vanschoren\nand Sai-Kit Yeung (eds.), Proceedings of the Neural Information Processing Systems Track\non Datasets and Benchmarks 1, NeurIPS Datasets and Benchmarks 2021, December 2021,\nvirtual, 2021\n\n[3] GPU-Accelerated Algorithms for Graph Vector Search: Taxonomy, Empirical Study, and Research Directions (p.1): Abstract\nApproximate Nearest Neighbor Search (ANNS) underpins many\nlarge-scale data mining and machine learning applications, with efficient retrieval increasingly hinging on GPU acceleration as dataset\nsizes grow.\n\nAlthough graph-based approaches represent the state\nof the art in approximate nearest neighbor search, there is a lack of\nsystematic understanding regarding their optimization for modern\nGPU architectures and their end-to-end effectiveness in practical\nscenarios In this work, we presen",
+        "tokens": {
+          "prompt": 259,
+          "completion": 102
+        },
+        "duration_ms": 25646.25
+      },
+      {
+        "step": 2,
+        "thought": "I need to search the corpus for the paper on approximate nearest neighbor search for lp-spaces to compare it with Chain-of-Thought prompting.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "Approximate nearest neighbor search for lp spaces",
+              "top_k": 5
+            },
+            "result_summary": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] Decoupling Vector Data and Index Storage for Space Efficiency (p.1): Abstract\nManaging large-",
+            "step": 2,
+            "duration_ms": 5336.93,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p < \\infty$) via embeddings (p.1): Approximate nearest neighbor search for \u2113p-spaces (2 < p < \u221e) via\nembeddings\nYair Bartal \u2217\nLee-Ad Gottlieb \u2020\nAugust 6, 2018\narXiv:1512.01775v1 [cs.CG] 6 Dec 2015\nAbstract\nWhile the problem of approximate nearest neighbor search has been well-studied for Euclidean space and \u21131, few non-trivial algorithms are known for \u2113p when 2 < p < \u221e.\n\nIn this\npaper, we revisit this fundamental problem and present approximate nearest-neighbor search\nalgorithms which give the \ufb01rst non-trivial approximation factor guarantees in this setting.\n1\nIntroduction\nNearest neighbor search (NNS) is one of the basic opera\n\n[2] Decoupling Vector Data and Index Storage for Space Efficiency (p.1): Abstract\nManaging large-scale vector datasets with disk-resident\ngraph approximate nearest neighbor search (ANNS) systems\nincurs substantial storage overhead due to the co-location of\nvector data and auxiliary index metadata, which prevents the\nstorage layer from exploiting their distinct compressibility.\n\nWe present DecoupleVS, a component-aware compressed\nstorage framework for disk-resident graph vector search.\n\nLeveraging data-index decoupling as a foundation, DecoupleVS losslessly compresses each component according to its\ndistinct compressibility characteristics, thereby significantly\nred\n\n[3] EFANNA : An Extremely Fast Approximate Nearest Neighbor Search Algorithm Based on kNN Graph (p.2): This property is never explored\nin the previous work.\n\nThe remainder of this paper is organized as follows.\n\nIn Section 2 we will introduce some related work.\n\nOur\nEFANNA algorithm is presented in section 3.\n\nIn section\n4, we will report the experimental results and show the\nperformance of EFANNA comprehensively.\n\nIn section 5\nwe will talk about our open library and in section 6 we\nwill draw a conclusion.\n2\nRELATED WORK\nNearest neighbor search [35] has been a hot topic during\nthe last decades.\n\nDue to the intrinsi",
+        "tokens": {
+          "prompt": 657,
+          "completion": 84
+        },
+        "duration_ms": 10241.54
+      },
+      {
+        "step": 3,
+        "thought": "I have found the relevant papers on both approximate nearest neighbor search in lp-spaces and chain-of-thought prompting in large language models, so I can now compare their approaches and provide the final answer.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 982,
+          "completion": 259
+        },
+        "duration_ms": 31592.07
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 3,
+      "tokens_used": 2343
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 1898,
+      "completion": 445
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "7d93e0be-d74f-4b50-b808-062b3db143c0",
+    "schema_version": "1.0",
+    "query": "Compare the approaches taken in DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based and in RELIC: Retrieving Evidence for Literary Claims.",
+    "answer": "DoSSIER@COLIEE 2021 focuses on case law retrieval and addresses the challenge of long legal documents by splitting documents into paragraphs for first-stage dense retrieval and using document summaries for neural re-ranking with BERT [1, 6]. In contrast, RELIC (Retrieving Evidence for Literary Claims) addresses the challenging literary domain by retrieving context passages that support literary claims, utilizing contrastive objectives and handling complex linguistic and literary phenomena such as irony and metaphor [1, 2].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:11:13.478837+00:00",
+    "ended_at": null,
+    "duration_ms": 217132.6,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "6f316b26-3734-4f22-9381-90928c10100c",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:14:50.614101+00:00",
+        "ended_at": null,
+        "duration_ms": 10270.45,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus to gather information on both DoSSIER@COLIEE 2021 and RELIC: Retrieving Evidence for Literary Claims."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject P"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 261,
+          "completion": 117
+        },
+        "model": null
+      },
+      {
+        "span_id": "407e09d8-3530-4206-872f-661abe98369f",
+        "parent_id": "6f316b26-3734-4f22-9381-90928c10100c",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.614101+00:00",
+        "ended_at": null,
+        "duration_ms": 5886.76,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER@COLIEE 2021 RELIC Retrieving Evidence for Literary Claims",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving "
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "bef8d87b-180b-42b0-b7ef-922dcb80629d",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:14:50.614101+00:00",
+        "ended_at": null,
+        "duration_ms": 18247.96,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search for more details on both the DoSSIER@COLIEE 2021 approach and the RELIC approach to compare them effectively."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 664,
+          "completion": 121
+        },
+        "model": null
+      },
+      {
+        "span_id": "68cb3a6a-db4b-43cb-a544-1fda91d7ad26",
+        "parent_id": "bef8d87b-180b-42b0-b7ef-922dcb80629d",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.614101+00:00",
+        "ended_at": null,
+        "duration_ms": 5706.99,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER COLIEE 2021 dense retrieval summarization case law RELIC Retrieving Evidence for Literary Claims",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "a99b463e-7cfb-49bb-8061-f05215ffe003",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_3",
+        "started_at": "2026-09-24T17:14:50.614101+00:00",
+        "ended_at": null,
+        "duration_ms": 30979.08,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search for more details on the methods used in DoSSIER@COLIEE 2021 and RELIC to compare their approaches."
+        },
+        "output": {
+          "observation": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden U"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1093,
+          "completion": 113
+        },
+        "model": null
+      },
+      {
+        "span_id": "dec8f496-3781-46f9-9539-2e8c11c2236b",
+        "parent_id": "a99b463e-7cfb-49bb-8061-f05215ffe003",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 6116.97,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER case law dense retrieval summarization re-ranking RELIC literary claims evidence",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-pa"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "fcdbab00-903b-434e-93ca-2644e5cb5427",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_4",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 16140.34,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search for more details regarding the methodology of RELIC to compare it with DoSSIER."
+        },
+        "output": {
+          "observation": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.2): To facilitate future research in this direction, we\npublicly release our dataset and models.1\n2\nCollecting a Dataset for Literary\nEvidence Retrieval\nWe collect a dataset for the task of Retrieving\nEvidence for Literary Claims, or RELiC, the \ufb01rst\nlarge-scale retrieval dataset that f"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1485,
+          "completion": 97
+        },
+        "model": null
+      },
+      {
+        "span_id": "3851cb8f-1d9e-4a5d-991c-7a4de44eef0a",
+        "parent_id": "fcdbab00-903b-434e-93ca-2644e5cb5427",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 5313.2,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "RELIC Retrieving Evidence for Literary Claims method model retrieval",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.2): To facilitate future research in this direction, we\npublicly release our dataset a"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "20df921d-97c6-488a-9043-98e534b17cda",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_5",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 9855.42,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need more details on the exact methodology of DoSSIER@COLIEE 2021 to compare it with RELIC."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 1827,
+          "completion": 112
+        },
+        "model": null
+      },
+      {
+        "span_id": "581768e0-d91f-4380-a56c-9d2c280ac685",
+        "parent_id": "20df921d-97c6-488a-9043-98e534b17cda",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 5646.12,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER COLIEE 2021 dense retrieval summarization-based re-ranking methodology",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "4dbdf55a-ff95-4cfe-a0f8-2ad35cd10871",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_6",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 17112.17,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to read more details about the methodology of DoSSIER to fully compare it with RELIC."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Cop"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2252,
+          "completion": 107
+        },
+        "model": null
+      },
+      {
+        "span_id": "531dfe1b-cc75-477e-b488-ee6b5e0e69d4",
+        "parent_id": "4dbdf55a-ff95-4cfe-a0f8-2ad35cd10871",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 4335.85,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER COLIEE 2021 dense retrieval summarization-based re-ranking approach method",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "a0bfa620-23f6-4949-8ad9-4c4f25eeac58",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_7",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 38113.25,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to read more details about the methodologies used in both DoSSIER@COLIEE 2021 and RELIC to accurately compare their approaches."
+        },
+        "output": {
+          "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.6): Our goal is to combine traditional lexical retrieval models with dense passage retrieval models\nas well as use contextualized re-ranking models for re-ranking the\nresults.\n\nFor legal case retrieval we identify the challenge of long\ndocuments for dense retrieval and neural re-ranking strategies.\n\nTherefore we present, compare and evaluate two approaches for\nhandling the long documents:\n\n\u2022 Splitting up the documents into their paragraphs and proposing a paragraph-level retrieval for first stage retrieval and\n\u2022 Generating summaries for the neural re-ranking with BERT.\nWe show that the paragraph-l\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2658,
+          "completion": 111
+        },
+        "model": null
+      },
+      {
+        "span_id": "5de164f2-285d-4f92-b2e8-c5d6973f87d9",
+        "parent_id": "a0bfa620-23f6-4949-8ad9-4c4f25eeac58",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 11624.87,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "DoSSIER case law dense retrieval summarization re-ranking methodology details",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.6): Our goal is to combine traditional lexical retrieval models with dense passage retrieval models\nas well as use contextualized re-ranking models for re-ranking the\nresults.\n\nFor legal case retrieval we identify the challenge of long\ndocuments for dense retrieval and neural re-ranking strategies.\n\nTherefore we present, compare and evaluate two approaches for\nhandling the long documents:\n\n\u2022 Splitting up the documents into their paragraphs and proposing a paragraph-level retrieval for first stage retrieval and\n\u2022 Generating summaries for the neural re-ranking with BERT.\nWe show that the paragraph-l\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "79b2168b-a06e-47ff-bdae-01d0db560b37",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_8",
+        "started_at": "2026-09-24T17:14:50.615412+00:00",
+        "ended_at": null,
+        "duration_ms": 31642.5,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have sufficient information regarding the methodologies of both DoSSIER@COLIEE 2021 and RELIC to formulate a comparison."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 2589,
+          "completion": 193
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus to gather information on both DoSSIER@COLIEE 2021 and RELIC: Retrieving Evidence for Literary Claims.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER@COLIEE 2021 RELIC Retrieving Evidence for Literary Claims",
+              "top_k": 5
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving ",
+            "step": 1,
+            "duration_ms": 5886.76,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[3] RELIC: Retrieving Evidence for Literary Claims (p.1): This literary evidence retrieval task (see Figure 1) differs\nconsiderably from retrieval problems commonly\nstudied in NLP, such as those used for fact checking (Thorne et al., 2018), open-domain QA (Chen\net al., 2017; Chen and Yih, 2020), and text generation (Krishna et al., 2021), in the relative lack of\nlexical or even semantic similarity between claims\nand queries.\n\nInstead of latching onto surface-level\ncues, our task requires models to understand complex devices in literary writing and apply general\ntheories of interpretation.\n\nRELiC is also challengin",
+        "tokens": {
+          "prompt": 261,
+          "completion": 117
+        },
+        "duration_ms": 10270.45
+      },
+      {
+        "step": 2,
+        "thought": "I need to search for more details on both the DoSSIER@COLIEE 2021 approach and the RELIC approach to compare them effectively.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER COLIEE 2021 dense retrieval summarization case law RELIC Retrieving Evidence for Literary Claims",
+              "top_k": 5
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 2,
+            "duration_ms": 5706.99,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[3] RELIC: Retrieving Evidence for Literary Claims (p.1): This literary evidence retrieval task (see Figure 1) differs\nconsiderably from retrieval problems commonly\nstudied in NLP, such as those used for fact checking (Thorne et al., 2018), open-domain QA (Chen\net al., 2017; Chen and Yih, 2020), and text generation (Krishna et al., 2021), in the relative lack of\nlexical or even semantic similarity between claims\nand queries.\n\nInstead of latching onto surface-level\ncues, our task requires models to understand complex devices in literary writing and apply ge",
+        "tokens": {
+          "prompt": 664,
+          "completion": 121
+        },
+        "duration_ms": 18247.96
+      },
+      {
+        "step": 3,
+        "thought": "I need to search for more details on the methods used in DoSSIER@COLIEE 2021 and RELIC to compare their approaches.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER case law dense retrieval summarization re-ranking RELIC literary claims evidence",
+              "top_k": 5
+            },
+            "result_summary": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-pa",
+            "step": 3,
+            "duration_ms": 6116.97,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[3] RELIC: Retrieving Evidence for Literary Claims (p.9): We \ufb01nd that direct quotation of primary\nsources in literary analysis is most commonly used\nas evidence for literary claims or arguments.\n\nWe\ntrain a dense retriever model for our task; while it\nsigni\ufb01cantly outperforms baselines, human performance indicates a large room for improvement.\n\nImportant future directions include (1) building better\nmodels of primary sources that integrate narrative\nand discourse structure into the candidate representations instead of computing them out-of-context,\nand (2) integrating RELiC models into real tools\nthat can bene\ufb01t h",
+        "tokens": {
+          "prompt": 1093,
+          "completion": 113
+        },
+        "duration_ms": 30979.08
+      },
+      {
+        "step": 4,
+        "thought": "I need to search for more details regarding the methodology of RELIC to compare it with DoSSIER.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "RELIC Retrieving Evidence for Literary Claims method model retrieval",
+              "top_k": 3
+            },
+            "result_summary": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.2): To facilitate future research in this direction, we\npublicly release our dataset a",
+            "step": 4,
+            "duration_ms": 5313.2,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] RELIC: Retrieving Evidence for Literary Claims (p.1): R E L I C : Retrieving Evidence for Literary Claims\nKatherine Thai\nYapei Chang\nKalpesh Krishna\nMohit Iyyer\nUniversity of Massachusetts Amherst,\nSmith College\n{kbthai,kalpesh,miyyer}@cs.umass.edu\nechang33@smith.edu\nProject Page: https://relic.cs.umass.edu\nAbstract\ntions (e.g., recognizing that Elizabeth says \u201ccharmingly grouped\u201d and \u201cpicturesque\u201d ironically in order to group Darcy with the snobbish Bingley sisters).\n\nThis process requires a deep understanding of both literary phenomena, such as irony and\nmetaphor, and linguistic phenomena (coreference,\nparaphrasing, and stylistics).\n\nIn this pa\n\n[2] RELIC: Retrieving Evidence for Literary Claims (p.2): To facilitate future research in this direction, we\npublicly release our dataset and models.1\n2\nCollecting a Dataset for Literary\nEvidence Retrieval\nWe collect a dataset for the task of Retrieving\nEvidence for Literary Claims, or RELiC, the \ufb01rst\nlarge-scale retrieval dataset that focuses on the challenging literary domain.\n\nEach example in RELiC\nconsists of two parts: (1) the context surround1https://relic.cs.umass.edu\nStep 3: apply a contrastive objective \nto push the context vector q close (+) \nto the correct quotation vector (q4387) \nand far (-) from all other candidates\nq1\n\u2026\n-\nq4387\n+\nc\n\u2026\n\n\n[3] RELIC: Retrieving Evidence for Literary Claims (p.9): We \ufb01nd that direct quotation of primary\nsources in literary analysis is most commonly used\nas evidence for literary claims or arguments.\n\nWe\ntrain a dense retriever model for our task; while it\nsigni\ufb01cantly outperforms baselines, human performance indicates a large room for improvement.\n\nImportant future directions include (1) building better\nmodels of primary sources that integrate narrative\nand discourse structure into the candidate representations instead of computing them out-of-context,\nand (2) integrating RELiC models into real tools\nthat can bene\ufb01t humanities researchers.\n\nRetrieving ci",
+        "tokens": {
+          "prompt": 1485,
+          "completion": 97
+        },
+        "duration_ms": 16140.34
+      },
+      {
+        "step": 5,
+        "thought": "I need more details on the exact methodology of DoSSIER@COLIEE 2021 to compare it with RELIC.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER COLIEE 2021 dense retrieval summarization-based re-ranking methodology",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 5,
+            "duration_ms": 5646.12,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): In news and web search, contextualized language models like BERT\n[5] brought substantial effectiveness gains to the first stage retrieval\n[6, 8\u201310, 16, 27] as well as to the re-ranking stage [2, 7, 12, 13].\n\nWe aim to transfer these advantages also to the task of case law\nretrieval, however this task has specific challenges compared to\nretrieval tasks in the web and news domains: documents are written in domain specific language [24], there ",
+        "tokens": {
+          "prompt": 1827,
+          "completion": 112
+        },
+        "duration_ms": 9855.42
+      },
+      {
+        "step": 6,
+        "thought": "I need to read more details about the methodology of DoSSIER to fully compare it with RELIC.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER COLIEE 2021 dense retrieval summarization-based re-ranking approach method",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 6,
+            "duration_ms": 4335.85,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Copyrights for third-party components of this work must be honored.\n\nFor all other uses, contact the owner/author(s).\n\nCOLIEE 2021, June 21, 2021, Online\n\u00a9 2021 Copyright held by the owner/author(s).\n\nArian Askari\u2217\nLeiden University\nLeiden, Netherlands\na.askari@liacs.leidenuniv.nl\nAllan Hanbury\nTU Vienna\nVienna, Austria\nallan.hanbury@tuwien.ac.at\nACM Reference Format:\nSophia Althammer, Arian Askari, Suzan Verberne, and Allan Hanbury. 2021.\n\nDoSSIER@COLIEE 2021: Leveraging dense retrieval and summarizationbased re-ranking for case law retrieval.\n\nIn Proceedings of COLIEE 2021 workshop: Competit\n\n[3] PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval (p.2): The existing\napproaches for dense passage retrieval can be divided into two categories: (1) unsupervised pretraining for retrieval (2) \ufb01ne-tuning only on labeled data.\n\nIn the \ufb01rst category, different pre-training tasks\nfor retrieval were proposed.\n\nLee et al.\n\n(2019)\nproposed a speci\ufb01c approach to pre-training the\nretriever with an unsupervised task, namely Inverse Cloze Task (ICT), and then jointly \ufb01netuned the retriever and a reader on labeled data.\n\nRE",
+        "tokens": {
+          "prompt": 2252,
+          "completion": 107
+        },
+        "duration_ms": 17112.17
+      },
+      {
+        "step": 7,
+        "thought": "I need to read more details about the methodologies used in both DoSSIER@COLIEE 2021 and RELIC to accurately compare their approaches.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "DoSSIER case law dense retrieval summarization re-ranking methodology details",
+              "top_k": 3
+            },
+            "result_summary": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.6): Our goal is to combine traditional lexical retrieval models with dense passage retrieval models\nas well as use contextualized re-ranking models for re-ranking the\nresults.\n\nFor legal case retrieval we identify the challenge of long\ndocuments for dense retrieval and neural re-ranking strategies.\n\nTherefore we present, compare and evaluate two approaches for\nhandling the long documents:\n\n\u2022 Splitting up the documents into their paragraphs and proposing a paragraph-level retrieval for first stage retrieval and\n\u2022 Generating summaries for the neural re-ranking with BERT.\nWe show that the paragraph-l\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ra",
+            "step": 7,
+            "duration_ms": 11624.87,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.6): Our goal is to combine traditional lexical retrieval models with dense passage retrieval models\nas well as use contextualized re-ranking models for re-ranking the\nresults.\n\nFor legal case retrieval we identify the challenge of long\ndocuments for dense retrieval and neural re-ranking strategies.\n\nTherefore we present, compare and evaluate two approaches for\nhandling the long documents:\n\n\u2022 Splitting up the documents into their paragraphs and proposing a paragraph-level retrieval for first stage retrieval and\n\u2022 Generating summaries for the neural re-ranking with BERT.\nWe show that the paragraph-l\n\n[2] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.1): Sophia Althammer\u2217\nTU Vienna\nVienna, Austria\nsophia.althammer@tuwien.ac.at\nSuzan Verberne\nLeiden University\nLeiden, Netherlands\ns.verberne@liacs.leidenuniv.nl\narXiv:2108.03937v1 [cs.IR] 9 Aug 2021\nABSTRACT\nIn this paper, we present our approaches for the case law retrieval\nand the legal case entailment task in the Competition on Legal\nInformation Extraction/Entailment (COLIEE) 2021.\n\nAs first stage\nretrieval methods combined with neural re-ranking methods using contextualized language models like BERT [5] achieved great\nperformance improvements for information retrieval in the web\nand news doma\n\n[3] DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for case law retrieval (p.2): We train the dense passage retrieval\nmodel on the legal entailing paragraph pairs as we suggest that\nthe relevance of the paragraphs to each other is crucial for the\nrelevance on the document-level.\n\nWe denote the trained DPR model\nwith lawDPR.\n\nWhen comparing the paragraph-level and documentlevel retrieval, we demonstrate that the paragraph-level retrieval\nachieves a higher recall for BM25 as well as for lawDPR and that\nlawDPR outperforms B",
+        "tokens": {
+          "prompt": 2658,
+          "completion": 111
+        },
+        "duration_ms": 38113.25
+      },
+      {
+        "step": 8,
+        "thought": "I have sufficient information regarding the methodologies of both DoSSIER@COLIEE 2021 and RELIC to formulate a comparison.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 2589,
+          "completion": 193
+        },
+        "duration_ms": 31642.5
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 8,
+      "tokens_used": 13800
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 12829,
+      "completion": 971
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "8b246132-f80f-4733-aefc-10a229a314b7",
+    "schema_version": "1.0",
+    "query": "Summarise what the papers say about chunking strategies.",
+    "answer": "The papers discuss several chunking strategies for Retrieval-Augmented Generation (RAG). Conventional methods include fixed-sized chunking and format-based recursive chunking [1]. Additionally, semantic chunking has gained prominence because it improves retrieval outcomes using sentence similarity, although strategies like cluster-based chunking are more computationally demanding than traditional approaches [1]. Research also evaluates the overall impact of text chunk size and retrieval configurations on generation quality, relevance, and efficiency [2].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:14:50.622259+00:00",
+    "ended_at": null,
+    "duration_ms": 92397.48,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "2a7272ce-6b6b-4d0c-ac7b-e907b0225422",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:16:23.020355+00:00",
+        "ended_at": null,
+        "duration_ms": 49480.8,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for papers discussing chunking strategies to understand how they are approached in the literature."
+        },
+        "output": {
+          "observation": "[1] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Conventional strategies are fixed-sized chunking or\nformat based recursive chunking.\n\nSemantic chunking gained\nprominence due to its potential to improve retrieval outcomes\nbased on sentence similarity.\n\nHowever, semantic strategies like\ncluster based chunking are computationally more demanding\ncompared to traditional methods [2].\n\nCore contributions of this\npaper are as follows:\n\u2022 We establish a measure combining faithfulness and answer relevancy called Answer Quality Score (AQS).\n\u2022 We show issues regarding the evaluation using RAGAs\non mid-range hardware.\n\u2022 We show how different chunking str\n\n[2] The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance (p.4): Overall, this implementation enables controlled experimentation across different chunk sizes\nand retrieval configurations, allowing for direct comparison of their impact on generation\nquality, relevance, and efficien"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 235,
+          "completion": 90
+        },
+        "model": null
+      },
+      {
+        "span_id": "042adbb5-5261-4b31-8dc3-6e374cf6749a",
+        "parent_id": "2a7272ce-6b6b-4d0c-ac7b-e907b0225422",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:16:23.020355+00:00",
+        "ended_at": null,
+        "duration_ms": 7178.66,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "chunking strategies",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Conventional strategies are fixed-sized chunking or\nformat based recursive chunking.\n\nSemantic chunking gained\nprominence due to its potential to improve retrieval outcomes\nbased on sentence similarity.\n\nHowever, semantic strategies like\ncluster based chunking are computationally more demanding\ncompared to traditional methods [2].\n\nCore contributions of this\npaper are as follows:\n\u2022 We establish a measure combining faithfulness and answer relevancy called Answer Quality Score (AQS).\n\u2022 We show issues regarding the evaluation using RAGAs\non mid-range hardware.\n\u2022 We show how different chunking str\n\n[2] The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance (p.4): Overall, this im"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "36475c16-e2e1-4c88-bda8-04323f167f8a",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:16:23.020355+00:00",
+        "ended_at": null,
+        "duration_ms": 35703.92,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have sufficient information from the corpus to summarize chunking strategies as involving fixed-sized chunking, format-based recursive chunking, and semantic/cluster-based chunking, along with considerations of chunk size and computational demands."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 494,
+          "completion": 205
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus for papers discussing chunking strategies to understand how they are approached in the literature.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "chunking strategies",
+              "top_k": 5
+            },
+            "result_summary": "[1] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Conventional strategies are fixed-sized chunking or\nformat based recursive chunking.\n\nSemantic chunking gained\nprominence due to its potential to improve retrieval outcomes\nbased on sentence similarity.\n\nHowever, semantic strategies like\ncluster based chunking are computationally more demanding\ncompared to traditional methods [2].\n\nCore contributions of this\npaper are as follows:\n\u2022 We establish a measure combining faithfulness and answer relevancy called Answer Quality Score (AQS).\n\u2022 We show issues regarding the evaluation using RAGAs\non mid-range hardware.\n\u2022 We show how different chunking str\n\n[2] The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance (p.4): Overall, this im",
+            "step": 1,
+            "duration_ms": 7178.66,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Conventional strategies are fixed-sized chunking or\nformat based recursive chunking.\n\nSemantic chunking gained\nprominence due to its potential to improve retrieval outcomes\nbased on sentence similarity.\n\nHowever, semantic strategies like\ncluster based chunking are computationally more demanding\ncompared to traditional methods [2].\n\nCore contributions of this\npaper are as follows:\n\u2022 We establish a measure combining faithfulness and answer relevancy called Answer Quality Score (AQS).\n\u2022 We show issues regarding the evaluation using RAGAs\non mid-range hardware.\n\u2022 We show how different chunking str\n\n[2] The Effect of Text Chunk Size on Retrieval-Augmented Generation Performance (p.4): Overall, this implementation enables controlled experimentation across different chunk sizes\nand retrieval configurations, allowing for direct comparison of their impact on generation\nquality, relevance, and efficiency.\n4\n\nFigure 1: Flowchart Depicting the Source Document Pipeline\nFigure 2: Flowchart Depicting the RAG Pipeline\nExperimentation\n5\n\nTo first ensure the program could effectively retrieve relevant source chunks, I produced\na set of 100 prompts, generated by ChatGPT, that were intended to simulate realistic\nprompts, varying in scope specificity and complexity. For each prompt, I test\n\n[3] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Fixed-Sized Chunking: Fig. 1 a) depicts fixed-size chunking, which splits the corpus into uniform-length segments.\n\nFixed boundaries ignore semantic structure, so an overlapping\nsliding window is used in practice to reduce fragmentation\nacross chunks [2].\n\nThe chunk sizes was 150 words with an\noverlap of 15.\n\nRecursive Chunking: Fig. 1 b) displays a format based strategy that splits the corpus into larger segments, progressively\nsubdividing those segments into smaller segments based on\npredefined criteria, such as",
+        "tokens": {
+          "prompt": 235,
+          "completion": 90
+        },
+        "duration_ms": 49480.8
+      },
+      {
+        "step": 2,
+        "thought": "I have sufficient information from the corpus to summarize chunking strategies as involving fixed-sized chunking, format-based recursive chunking, and semantic/cluster-based chunking, along with considerations of chunk size and computational demands.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 494,
+          "completion": 205
+        },
+        "duration_ms": 35703.92
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1024
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 729,
+      "completion": 295
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "9522ccf7-eadf-4729-8249-295023fcb43b",
+    "schema_version": "1.0",
+    "query": "Summarise what the papers say about hallucination measurement.",
+    "answer": "The papers indicate that hallucination measurement involves a variety of approaches. These include human evaluation through scoring and comparison methods, automated evaluations utilizing binary 'yes' or 'no' responses (with manual prompt editing to enhance accuracy), statistical metrics, and mixed methods that combine human judgment with quantitative metrics to provide a holistic quantification [1], [2]. Additionally, innovative outlier approaches such as eye-tracking have been explored for detection [1].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:16:23.028857+00:00",
+    "ended_at": null,
+    "duration_ms": 58191.29,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "b44d44fd-897e-429a-b5b7-1d5864f77cee",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:17:21.223653+00:00",
+        "ended_at": null,
+        "duration_ms": 22348.78,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I need to search the corpus for papers discussing hallucination measurement to understand how it is evaluated."
+        },
+        "output": {
+          "observation": "[1] An Audit on the Perspectives and Challenges of Hallucinations in NLP (p.4): This\napproach, used by 10.2% of the works, encompasses scoring and comparison methods, where\nannotators rate hallucination levels or compare output texts with baselines or ground-truth references.\n\nNotably, one outlier paper introduced an innovative\napproach utilizing eye tracking for hallucination\ndetection in NLP tasks (Maharaj et al., 2023).\n\nMixed method approach is deployed by 28.4%\nof the works, combining human evaluation with\nstatistical metrics to offer a holistic perspective on\nhallucination quantification.\n\nThis trend reflects a\nconcerted effort within the research community to\naddre\n\n[2] Evaluation and Analysis of Hallucination in Large Vision-Language Models (p.5): To ensure the model\u2019s focus on hallucination\nevaluation, we disabled gradient computations on\nthe input, preventing the learning of irrelevant information.\n\nFurthermore, our training data outputs\nwere explicitly limited to \"yes\" or \"n"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 235,
+          "completion": 89
+        },
+        "model": null
+      },
+      {
+        "span_id": "178029a6-2cf2-4188-858f-0f635b67e68d",
+        "parent_id": "b44d44fd-897e-429a-b5b7-1d5864f77cee",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:17:21.223653+00:00",
+        "ended_at": null,
+        "duration_ms": 5318.18,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "hallucination measurement evaluation",
+          "top_k": 5
+        },
+        "output": {
+          "summary": "[1] An Audit on the Perspectives and Challenges of Hallucinations in NLP (p.4): This\napproach, used by 10.2% of the works, encompasses scoring and comparison methods, where\nannotators rate hallucination levels or compare output texts with baselines or ground-truth references.\n\nNotably, one outlier paper introduced an innovative\napproach utilizing eye tracking for hallucination\ndetection in NLP tasks (Maharaj et al., 2023).\n\nMixed method approach is deployed by 28.4%\nof the works, combining human evaluation with\nstatistical metrics to offer a holistic perspective on\nhallucination quantification.\n\nThis trend reflects a\nconcerted effort within the research community to\naddre\n\n[2] Evaluation and Analysis of Hallucination in Large Vision-Language Models (p.5): To ensure the model\u2019s focus on hal"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "811c8901-ccc1-4612-819f-62189a3c1522",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:17:21.223653+00:00",
+        "ended_at": null,
+        "duration_ms": 30494.71,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have sufficient information from the corpus about hallucination measurement, including human evaluation, statistical metrics, automated yes/no responses, and manual prompt editing."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 510,
+          "completion": 180
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I need to search the corpus for papers discussing hallucination measurement to understand how it is evaluated.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "hallucination measurement evaluation",
+              "top_k": 5
+            },
+            "result_summary": "[1] An Audit on the Perspectives and Challenges of Hallucinations in NLP (p.4): This\napproach, used by 10.2% of the works, encompasses scoring and comparison methods, where\nannotators rate hallucination levels or compare output texts with baselines or ground-truth references.\n\nNotably, one outlier paper introduced an innovative\napproach utilizing eye tracking for hallucination\ndetection in NLP tasks (Maharaj et al., 2023).\n\nMixed method approach is deployed by 28.4%\nof the works, combining human evaluation with\nstatistical metrics to offer a holistic perspective on\nhallucination quantification.\n\nThis trend reflects a\nconcerted effort within the research community to\naddre\n\n[2] Evaluation and Analysis of Hallucination in Large Vision-Language Models (p.5): To ensure the model\u2019s focus on hal",
+            "step": 1,
+            "duration_ms": 5318.18,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] An Audit on the Perspectives and Challenges of Hallucinations in NLP (p.4): This\napproach, used by 10.2% of the works, encompasses scoring and comparison methods, where\nannotators rate hallucination levels or compare output texts with baselines or ground-truth references.\n\nNotably, one outlier paper introduced an innovative\napproach utilizing eye tracking for hallucination\ndetection in NLP tasks (Maharaj et al., 2023).\n\nMixed method approach is deployed by 28.4%\nof the works, combining human evaluation with\nstatistical metrics to offer a holistic perspective on\nhallucination quantification.\n\nThis trend reflects a\nconcerted effort within the research community to\naddre\n\n[2] Evaluation and Analysis of Hallucination in Large Vision-Language Models (p.5): To ensure the model\u2019s focus on hallucination\nevaluation, we disabled gradient computations on\nthe input, preventing the learning of irrelevant information.\n\nFurthermore, our training data outputs\nwere explicitly limited to \"yes\" or \"no\" responses,\neffectively benefiting the automated evaluation.\n\nWhen evaluating hallucinations by ChatGPT,\nwe further enhanced the accuracy through manual\nprompt editing, ensuring a fair basis for comparison.\n\nNotably, we refrained from employing manually annotated real hallucination data in the training\nprocess to uphold the integrity and reliability of our\nexper\n\n[3] An Audit on the Perspectives and Challenges of Hallucinations in NLP (p.4): Unfortunately,\nout of the 103 works examined, only 3 acknowledge the this nature of hallucination, with none\nutilizing this framework to inform their approach.\n\nThis underscores a need for research to explore\nthe sociotechnical dimensions inherent in hallucination, showcasing the limited depth of understanding within the ML and NLP communities.\nity or faithfulness and hence, higher hallucination\n(Ji et al., 2023a).\n\nStatistical scores such as BLUE,\nROUGE, and Error Rate metrics are commonly\nused in this approach.\n\nOur findings reveal that\n35.2% o",
+        "tokens": {
+          "prompt": 235,
+          "completion": 89
+        },
+        "duration_ms": 22348.78
+      },
+      {
+        "step": 2,
+        "thought": "I have sufficient information from the corpus about hallucination measurement, including human evaluation, statistical metrics, automated yes/no responses, and manual prompt editing.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 510,
+          "completion": 180
+        },
+        "duration_ms": 30494.71
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1014
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 745,
+      "completion": 269
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "eb43e091-edb1-4988-952e-64660885433a",
+    "schema_version": "1.0",
+    "query": "What was announced at NeurIPS 2026?",
+    "answer": "Announcements for NeurIPS 2026 include the list of accepted competitions (such as Scientific AI, Physics, Engineering Learn2Design 2026 for Gravitational Wave Detectors, and the Smart Buildings Challenge) as well as the list of 102 accepted workshops chosen from 477 submissions [1], [2].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:17:21.230743+00:00",
+    "ended_at": null,
+    "duration_ms": 38004.16,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "21cf00d1-5d1f-440b-9aaa-ce2416de12e7",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:17:59.234735+00:00",
+        "ended_at": null,
+        "duration_ms": 17138.6,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "NeurIPS 2026 is a future event beyond the scope of research papers in the corpus, so a web search is needed."
+        },
+        "output": {
+          "observation": "- 2026 Conference - neurips.cc: As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organiz (https://neurips.cc/Conferences/2026)\n- NeurIPS 2026 Competitions Announced - NeurIPS Blog: The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundat (https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/)\n- Announcing the NeurIPS 2026 Workshops - NeurIPS Blog: We are excited to announce the list of NeurIPS 2026 workshops. We received 477 submissions (454 valid), a significant increase over last year's numbers. From this great batch of submissions, we have accepted 102 workshops: 48, 28, and 26, to be"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 236,
+          "completion": 82
+        },
+        "model": null
+      },
+      {
+        "span_id": "a81b24ef-b3f2-4b82-9c92-05c3cc2265d2",
+        "parent_id": "21cf00d1-5d1f-440b-9aaa-ce2416de12e7",
+        "kind": "tool",
+        "name": "web_search",
+        "started_at": "2026-09-24T17:17:59.234735+00:00",
+        "ended_at": null,
+        "duration_ms": 4477.44,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "NeurIPS 2026 announcements"
+        },
+        "output": {
+          "summary": "- 2026 Conference - neurips.cc: As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organiz (https://neurips.cc/Conferences/2026)\n- NeurIPS 2026 Competitions Announced - NeurIPS Blog: The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundat (https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/)\n- Announcing the NeurIPS 2026 Workshops - NeurIPS Blog: We are excited to announce the list of NeurI"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "47a5b57c-8305-4ea2-bd14-66635397f4cc",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:17:59.234735+00:00",
+        "ended_at": null,
+        "duration_ms": 16349.39,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have found web search results regarding NeurIPS 2026 announcements, including competitions and workshops, so I can now provide the final answer."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 600,
+          "completion": 165
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "NeurIPS 2026 is a future event beyond the scope of research papers in the corpus, so a web search is needed.",
+        "tool_calls": [
+          {
+            "name": "web_search",
+            "arguments": {
+              "query": "NeurIPS 2026 announcements"
+            },
+            "result_summary": "- 2026 Conference - neurips.cc: As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organiz (https://neurips.cc/Conferences/2026)\n- NeurIPS 2026 Competitions Announced - NeurIPS Blog: The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundat (https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/)\n- Announcing the NeurIPS 2026 Workshops - NeurIPS Blog: We are excited to announce the list of NeurI",
+            "step": 1,
+            "duration_ms": 4477.44,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "- 2026 Conference - neurips.cc: As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organiz (https://neurips.cc/Conferences/2026)\n- NeurIPS 2026 Competitions Announced - NeurIPS Blog: The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundat (https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/)\n- Announcing the NeurIPS 2026 Workshops - NeurIPS Blog: We are excited to announce the list of NeurIPS 2026 workshops. We received 477 submissions (454 valid), a significant increase over last year's numbers. From this great batch of submissions, we have accepted 102 workshops: 48, 28, and 26, to be hoste (https://blog.neurips.cc/2026/08/10/announcing-the-neurips-2026-workshops/)\n- NeurIPS 2026 - OpenReview: Welcome to the OpenReview homepage for NeurIPS 2026 (https://openreview.net/group?id=NeurIPS.cc/2026)\n- NeurIPS 2026 in Paris Satellite Event: We expect to release some tickets in mid October. Please do not call or email us to ask about your position on the waiting list. Thank you for your understanding and patience. Information regarding the waiting list will be sent from neuripsparis2026@ (https://neurips-europe.cc/)",
+        "tokens": {
+          "prompt": 236,
+          "completion": 82
+        },
+        "duration_ms": 17138.6
+      },
+      {
+        "step": 2,
+        "thought": "I have found web search results regarding NeurIPS 2026 announcements, including competitions and workshops, so I can now provide the final answer.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 600,
+          "completion": 165
+        },
+        "duration_ms": 16349.39
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1083
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 836,
+      "completion": 247
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "43ff514b-3a06-45fe-9bb5-5a9c3d0f7e52",
+    "schema_version": "1.0",
+    "query": "Who won the 2026 Turing Award?",
+    "answer": "The 2026 Turing Award was won by American physicist Charles Henry Bennett and Canadian computer scientist Gilles Brassard for their pioneering work on quantum cryptography and the invention of a form of seemingly unbreakable encryption.",
+    "session_id": null,
+    "started_at": "2026-09-24T17:17:59.235735+00:00",
+    "ended_at": null,
+    "duration_ms": 59419.77,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "9ec68896-03c3-462e-8e37-c4083ba96652",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:18:58.655800+00:00",
+        "ended_at": null,
+        "duration_ms": 30613.77,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "The 2026 Turing Award refers to a future event outside the scope of historical language model research papers, so I will search the public web."
+        },
+        "output": {
+          "observation": "- Turing Award - Wikipedia: The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field o (https://en.wikipedia.org/wiki/Turing_Award)\n- Quantum pioneers win Turing Award for encryption breakthrough: A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ... (https://www.bbc.com/news/articles/c7474004g01o)\n- 2026 Turing Award Winners: Pioneers of Quantum Cryptography: The winners of this year's Turing Award - the most prestigious honour in computer science, often called the \"Nobel Prize for Computer Science\"- were announced a few days ago. They were American physicist Charles Henry Bennett and Canadian computer sc (https://www.uni.lodz.pl/en/news/details/2026-tur"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 235,
+          "completion": 106
+        },
+        "model": null
+      },
+      {
+        "span_id": "5efe761c-9e1a-42d6-b043-aa7807d07aaf",
+        "parent_id": "9ec68896-03c3-462e-8e37-c4083ba96652",
+        "kind": "tool",
+        "name": "web_search",
+        "started_at": "2026-09-24T17:18:58.655800+00:00",
+        "ended_at": null,
+        "duration_ms": 1588.04,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "Who won the 2026 Turing Award"
+        },
+        "output": {
+          "summary": "- Turing Award - Wikipedia: The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field o (https://en.wikipedia.org/wiki/Turing_Award)\n- Quantum pioneers win Turing Award for encryption breakthrough: A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ... (https://www.bbc.com/news/articles/c7474004g01o)\n- 2026 Turing Award Winners: Pioneers of Quantum Cryptography: The winners of this year's Turing Award - the most prestigious honour in computer science, often cal"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "2f9402ad-24a6-4dcb-8b23-574ab4914f34",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:18:58.655800+00:00",
+        "ended_at": null,
+        "duration_ms": 27201.18,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I have found the winners of the 2026 Turing Award from the web search results and can now formulate the final answer."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 527,
+          "completion": 132
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "The 2026 Turing Award refers to a future event outside the scope of historical language model research papers, so I will search the public web.",
+        "tool_calls": [
+          {
+            "name": "web_search",
+            "arguments": {
+              "query": "Who won the 2026 Turing Award"
+            },
+            "result_summary": "- Turing Award - Wikipedia: The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field o (https://en.wikipedia.org/wiki/Turing_Award)\n- Quantum pioneers win Turing Award for encryption breakthrough: A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ... (https://www.bbc.com/news/articles/c7474004g01o)\n- 2026 Turing Award Winners: Pioneers of Quantum Cryptography: The winners of this year's Turing Award - the most prestigious honour in computer science, often cal",
+            "step": 1,
+            "duration_ms": 1588.04,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "- Turing Award - Wikipedia: The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field o (https://en.wikipedia.org/wiki/Turing_Award)\n- Quantum pioneers win Turing Award for encryption breakthrough: A US physicist and a Canadian computer scientist have won this year's Turing Award for their invention of a form of seemingly unbreakable encryption. Charles H Bennett and Gilles Brassard's work ... (https://www.bbc.com/news/articles/c7474004g01o)\n- 2026 Turing Award Winners: Pioneers of Quantum Cryptography: The winners of this year's Turing Award - the most prestigious honour in computer science, often called the \"Nobel Prize for Computer Science\"- were announced a few days ago. They were American physicist Charles Henry Bennett and Canadian computer sc (https://www.uni.lodz.pl/en/news/details/2026-turing-award-winners-pioneers-of-quantum-cryptography)\n- Turing Award Goes to Inventors of Quantum Cryptography: On Wednesday, the Association for Computing Machinery said Charles Bennett, left, and Gilles Brassard had won this year's Turing Award, often called the Nobel Prize of computing. (https://www.nytimes.com/2026/03/18/technology/turing-award-winners-quantum-cryptography.html)\n- We heartily congratulate the Turing Award Prize Winners of 2026. # ...: Charles Bennett and Gilles Brassard have been named the winners of the A.M. Turing Award, one of the highest honors in computing, for their work establishing the foundations of quantum information theory. (https://x.com/abel_prize/status/2035991682005565889)",
+        "tokens": {
+          "prompt": 235,
+          "completion": 106
+        },
+        "duration_ms": 30613.77
+      },
+      {
+        "step": 2,
+        "thought": "I have found the winners of the 2026 Turing Award from the web search results and can now formulate the final answer.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 527,
+          "completion": 132
+        },
+        "duration_ms": 27201.18
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1000
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 762,
+      "completion": 238
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "17efa330-fe5f-4d63-b66f-2f40c6956578",
+    "schema_version": "1.0",
+    "query": "What does the acronym RAG stand for?",
+    "answer": "The acronym RAG stands for Retrieval-Augmented Generation [1], [2].",
+    "session_id": null,
+    "started_at": "2026-09-24T17:18:58.657338+00:00",
+    "ended_at": null,
+    "duration_ms": 60092.94,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "dcdc81ce-f589-4a2e-a4a2-02d0b8437443",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:19:58.753355+00:00",
+        "ended_at": null,
+        "duration_ms": 29049.38,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "I will search the corpus to find the definition of the acronym RAG in the context of language models and retrieval."
+        },
+        "output": {
+          "observation": "[1] Benchmarking Large Language Models in Retrieval-Augmented Generation (p.1): arXiv:2309.01431v2 [cs.CL] 20 Dec 2023\nAbstract\nRetrieval-Augmented Generation (RAG) is a promising approach for mitigating the hallucination of large language\nmodels (LLMs).\n\nHowever, existing research lacks rigorous\nevaluation of the impact of retrieval-augmented generation\non different large language models, which make it challenging to identify the potential bottlenecks in the capabilities\nof RAG for different LLMs.\n\nIn this paper, we systematically investigate the impact of Retrieval-Augmented Generation on large language models.\n\nWe analyze the performance\nof different large language mod\n\n[2] GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation (p.1): GFM-RAG: Graph Foundation Model for Retrieval\nAugmented Generation\nLinhao Luo1\u2217, Zicheng Zhao2\u2217, Gholamreza Haffari1, Chen Gong3, Dinh Phung1, Shirui Pan4\u2020\n1Monash University, 2Nanjing University of Science and Technology,\n3Shanghai Jiao To"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 233,
+          "completion": 97
+        },
+        "model": null
+      },
+      {
+        "span_id": "187125d1-3d26-440d-af39-5a5e600d7e39",
+        "parent_id": "dcdc81ce-f589-4a2e-a4a2-02d0b8437443",
+        "kind": "tool",
+        "name": "search_corpus",
+        "started_at": "2026-09-24T17:19:58.753355+00:00",
+        "ended_at": null,
+        "duration_ms": 8229.23,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "query": "RAG acronym stands for retrieval-augmented generation",
+          "top_k": 3
+        },
+        "output": {
+          "summary": "[1] Benchmarking Large Language Models in Retrieval-Augmented Generation (p.1): arXiv:2309.01431v2 [cs.CL] 20 Dec 2023\nAbstract\nRetrieval-Augmented Generation (RAG) is a promising approach for mitigating the hallucination of large language\nmodels (LLMs).\n\nHowever, existing research lacks rigorous\nevaluation of the impact of retrieval-augmented generation\non different large language models, which make it challenging to identify the potential bottlenecks in the capabilities\nof RAG for different LLMs.\n\nIn this paper, we systematically investigate the impact of Retrieval-Augmented Generation on large language models.\n\nWe analyze the performance\nof different large language mod\n\n[2] GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation (p.1): GFM-RAG: Graph Foundation Model for Retr"
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        },
+        "model": null
+      },
+      {
+        "span_id": "18a5dc64-7b4f-4958-b6e6-028a482ceef3",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_2",
+        "started_at": "2026-09-24T17:19:58.753355+00:00",
+        "ended_at": null,
+        "duration_ms": 22728.7,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "The corpus search results confirm that RAG stands for Retrieval-Augmented Generation."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 611,
+          "completion": 97
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "I will search the corpus to find the definition of the acronym RAG in the context of language models and retrieval.",
+        "tool_calls": [
+          {
+            "name": "search_corpus",
+            "arguments": {
+              "query": "RAG acronym stands for retrieval-augmented generation",
+              "top_k": 3
+            },
+            "result_summary": "[1] Benchmarking Large Language Models in Retrieval-Augmented Generation (p.1): arXiv:2309.01431v2 [cs.CL] 20 Dec 2023\nAbstract\nRetrieval-Augmented Generation (RAG) is a promising approach for mitigating the hallucination of large language\nmodels (LLMs).\n\nHowever, existing research lacks rigorous\nevaluation of the impact of retrieval-augmented generation\non different large language models, which make it challenging to identify the potential bottlenecks in the capabilities\nof RAG for different LLMs.\n\nIn this paper, we systematically investigate the impact of Retrieval-Augmented Generation on large language models.\n\nWe analyze the performance\nof different large language mod\n\n[2] GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation (p.1): GFM-RAG: Graph Foundation Model for Retr",
+            "step": 1,
+            "duration_ms": 8229.23,
+            "outcome": "ok",
+            "error": null
+          }
+        ],
+        "observation": "[1] Benchmarking Large Language Models in Retrieval-Augmented Generation (p.1): arXiv:2309.01431v2 [cs.CL] 20 Dec 2023\nAbstract\nRetrieval-Augmented Generation (RAG) is a promising approach for mitigating the hallucination of large language\nmodels (LLMs).\n\nHowever, existing research lacks rigorous\nevaluation of the impact of retrieval-augmented generation\non different large language models, which make it challenging to identify the potential bottlenecks in the capabilities\nof RAG for different LLMs.\n\nIn this paper, we systematically investigate the impact of Retrieval-Augmented Generation on large language models.\n\nWe analyze the performance\nof different large language mod\n\n[2] GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation (p.1): GFM-RAG: Graph Foundation Model for Retrieval\nAugmented Generation\nLinhao Luo1\u2217, Zicheng Zhao2\u2217, Gholamreza Haffari1, Chen Gong3, Dinh Phung1, Shirui Pan4\u2020\n1Monash University, 2Nanjing University of Science and Technology,\n3Shanghai Jiao Tong University, 4Griffith University,\n{Linhao.Luo,gholamreza.haffari,dinh.phung}@monash.edu,\nzicheng.zhao@njust.edu.cn, chen.gong@sjtu.edu.cn, s.pan@griffith.edu.au\narXiv:2502.01113v3 [cs.IR] 11 Dec 2025\nProject page: https://rmanluo.github.io/gfm-rag\nAbstract\nRetrieval-augmented generation (RAG) has proven effective in integrating knowledge into large langua\n\n[3] Evaluating Chunking Strategies for Retrieval-Augmented Generation on Academic Texts (p.1): Valentin J.\n\nJ.\n\nKreileder\nComputer Science\nDeggendorf Institute of Technology\nDeggendorf, Germany\nkreileder@gmx.net\nAbstract\u2014Retrieval-Augmented Generation (RAG) systems use\nthe question-answering capabilities of Large Language Models\n(LLMs) to access information outside their parameters.\n\nWe\nevaluate if cluster-based semantic chunking improves retrieval\nand answer quality compared to fixed-size and recursive chunking evaluating on long, structured academic theses using the\nRetrieval Augmented Generation Assessment (RAGAs) framework.\n\nR",
+        "tokens": {
+          "prompt": 233,
+          "completion": 97
+        },
+        "duration_ms": 29049.38
+      },
+      {
+        "step": 2,
+        "thought": "The corpus search results confirm that RAG stands for Retrieval-Augmented Generation.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 611,
+          "completion": 97
+        },
+        "duration_ms": 22728.7
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 2,
+      "tokens_used": 1038
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 844,
+      "completion": 194
+    },
+    "metadata": {}
+  },
+  {
+    "trace_id": "9a1a61dc-a005-4dcd-be70-54b90cedca32",
+    "schema_version": "1.0",
+    "query": "How many letters are in the word 'retrieval'?",
+    "answer": "There are 9 letters in the word 'retrieval'.",
+    "session_id": null,
+    "started_at": "2026-09-24T17:19:58.762044+00:00",
+    "ended_at": null,
+    "duration_ms": 21731.87,
+    "outcome": "ok",
+    "error": null,
+    "spans": [
+      {
+        "span_id": "b4e41e0c-442e-4ecb-afdf-24129645c920",
+        "parent_id": null,
+        "kind": "agent_step",
+        "name": "step_1",
+        "started_at": "2026-09-24T17:20:20.494513+00:00",
+        "ended_at": null,
+        "duration_ms": 21715.25,
+        "outcome": "ok",
+        "error": null,
+        "input": {
+          "thought": "Counting the letters in the word 'retrieval' is a simple linguistic task that does not require searching the research papers."
+        },
+        "output": {
+          "observation": ""
+        },
+        "metadata": {},
+        "tokens": {
+          "prompt": 236,
+          "completion": 102
+        },
+        "model": null
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "thought": "Counting the letters in the word 'retrieval' is a simple linguistic task that does not require searching the research papers.",
+        "tool_calls": [],
+        "observation": "",
+        "tokens": {
+          "prompt": 236,
+          "completion": 102
+        },
+        "duration_ms": 21715.25
+      }
+    ],
+    "budget": {
+      "max_steps": 8,
+      "max_tokens": 32000,
+      "steps_used": 1,
+      "tokens_used": 338
+    },
+    "budget_breach": null,
+    "corpus_version": null,
+    "cache_layer": null,
+    "guardrail_action": null,
+    "faithfulness_score": null,
+    "tokens": {
+      "prompt": 236,
+      "completion": 102
+    },
+    "metadata": {}
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "query": "NeurIPS 2026 announcements",
+  "summary": "- 2026 Conference - neurips.cc: As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organiz (https://neurips.cc/Conferences/2026)\n- NeurIPS 2026 Competitions Announced - NeurIPS Blog: The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundat (https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/)\n- Announcing the NeurIPS 2026 Workshops - NeurIPS Blog: We are excited to announce the list of NeurIPS 2026 workshops. We received 477 submissions (454 valid), a significant increase over last year's numbers. From this great batch of submissions, we have accepted 102 workshops: 48, 28, and 26, to be hoste (https://blog.neurips.cc/2026/08/10/announcing-the-neurips-2026-workshops/)\n- NeurIPS 2026 - OpenReview: Welcome to the OpenReview homepage for NeurIPS 2026 (https://openreview.net/group?id=NeurIPS.cc/2026)\n- NeurIPS 2026 in Paris Satellite Event: We expect to release some tickets in mid October. Please do not call or email us to ask about your position on the waiting list. Thank you for your understanding and patience. Information regarding the waiting list will be sent from neuripsparis2026@ (https://neurips-europe.cc/)",
+  "results": [
+    {
+      "title": "2026 Conference - neurips.cc",
+      "href": "https://neurips.cc/Conferences/2026",
+      "body": "As in previous years, NeurIPS welcomes submissions from all compliant institutions and individuals. We want to reiterate that NeurIPS is a community-driven event, created by and for the community, and strives to be inclusive. The NeurIPS 2026 organizing committee was particularly saddened to learn of this institutional miscommunication."
+    },
+    {
+      "title": "NeurIPS 2026 Competitions Announced - NeurIPS Blog",
+      "href": "https://blog.neurips.cc/2026/07/28/neurips-2026-competitions-announced/",
+      "body": "The NeurIPS 2026 program includes the following exciting competitions: Scientific AI, Physics, and Engineering Learn2Design 2026: A Physics Experiment Design Competition for Gravitational Wave Detectors The Smart Buildings Challenge: Learning Foundation Models for Real-World Optimization at Scale"
+    },
+    {
+      "title": "Announcing the NeurIPS 2026 Workshops - NeurIPS Blog",
+      "href": "https://blog.neurips.cc/2026/08/10/announcing-the-neurips-2026-workshops/",
+      "body": "We are excited to announce the list of NeurIPS 2026 workshops. We received 477 submissions (454 valid), a significant increase over last year's numbers. From this great batch of submissions, we have accepted 102 workshops: 48, 28, and 26, to be hosted in Sydney, Paris, and Atlanta, respectively. The acceptance rates were 21.5%, 25.4%, and 23.6% for Sydney, Paris, and Atlanta, respectively ..."
+    },
+    {
+      "title": "NeurIPS 2026 - OpenReview",
+      "href": "https://openreview.net/group?id=NeurIPS.cc/2026",
+      "body": "Welcome to the OpenReview homepage for NeurIPS 2026"
+    },
+    {
+      "title": "NeurIPS 2026 in Paris Satellite Event",
+      "href": "https://neurips-europe.cc/",
+      "body": "We expect to release some tickets in mid October. Please do not call or email us to ask about your position on the waiting list. Thank you for your understanding and patience. Information regarding the waiting list will be sent from neuripsparis2026@dakini-pco.com. This is the official NeurIPS Paris 2026 registration page, we do not work with any booking agencies. Registration is managed by ..."
+    }
+  ]
+}

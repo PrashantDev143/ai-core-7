@@ -689,6 +689,48 @@ asked. Real repeat traffic is full of them.
 **A tuning set that contains only easy negatives measures nothing.** That is
 the transferable lesson, and it applies to every threshold in this project.
 
+### 3.5 Two bugs the smoke test found, both worth more than the feature
+
+Neither showed up in unit tests. Both needed the whole stack running.
+
+**The cache recomputed the corpus version on every lookup.** `current_corpus_version()`
+called `compute_corpus_version()`, which reads every document row and hashes
+them. An exact cache hit — the fastest possible path — was costing seconds,
+because the key derivation was more expensive than the thing it was keying.
+Memoised with a 60s TTL: bounded staleness, and a re-index is picked up within
+the window. Cache lookup went from ~176 ms to **2.7 ms**.
+
+**The guardrail classifier ran before the cache.** Every cache hit paid a full
+classifier LLM call — measured at ~7-9 seconds on a lookup that took
+milliseconds. The cache was saving the generation and then spending more than
+it saved on the guard.
+
+The fix was to split the guard where its cost changes:
+
+```
+deterministic rules  (0.03 ms)  ->  cache  (2.7 ms)  ->  classifier (seconds)
+```
+
+Rules still run first, so a prompt injection is rejected before anything can be
+served from cache — verified: an injection is still blocked in 16.6 ms and
+never reaches the cache. The classifier only runs on a miss, where its cost is
+already dwarfed by generation.
+
+Measured end to end on a cache hit:
+
+| | before | after |
+|---|---|---|
+| total | 6,958 ms | **11 ms** |
+| rules | (bundled) | 0.03 ms |
+| cache lookup | 176 ms | 2.7 ms |
+
+**~630× on the hit path**, with no weakening of the guardrail.
+
+The generalisable point: "order stages by cost" is not just about the happy
+path. A cheap-and-certain check belongs *before* the cache; an
+expensive-and-probabilistic one belongs *after* it. Bundling them into one
+"guardrails" step read as clean layering and quietly made the cache pointless.
+
 ### 3.4 Never FLUSHDB
 
 `AnswerCache.clear()` deletes by prefix SCAN. Redis is shared with Langfuse's
@@ -1096,6 +1138,101 @@ pathology from the other direction.
 Per-category reporting exists because an aggregate is not actionable. "Tool
 recall 0.71" tells you nothing; "recall 1.0 on single-hop, 0.4 on multi-doc"
 tells you the agent cannot decompose comparisons.
+
+### 6.4a The first benchmark run scored the agent down for being right
+
+First pass, 10 tasks (`results_firstpass.json`, kept deliberately):
+
+| category | n | precision | recall | seq exact | args | steps |
+|---|---|---|---|---|---|---|
+| single_hop | 5 | 0.850 | 1.000 | 0.80 | 0.60 | 0.880 |
+| verify | 5 | 1.000 | **0.500** | **0.00** | 1.00 | 1.000 |
+
+Every `verify` task scored 0.5 recall and 0.0 sequence match. The agent called
+`verify_claim` alone; the benchmark expected `[search_corpus, verify_claim]`.
+
+**The agent was right and the ground truth was wrong.** `verify_claim` performs
+its own corpus lookup — I wrote it that way in `tools.py`. Requiring a separate
+`search_corpus` first was demanding a redundant call, and an agent that made it
+would have been *less* efficient while scoring better.
+
+This is the characteristic failure mode of trajectory benchmarks: **an expected
+tool sequence encodes an assumption about how tools compose, and a tool that
+does more than you assumed turns correct behaviour into a scored failure.** It
+is dangerous precisely because the numbers look plausible — 0.5 recall reads as
+"the agent forgets to search", which is a believable story, and the obvious
+next move is to fix the prompt.
+
+What caught it was reading the actual `tool_sequence` per task rather than the
+aggregate. Both runs are kept so the correction is visible rather than tidied
+away.
+
+Two other things that first pass exposed:
+
+- **`--limit 10` tested two categories out of six.** Tasks are generated
+  grouped by category, so truncating took only `single_hop` and `verify`. The
+  `no_tool` category — the only one that measures over-calling — never ran.
+  Both `--limit` paths now stride instead of truncate.
+- **Over-calling is real.** Task t002, a single-hop lookup, called
+  `search_corpus` four times. Multiset precision scored it 0.25; set-based
+  scoring would have given it 1.0. That is the metric choice in 6.4 earning its
+  keep on the second task of the first run.
+
+### 6.4b Measured results, and where failures cluster
+
+12 tasks, stratified two per category, corrected ground truth:
+
+| category | n | precision | recall | seq exact | args | step eff |
+|---|---|---|---|---|---|---|
+| out_of_corpus | 2 | **1.000** | 1.000 | 1.00 | 1.00 | 1.000 |
+| verify | 2 | **1.000** | 1.000 | 1.00 | 1.00 | 1.000 |
+| multi_doc | 2 | 0.643 | 1.000 | 0.50 | 0.75 | 0.750 |
+| single_hop | 2 | 0.572 | 1.000 | 0.50 | 1.00 | 0.625 |
+| no_tool | 2 | 0.500 | 1.000 | 0.50 | 1.00 | 0.750 |
+| synthesis | 2 | 1.000 | **0.500** | 0.00 | 1.00 | 1.000 |
+| **overall** | 12 | 0.786 | 0.917 | 0.58 | 0.96 | 0.854 |
+
+Budget breach rate 0.000. Error rate 0.000. Mean 3,175 tokens/task.
+
+**The headline is the gap between recall and precision.** Recall 0.917 with
+precision 0.786 and argument correctness 0.96 says something specific: the
+agent almost never fails to call a tool it needed, and when it calls one it
+passes the right arguments. It calls *too many*.
+
+Put another way: **it knows what to call and how to call it. It does not know
+when to stop.**
+
+Concrete evidence: a single-hop lookup that made 4 `search_corpus` calls, a
+two-document comparison that made 7. Step efficiency 0.625 on single_hop says
+the same thing from the other side.
+
+**One category fails the opposite way.** `synthesis` has precision 1.000 and
+recall 0.500 — it retrieves, then answers directly instead of calling
+`summarise`. Consistent across both tasks, so it is a systematic issue with the
+tool description rather than noise. `summarise` is described as operating on
+text already gathered, and the model apparently judges that it can do that
+itself — which is arguably true, and suggests the tool may not earn its place.
+
+**`no_tool` did its job.** Precision 0.500: one task correctly called nothing,
+the other reached for `search_corpus` to answer "what does RAG stand for". A
+benchmark without this category would have reported over-calling as a mild
+precision dip spread across other categories, rather than as its own visible
+failure.
+
+**What the numbers say to fix, in order:**
+
+1. Stopping criteria, not tool selection. Selection is close to solved
+   (recall 0.917, args 0.96); termination is not.
+2. The `summarise` tool description, or removing the tool.
+3. Nothing about budgets — 0.000 breach rate means the 8-step ceiling never
+   bound. It is a safety net, not a constraint, which is the right shape but
+   means it currently measures nothing.
+
+**Sample size caveat.** n=2 per category. These identify *directions*, not
+magnitudes — "over-calling is the dominant failure mode" is supportable;
+"precision is 0.786" is not a number to quote to three decimal places. The full
+30-task set exists and runs unchanged; it was cut because free-tier latency
+made 30 tasks a multi-hour run.
 
 ### 6.5 web_search records and replays
 
