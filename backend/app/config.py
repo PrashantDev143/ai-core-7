@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     )
 
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-3.6-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     gemini_embedding_model: str = "gemini-embedding-001"
 
     gemini_max_rpm: int = Field(default=10, ge=1)
@@ -54,7 +54,12 @@ class Settings(BaseSettings):
     chunk_size_tokens: int = Field(default=480, ge=64, le=2048)
     chunk_overlap_tokens: int = Field(default=64, ge=0)
 
-    semantic_cache_threshold: float = Field(default=0.92, ge=0.0, le=1.0)
+    # Layer 2 is OFF by default because the Phase 3 sweep says it is unsafe
+    # with this embedder: hard negatives (same topic, different question) score
+    # a HIGHER mean cosine than true paraphrases (0.947 vs 0.933), so no
+    # threshold separates them. See DECISIONS.md 3.2.
+    semantic_cache_enabled: bool = False
+    semantic_cache_threshold: float = Field(default=0.95, ge=0.0, le=1.0)
     cache_ttl_seconds: int = Field(default=86400, ge=0)
 
     classifier_backend: Literal["local", "laya"] = "local"
@@ -146,6 +151,13 @@ def get_settings() -> Settings:
     if not hf_home.is_absolute():
         hf_home = REPO_ROOT / hf_home
     os.environ.setdefault("HF_HOME", str(hf_home.resolve()))
+
+    # Windows refuses symlink creation without Developer Mode or admin rights,
+    # and huggingface_hub symlinks blobs into snapshots by default — so a model
+    # download dies with "WinError 1314: A required privilege is not held".
+    # Copying instead costs disk and always works.
+    os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS", "1")
+    os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 
     return settings
 

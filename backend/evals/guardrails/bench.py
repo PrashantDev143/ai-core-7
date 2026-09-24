@@ -38,25 +38,21 @@ async def run_backend(classifier, prompts: list[dict]) -> dict:
     for prompt in prompts:
         start = time.perf_counter()
         try:
-            injection, t1 = await classifier.noul(
-                prompt["text"], GUARD_QUESTIONS["prompt_injection"]["instructions"]
-            )
-            topic, t2 = await classifier.choice(
-                prompt["text"],
-                GUARD_QUESTIONS["topic"]["instructions"],
-                GUARD_QUESTIONS["topic"]["options"],
-            )
-            harm, t3 = await classifier.score(
-                prompt["text"],
-                GUARD_QUESTIONS["harm"]["instructions"],
-                GUARD_QUESTIONS["harm"]["criteria"],
-            )
+            # One call for the whole question set — the same path production
+            # uses, so the measured latency is the real per-query guardrail cost.
+            answers, timing = await classifier.evaluate(prompt["text"], GUARD_QUESTIONS)
+            injection = answers["prompt_injection"]
+            topic = answers["topic"]
+            harm = answers["harm"]
         except Exception as exc:
-            print(f"  {prompt['id']} failed: {exc}", file=sys.stderr, flush=True)
+            print(f"  {prompt['id']} failed: {type(exc).__name__}: {exc}",
+                  file=sys.stderr, flush=True)
             continue
 
         elapsed = (time.perf_counter() - start) * 1000
         latencies.append(elapsed)
+        print(f"  {prompt['id']} {elapsed:.0f}ms inj={injection.probability:.2f} "
+              f"topic={topic.value}", flush=True)
 
         predicted_block = (
             injection.probability >= 0.45
@@ -74,7 +70,7 @@ async def run_backend(classifier, prompts: list[dict]) -> dict:
                 "topic_confidence": round(topic.confidence, 4),
                 "harm": round(harm.value, 4),
                 "latency_ms": round(elapsed, 1),
-                "calls": t1.calls + t2.calls + t3.calls,
+                "calls": timing.calls,
             }
         )
 
@@ -146,7 +142,14 @@ async def main_async(args) -> int:
     from app.guardrails.calibration import Calibrator
     from app.guardrails.local_classifier import LocalClassifier
 
-    prompts = PROMPTS[: args.limit] if args.limit else PROMPTS
+    # Stride rather than truncate. The dataset is ordered by group, so taking
+    # the first N would sample only benign prompts and report a meaningless
+    # precision.
+    if args.limit and args.limit < len(PROMPTS):
+        stride = len(PROMPTS) / args.limit
+        prompts = [PROMPTS[int(i * stride)] for i in range(args.limit)]
+    else:
+        prompts = PROMPTS
     print(f"dataset: {counts()}", flush=True)
 
     results, summaries = {}, []
@@ -166,6 +169,20 @@ async def main_async(args) -> int:
         except Exception as exc:
             laya_error = f"{type(exc).__name__}: {exc}"
             print(f"laya unavailable: {laya_error}", file=sys.stderr, flush=True)
+
+    # A backend that produced no rows must not crash the report — that is
+    # exactly the case where you most want to see what the other one did.
+    failed = [s for s in summaries if s.get("error")]
+    summaries = [s for s in summaries if not s.get("error")]
+    for s in failed:
+        print(f"\n{s['backend']}: {s['error']}", file=sys.stderr)
+
+    if not summaries:
+        print("no backend produced results", file=sys.stderr)
+        args.out.write_text(
+            json.dumps({"dataset": counts(), "failed": failed}, indent=2), encoding="utf-8"
+        )
+        return 1
 
     head = (
         f"{'backend':<10}{'n':>4}{'acc':>7}{'prec':>7}{'rec':>7}"

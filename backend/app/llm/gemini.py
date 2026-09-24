@@ -120,6 +120,7 @@ class GeminiClient:
         *,
         model: str | None = None,
         max_retries: int = 2,
+        low_latency: bool = False,
     ):
         """Constrained decoding against a Pydantic schema.
 
@@ -143,6 +144,15 @@ class GeminiClient:
             response_schema=schema,
             temperature=0.0,
         )
+        if low_latency:
+            # Classification does not need extended reasoning. Not every model
+            # accepts the same spelling of this — `thinking_budget=0` is a 400
+            # on 3.5-flash-lite while `thinking_level="minimal"` is accepted —
+            # so it is best-effort and the call still works without it.
+            try:
+                config.thinking_config = types.ThinkingConfig(thinking_level="minimal")
+            except Exception:
+                pass
 
         last_error: Exception | None = None
         for attempt in range(max_retries + 1):

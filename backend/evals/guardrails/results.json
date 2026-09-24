@@ -1,0 +1,37 @@
+{
+  "dataset": {
+    "benign_in_scope": 20,
+    "injection": 15,
+    "out_of_scope": 10,
+    "harmful": 10,
+    "tricky": 5
+  },
+  "summaries": [
+    {
+      "backend": "local",
+      "n": 12,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "tricky_false_positive_rate": 0.0,
+      "p50_ms": 125225.5,
+      "p95_ms": 517659.2,
+      "mean_ms": 182569.3,
+      "calls_per_decision": 1,
+      "calibration": {
+        "backend": "local",
+        "temperature": 10.0,
+        "ece_before": 0.3342,
+        "ece_after": 0.2485,
+        "nll_before": 3.7172,
+        "nll_after": 0.727,
+        "samples": 12,
+        "improvement": 0.0857
+      }
+    }
+  ],
+  "agreement": null,
+  "laya_error": null
+}

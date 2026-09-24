@@ -18,12 +18,14 @@ from app.retrieval.sparse import SparseRetriever
 
 @dataclass
 class RetrievalConfig:
-    # Candidates each retriever fetches before fusion. Higher costs little on
-    # the dense side and buys the re-ranker more to work with.
+    # Candidates each retriever fetches before fusion. Cheap on the dense side,
+    # and fusion needs depth to have something to merge.
     candidates_per_retriever: int = 50
-    # Candidates surviving fusion into the re-ranker. This is the real cost
-    # knob: cross-encoder latency is linear in this number.
-    rerank_candidates: int = 50
+    # Candidates the cross-encoder actually scores. Set to 10 from the sweep in
+    # evals/retrieval/rerank_sweep.py: recall@1 plateaus at 0.880 from 10
+    # onward, while latency scales linearly (2.6s at 10, 9.2s at 50). Scoring
+    # 50 bought +0.004 MRR for 3.6x the cost.
+    rerank_candidates: int = 10
     top_k: int = 8
     use_dense: bool = True
     use_sparse: bool = True

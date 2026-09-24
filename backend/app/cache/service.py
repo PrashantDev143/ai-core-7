@@ -79,9 +79,15 @@ def _from_bytes(raw: bytes) -> np.ndarray:
 
 
 class AnswerCache:
-    def __init__(self, threshold: float | None = None):
+    def __init__(self, threshold: float | None = None, semantic: bool | None = None):
         settings = get_settings()
         self.threshold = threshold if threshold is not None else settings.semantic_cache_threshold
+        # Layer 2 is opt-in, not opt-out. The sweep found no threshold that
+        # separates paraphrases from same-topic different questions with this
+        # embedder, and a false semantic hit is a wrong answer served fast.
+        self.semantic_enabled = (
+            semantic if semantic is not None else settings.semantic_cache_enabled
+        )
         self.ttl = settings.cache_ttl_seconds
         self.stats = CacheStats()
 
@@ -108,6 +114,14 @@ class AnswerCache:
             )
             log.info("cache exact hit sim=1.0 q=%r", query[:80])
             return result
+
+        if not self.semantic_enabled:
+            self.stats.misses += 1
+            return CacheLookup(
+                hit=False,
+                latency_ms=(time.perf_counter() - start) * 1000,
+                corpus_version=version,
+            )
 
         best_sim, best_entry, compared = await self._best_semantic_match(query, version)
         self.stats.similarities.append(best_sim)

@@ -78,6 +78,22 @@ class DecisionClassifier(ABC):
     @abstractmethod
     async def noul(self, state: str, question: str) -> tuple[NoulResult, ClassifierTiming]: ...
 
+    @abstractmethod
+    async def evaluate(
+        self, state: str, questions: dict[str, dict]
+    ) -> tuple[dict[str, ChoiceResult | ScoreResult | NoulResult], ClassifierTiming]:
+        """Answer a whole question set about one input at once.
+
+        This is the method the guardrail pipeline actually uses, and it exists
+        because asking four questions should not cost four round trips.
+
+        It also mirrors Laya's native `predict(state, questions)`, which
+        evaluates every typed question in a single forward pass. Building the
+        interface around one-question-at-a-time would have forced the Laya
+        backend to throw away its main advantage and made the two backends
+        artificially comparable at the wrong granularity.
+        """
+
     async def healthcheck(self) -> dict:
         try:
             result, timing = await self.noul("hello", "Is this a greeting?")

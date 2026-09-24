@@ -1,0 +1,610 @@
+{
+  "counts": {
+    "positive": 40,
+    "hard_negative": 40,
+    "random_negative": 40
+  },
+  "total": 120,
+  "pairs": [
+    {
+      "a": "Supported by expert annotations and large language models, a network of concept subgraphs is built, linking overarching frameworks to detailed content and forming an initial concept knowledge graph with coherent logic.",
+      "b": "Using expert annotations and large language models, a web of concept subgraphs is constructed, connecting broad frameworks to specific content to create a foundational concept knowledge graph with consistent logic.",
+      "label": "positive"
+    },
+    {
+      "a": "Supported by expert annotations and large language models, a network of concept subgraphs is built, linking overarching frameworks to detailed content and forming an initial concept knowledge graph with coherent logic.",
+      "b": "Supported by expert annotations and large language models, a network of concept subgraphs is built, linking overarching frameworks to detailed content and forming an initial concept knowledge graph with flawed logic.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The Reinforcement Fine-tuning Training Reward Model o1 o2 r1 r2 ... rG computation A1 A2 LLM Policy group ... oG ...",
+      "b": "The computation of the Reinforcement Fine-tuning Training Reward Model o1 o2 r1 r2 ... rG involves A1 A2 LLM Policy group ... oG ...",
+      "label": "positive"
+    },
+    {
+      "a": "The Reinforcement Fine-tuning Training Reward Model o1 o2 r1 r2 ... rG computation A1 A2 LLM Policy group ... oG ...",
+      "b": "The Reinforcement Fine-tuning Training Reward Model o1 o2 r1 r2 ... rG computation A1 A2 LLM Policy group ... oG ... is completely omitted.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The passage level in\ufb02uence for retrieval of documents has been analyzed in multiple works [7,22,37,38] and shown to be bene\ufb01cial, but in these works the focus lies on passage-to-document retrieval.",
+      "b": "Multiple studies [7,22,37,38] have analyzed and demonstrated the benefits of passage-level influence for document retrieval, although their focus centers specifically on passage-to-document retrieval.",
+      "label": "positive"
+    },
+    {
+      "a": "The passage level in\ufb02uence for retrieval of documents has been analyzed in multiple works [7,22,37,38] and shown to be bene\ufb01cial, but in these works the focus lies on passage-to-document retrieval.",
+      "b": "The passage level influence for retrieval of documents has been analyzed in multiple works [7,22,37,38] and shown to be detrimental, but in these works the focus lies on passage-to-document retrieval.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "b": "Multi-threaded searching capabilities are also offered by the search class, where the current implementation enables inter-query parallelism for processing multiple queries simultaneously.",
+      "label": "positive"
+    },
+    {
+      "a": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "b": "The search class also provides options for single-threaded searching; the current implementation provides intra-query parallelism, where multiple queries are processed in parallel.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "b": "MRR scores and top-k hit accuracy are presented, with bold formatting designating the top results, while \u2020 denotes the reported baseline DPR performance from (Karpukhin et al., 2020).",
+      "label": "positive"
+    },
+    {
+      "a": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "b": "Top-k hit accuracy and MRR scores are reported, and the worst results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "label": "hard_negative"
+    },
+    {
+      "a": "FOLIO (Han et al., 2022) is an open-domain, logically complex and diverse dataset equipped with first-order logic (FOL) annotations.",
+      "b": "Equipped with first-order logic (FOL) annotations, FOLIO (Han et al., 2022) serves as a logically complex, diverse, and open-domain dataset.",
+      "label": "positive"
+    },
+    {
+      "a": "FOLIO (Han et al., 2022) is an open-domain, logically complex and diverse dataset equipped with first-order logic (FOL) annotations.",
+      "b": "FOLIO (Han et al., 2022) is a closed-domain, logically simple and homogeneous dataset equipped with first-order logic (FOL) annotations.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "It is de\ufb01ned as: Recall@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "b": "It is characterized as: Recall@k equals the number of relevant documents retrieved in the top k divided by the total number of relevant documents, and NDCG (Normalized Discounted Cumulative Gain) assesses the ranking quality of search results [12].",
+      "label": "positive"
+    },
+    {
+      "a": "It is de\ufb01ned as: Recall@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "b": "It is defined as: Precision@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Pre- Print http://adcaij.usal.es",
+      "b": "Ediciones Universidad de Salamanca / cc by-nc-nd publishes the Advances in Distributed Computing and Artificial Intelligence Journal, providing a pre-print at http://adcaij.usal.es on page 9.",
+      "label": "positive"
+    },
+    {
+      "a": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Pre- Print http://adcaij.usal.es",
+      "b": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Post- Print http://adcaij.usal.es",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Figure 2 shows the task interference score for LoRA A and B at the 5-th and 25-th Transformer Layer for both MLP (Figure 2a) and Self-Attention (Figure 2b).",
+      "b": "Figure 2 presents the task interference scores corresponding to LoRA A and B at layers 5 and 25 of the Transformer, separated by MLP in Figure 2a and Self-Attention in Figure 2b.",
+      "label": "positive"
+    },
+    {
+      "a": "Figure 2 shows the task interference score for LoRA A and B at the 5-th and 25-th Transformer Layer for both MLP (Figure 2a) and Self-Attention (Figure 2b).",
+      "b": "Figure 2 shows the task interference score for LoRA C and D at the 5-th and 25-th Transformer Layer for both MLP (Figure 2a) and Self-Attention (Figure 2b).",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Collectively, these steps ensure that the model not only identifies inadequacies in its initial cognitive responses but also fixes them based on the metacognitive evaluating and planning.",
+      "b": "Together, these actions guarantee that the model recognizes flaws in its initial cognitive outputs and subsequently corrects them utilizing metacognitive evaluation and planning.",
+      "label": "positive"
+    },
+    {
+      "a": "Collectively, these steps ensure that the model not only identifies inadequacies in its initial cognitive responses but also fixes them based on the metacognitive evaluating and planning.",
+      "b": "Collectively, these steps ensure that the model not only identifies inadequacies in its initial cognitive responses but also ignores them based on the metacognitive evaluating and planning.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "To verify this, we conduct zeroshot experiments on various tools that have not appeared in the training set, ranging from simulated tools, real-world tools, to out-of-dataset multi-modal tools.",
+      "b": "To test this hypothesis, we perform zero-shot evaluations across multiple unseen tools from the training set, which include simulated, real-world, and out-of-dataset multi-modal tools.",
+      "label": "positive"
+    },
+    {
+      "a": "To verify this, we conduct zeroshot experiments on various tools that have not appeared in the training set, ranging from simulated tools, real-world tools, to out-of-dataset multi-modal tools.",
+      "b": "To verify this, we conduct few-shot experiments on various tools that have not appeared in the training set, ranging from simulated tools, real-world tools, to out-of-dataset multi-modal tools.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.",
+      "b": "Liu, Yinhan, Ott, Myle, Goyal, Naman, Du, Jingfei, Joshi, Mandar, Chen, Danqi, Levy, Omer, Lewis, Mike, Zettlemoyer, Luke, and Stoyanov, Veselin. 2019.",
+      "label": "positive"
+    },
+    {
+      "a": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.",
+      "b": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2020.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Speci\ufb01cally, we \ufb01ne-tune the pre-trained models on large datasets (NQ, TriviaQA) with m (m \u2208{16, 256, 1024}) samples and present the few-shot retrieval results in Table 2.",
+      "b": "In particular, we adapt the pre-trained models via fine-tuning on large corpora like NQ and TriviaQA using sample sizes of m equals 16, 256, and 1024, displaying the few-shot retrieval outcomes in Table 2.",
+      "label": "positive"
+    },
+    {
+      "a": "Speci\ufb01cally, we \ufb01ne-tune the pre-trained models on large datasets (NQ, TriviaQA) with m (m \u2208{16, 256, 1024}) samples and present the few-shot retrieval results in Table 2.",
+      "b": "Speci\ufb01cally, we pre-train the models on large datasets (NQ, TriviaQA) with m (m \u2208{16, 256, 1024}) samples and present the few-shot retrieval results in Table 2.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "For each of the settings, we compute the feature variance (across 100 perturbations) and average 8 Model Method CHAIRS \u2193 CHAIRI \u2193 Recall \u2191 Avg.",
+      "b": "Under each configuration, feature variance is calculated across 100 perturbations and then averaged across eight metrics including Model, Method, CHAIRS down, CHAIRI down, Recall up, and Average.",
+      "label": "positive"
+    },
+    {
+      "a": "For each of the settings, we compute the feature variance (across 100 perturbations) and average 8 Model Method CHAIRS \u2193 CHAIRI \u2193 Recall \u2191 Avg.",
+      "b": "For each of the settings, we compute the feature variance (across 50 perturbations) and average 8 Model Method CHAIRS \u2193 CHAIRI \u2193 Recall \u2191 Avg.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The problem is how to ensure that make knowledge-grounded dialogue systems generated conversational responses remain faithful to the provided evidence, especially when the conversation datasets contain both evidence-based and subjective responses.",
+      "b": "The challenge lies in guaranteeing that conversational responses produced by knowledge-grounded dialogue systems stay faithful to the given evidence, particularly when the datasets incorporate both subjective and evidence-based utterances.",
+      "label": "positive"
+    },
+    {
+      "a": "The problem is how to ensure that make knowledge-grounded dialogue systems generated conversational responses remain faithful to the provided evidence, especially when the conversation datasets contain both evidence-based and subjective responses.",
+      "b": "The problem is how to ensure that make knowledge-grounded dialogue systems generated conversational responses remain faithful to the provided evidence, especially when the conversation datasets contain only subjective responses.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "DPR-trained 1Appendix A.2 demonstrates that our observations are consistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "b": "DPR-trained model Appendix A.2 illustrates that our findings remain consistent across a wide range of thresholds, while Appendix A.1 indicates that these observations also apply to the context model.",
+      "label": "positive"
+    },
+    {
+      "a": "DPR-trained 1Appendix A.2 demonstrates that our observations are consistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "b": "DPR-trained 1Appendix A.2 demonstrates that our observations are inconsistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The unmasked tokens TA\\menc(TA) is passed through the encoder to recover menc(TA) with the selfsupervised masked language model(self-MLM) loss: X LA smlm = \u2212 log p(t | TA\\m(TA)) (4) t\u2208m(TA) .",
+      "b": "By passing unmasked tokens TA\\menc(TA) through the encoder, we recover menc(TA) using the self-supervised masked language model loss: X LA smlm = \u2212 log p(t | TA\\m(TA)) (4) t\u2208m(TA).",
+      "label": "positive"
+    },
+    {
+      "a": "The unmasked tokens TA\\menc(TA) is passed through the encoder to recover menc(TA) with the selfsupervised masked language model(self-MLM) loss: X LA smlm = \u2212 log p(t | TA\\m(TA)) (4) t\u2208m(TA) .",
+      "b": "How many unmasked tokens TA\\menc(TA) are passed through the encoder to recover menc(TA) using the self-supervised masked language model loss: X LA smlm = \u2212 log p(t | TA\\m(TA)) (4) t\u2208m(TA)?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Abstract Recently, various studies have been directed towards exploring dense passage retrieval techniques employing pre-trained language models, among which the masked auto-encoder (MAE) pre-training architecture has emerged as the most promising.",
+      "b": "Abstract: Lately, multiple investigations have focused on exploring dense passage retrieval methods using pre-trained language models, with the masked auto-encoder (MAE) pre-training framework standing out as the most promising.",
+      "label": "positive"
+    },
+    {
+      "a": "Abstract Recently, various studies have been directed towards exploring dense passage retrieval techniques employing pre-trained language models, among which the masked auto-encoder (MAE) pre-training architecture has emerged as the most promising.",
+      "b": "Abstract: Recently, various studies have been directed towards exploring dense passage retrieval techniques employing pre-trained language models, and which pre-training architecture was proven to be the least effective?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "For the data-to-text writing task, we prompted LLMs to generate an objective overview for a randomly sampled business in the restaurant and nightlife categories from the Yelp Open Dataset (Yelp, 2021).",
+      "b": "For the task of data-to-text writing, LLMs were prompted to create an objective summary for a randomly selected business from the Yelp Open Dataset (Yelp, 2021) within the restaurant and nightlife sectors.",
+      "label": "positive"
+    },
+    {
+      "a": "For the data-to-text writing task, we prompted LLMs to generate an objective overview for a randomly sampled business in the restaurant and nightlife categories from the Yelp Open Dataset (Yelp, 2021).",
+      "b": "For the data-to-text writing task, why did we prompt LLMs to generate an objective overview for a randomly sampled business from the Yelp Open Dataset (Yelp, 2021) instead of using the Amazon dataset?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The AQuA improvement might not show that much importance, however, because even the improved accuracy still mostly stays at the random rate of guessing.",
+      "b": "The enhancement in AQuA might not demonstrate significant importance because the improved accuracy largely remains at a random guessing rate.",
+      "label": "positive"
+    },
+    {
+      "a": "The AQuA improvement might not show that much importance, however, because even the improved accuracy still mostly stays at the random rate of guessing.",
+      "b": "Why does the AQuA improvement show so much importance even when the improved accuracy mostly stays at the random rate of guessing?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "While chain-of-thought inference significantly improves performance on complex reasoning tasks, it can also lead to reasoning failures when deployed with existing KV cache compression approaches.",
+      "b": "Although chain-of-thought inference greatly enhances performance on complex reasoning tasks, it can additionally result in reasoning failures when utilized alongside current KV cache compression methods.",
+      "label": "positive"
+    },
+    {
+      "a": "While chain-of-thought inference significantly improves performance on complex reasoning tasks, it can also lead to reasoning failures when deployed with existing KV cache compression approaches.",
+      "b": "While chain-of-thought inference significantly improves performance on complex reasoning tasks, what prevents it from ever leading to reasoning failures when deployed with existing KV cache compression approaches?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "When given the corresponding gold passage to each question, the SQA module obtains 11.17 FF1 on SLUE-SQA-5 test set. 4.4.",
+      "b": "Upon receiving the matching gold passage for each question, the SQA module achieves an 11.17 FF1 score on the SLUE-SQA-5 test set in section 4.4.",
+      "label": "positive"
+    },
+    {
+      "a": "When given the corresponding gold passage to each question, the SQA module obtains 11.17 FF1 on SLUE-SQA-5 test set. 4.4.",
+      "b": "When given the corresponding gold passage to each question, why does the SQA module obtain a zero FF1 score on the SLUE-SQA-5 test set in section 4.4?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "The appropriate granularity therefore depends on the trust function: claim-level links may suffice for low-risk RAG, tool-using agents require parameter-level provenance, and long-term personalized agents require memory lineage, invalidation, and recovery support.",
+      "b": "The correct granularity consequently relies on the trust function, where claim-level links might work for low-risk RAG, tool-using agents demand parameter-level provenance, and long-term personalized agents need memory lineage, invalidation, and recovery support.",
+      "label": "positive"
+    },
+    {
+      "a": "The appropriate granularity therefore depends on the trust function: claim-level links may suffice for low-risk RAG, tool-using agents require parameter-level provenance, and long-term personalized agents require memory lineage, invalidation, and recovery support.",
+      "b": "Why does the appropriate granularity independent of the trust function, given that claim-level links suffice for low-risk RAG while tool-using agents require parameter-level provenance?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, we need to quantify the trade-off between computational savings and data transfer overhead.",
+      "b": "To figure out the best option between these two strategies for every vector access not located on the GPU, we must measure the trade-off between computational savings and data transfer overhead.",
+      "label": "positive"
+    },
+    {
+      "a": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, we need to quantify the trade-off between computational savings and data transfer overhead.",
+      "b": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, why is it unnecessary to quantify the trade-off between computational savings and data transfer overhead?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Advancing vision-language models in front-end development via data synthesis. arXiv preprint arXiv:2503.01619, 2025.",
+      "b": "Using data synthesis to improve vision-language models for front-end engineering. arXiv preprint arXiv:2503.01619, 2025.",
+      "label": "positive"
+    },
+    {
+      "a": "Advancing vision-language models in front-end development via data synthesis. arXiv preprint arXiv:2503.01619, 2025.",
+      "b": "Advancing vision-language models in back-end development via data synthesis. arXiv preprint arXiv:2503.01619, 2025.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Visual Aid Response Type - Color In Text Explanations Phrasing - Customization Replies Confidence Threshold Drill-down Dashboard Table 1: Distribution of 17 features of [26] into three groups. a corresponding LLM-generated response.",
+      "b": "Table 1: Breakdown of 17 features from [26] divided into three categories, covering Visual Aid Response Type, Color In Text Explanations Phrasing, Customization Replies, Confidence Threshold, and Drill-down Dashboard, along with an LLM-generated reply.",
+      "label": "positive"
+    },
+    {
+      "a": "Visual Aid Response Type - Color In Text Explanations Phrasing - Customization Replies Confidence Threshold Drill-down Dashboard Table 1: Distribution of 17 features of [26] into three groups. a corresponding LLM-generated response.",
+      "b": "Visual Aid Response Type - Color In Text Explanations Phrasing - Customization Replies Confidence Threshold Drill-down Dashboard Table 1: Distribution of 17 features of [26] into four groups, excluding a corresponding LLM-generated response.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "On BFCL, the smallest differences occur on Simple tasks, where both looped and non-looped SFT models already perform 5 Table 1: BFCL semantic AST correctness (%; higher is better).",
+      "b": "Table 1 displays BFCL semantic AST correctness percentages, where higher values are better, noting that the minimal variances on Simple tasks happen when looped and non-looped SFT models reach 5.",
+      "label": "positive"
+    },
+    {
+      "a": "On BFCL, the smallest differences occur on Simple tasks, where both looped and non-looped SFT models already perform 5 Table 1: BFCL semantic AST correctness (%; higher is better).",
+      "b": "On BFCL, the largest differences occur on Complex tasks, where both looped and non-looped SFT models already perform 5 Table 1: BFCL semantic AST correctness (%; higher is better).",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under conflict, (ii) gradient rescaling under severe imbalance, or (iii) no modification when gradients are aligned and balanced.",
+      "b": "Depending on magnitude imbalance and gradient cosine similarity, Pareto LoRA utilizes Pareto integration for conflicts, gradient rescaling for severe imbalance, or leaves gradients unchanged when balanced and aligned.",
+      "label": "positive"
+    },
+    {
+      "a": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under conflict, (ii) gradient rescaling under severe imbalance, or (iii) no modification when gradients are aligned and balanced.",
+      "b": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under alignment, (ii) gradient rescaling under mild imbalance, or (iii) complete pruning when gradients are conflicting and unbalanced.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Documentation for Phi-3, Llama-3, and Gemma all describe how post-training mitigations such as fine-tuning improve safety performance (Bilenko, 2024; Gemma Team et al., 2024; Meta, 2024).",
+      "b": "Safety performance improvements via post-training mitigations like fine-tuning are documented for Llama-3, Gemma, and Phi-3 (Meta, 2024; Gemma Team et al., 2024; Bilenko, 2024).",
+      "label": "positive"
+    },
+    {
+      "a": "Documentation for Phi-3, Llama-3, and Gemma all describe how post-training mitigations such as fine-tuning improve safety performance (Bilenko, 2024; Gemma Team et al., 2024; Meta, 2024).",
+      "b": "Documentation for Phi-3, Llama-3, and Gemma all describe how pre-training mitigations such as quantization degrade safety performance (Bilenko, 2024; Gemma Team et al., 2024; Meta, 2024).",
+      "label": "hard_negative"
+    },
+    {
+      "a": "To ensure a fair comparison, we initially fine-tuned models with DoRA following the LoRA configuration, maintaining the same rank while adjusting only the learning rate.",
+      "b": "Models were initially fine-tuned using DoRA based on the LoRA setup to guarantee a fair comparison, keeping the rank constant while only tuning the learning rate.",
+      "label": "positive"
+    },
+    {
+      "a": "To ensure a fair comparison, we initially fine-tuned models with DoRA following the LoRA configuration, maintaining the same rank while adjusting only the learning rate.",
+      "b": "To ensure a biased comparison, we initially fine-tuned models with DoRA following the LoRA configuration, altering the rank while maintaining the same learning rate.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Some task-agnostic CoT results approached CoT performance and significantly outperformed zero-shot CoT, indicating that reasoning structure, rather than content, is crucial.",
+      "b": "Indicating that reasoning structure matters more than content, some task-agnostic Chain-of-Thought results neared standard CoT performance and greatly beat zero-shot CoT.",
+      "label": "positive"
+    },
+    {
+      "a": "Some task-agnostic CoT results approached CoT performance and significantly outperformed zero-shot CoT, indicating that reasoning structure, rather than content, is crucial.",
+      "b": "Some task-agnostic CoT results approached zero-shot CoT performance and significantly outperformed standard CoT, indicating that reasoning content, rather than structure, is crucial.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "TF-IDF cosine similarity (as presented in Fig. 2) remains low to moderate across the corpus, indicating shared domain without substantial content overlap.",
+      "b": "As illustrated in Fig. 2, the TF-IDF cosine similarity across the corpus stays at low to moderate levels, suggesting a shared domain without major content overlap.",
+      "label": "positive"
+    },
+    {
+      "a": "TF-IDF cosine similarity (as presented in Fig. 2) remains low to moderate across the corpus, indicating shared domain without substantial content overlap.",
+      "b": "TF-IDF cosine similarity (as presented in Fig. 2) remains extremely high across the corpus, indicating distinct domains with substantial content overlap.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "In this study, I achieve a qualitatively new method of decipherment using deep learning technology, speci\ufb01cally T5 [3, 4], which can handle text transformation rules.",
+      "b": "This research introduces an innovative decryption approach utilizing advanced deep learning models, particularly T5 [3, 4], designed for processing text transformation rules.",
+      "label": "positive"
+    },
+    {
+      "a": "In this study, I achieve a qualitatively new method of decipherment using deep learning technology, speci\ufb01cally T5 [3, 4], which can handle text transformation rules.",
+      "b": "In this study, I achieve a qualitatively new method of decipherment using deep learning technology, specifically T5 [3, 4], which can handle image transformation rules.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "A natural question arises: do the components selected based on the gradient of the first batch still effectively represent the full gradient information in subsequent batches?",
+      "b": "It is natural to wonder whether the features chosen via the gradient of the initial batch continue to accurately capture the complete gradient details in later batches.",
+      "label": "positive"
+    },
+    {
+      "a": "A natural question arises: do the components selected based on the gradient of the first batch still effectively represent the full gradient information in subsequent batches?",
+      "b": "A natural question arises: do the components selected based on the gradient of the first batch still effectively represent the full gradient information in the final batch?",
+      "label": "hard_negative"
+    },
+    {
+      "a": "By considering passage-centric similarity relation, our approach will be more capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "b": "By focusing on passage-centric similarity relations, our technique enhances the ability to distinguish between a relevant passage and a very similar but unrelated one, as illustrated in Figure 1(b).",
+      "label": "positive"
+    },
+    {
+      "a": "By considering passage-centric similarity relation, our approach will be more capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "b": "By considering passage-centric similarity relation, our approach will be less capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "b": "Jiarong Qiu from the University of Southern California in Los Angeles, USA, explains that retrieval augmented generation integrates external knowledge lookup into generation to supply models with traceable and current factual references.",
+      "label": "positive"
+    },
+    {
+      "a": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "b": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces internal knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "Our EFANNA index is composed of two elements: multiple randomized hierarchical frameworks, such as randomized truncated KD-trees, alongside an approximate k-nearest neighbor graph.",
+      "label": "positive"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "Our EFANNA index contains three parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "b": "To boost logical consistency, Logic-LM [99] converts natural language statements into symbolic expressions solvable by external logic solvers, thereby enhancing determinism in deductive reasoning.",
+      "label": "positive"
+    },
+    {
+      "a": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "b": "To further weaken logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Without Task: Convert meeting agenda from calendar into Excel \ufb01le meeting_agenda.xlsx for further analysis.",
+      "b": "Without Task: Transform a calendar meeting agenda into an Excel spreadsheet named meeting_agenda.xlsx to facilitate further evaluation.",
+      "label": "positive"
+    },
+    {
+      "a": "Without Task: Convert meeting agenda from calendar into Excel \ufb01le meeting_agenda.xlsx for further analysis.",
+      "b": "Without Task: Convert meeting agenda from Excel into calendar file meeting_agenda.xlsx for further analysis.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "Comprehensive experiments across various benchmarks demonstrate UORA\u2019s superiority in achieving competitive fine-tuning performance with negligible computational overhead.",
+      "b": "Extensive evaluations across multiple benchmarks show that UORA excels at delivering competitive fine-tuning outcomes while maintaining minimal computational costs.",
+      "label": "positive"
+    },
+    {
+      "a": "Comprehensive experiments across various benchmarks demonstrate UORA\u2019s superiority in achieving competitive fine-tuning performance with negligible computational overhead.",
+      "b": "Comprehensive experiments across various benchmarks demonstrate UORA\u2019s inferiority in achieving competitive fine-tuning performance with negligible computational overhead.",
+      "label": "hard_negative"
+    },
+    {
+      "a": "While chain-of-thought inference significantly improves performance on complex reasoning tasks, it can also lead to reasoning failures when deployed with existing KV cache compression approaches.",
+      "b": "Collectively, these steps ensure that the model not only identifies inadequacies in its initial cognitive responses but also fixes them based on the metacognitive evaluating and planning.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Visual Aid Response Type - Color In Text Explanations Phrasing - Customization Replies Confidence Threshold Drill-down Dashboard Table 1: Distribution of 17 features of [26] into three groups. a corresponding LLM-generated response.",
+      "b": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "b": "By considering passage-centric similarity relation, our approach will be more capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "label": "random_negative"
+    },
+    {
+      "a": "It is de\ufb01ned as: Recall@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "b": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, we need to quantify the trade-off between computational savings and data transfer overhead.",
+      "label": "random_negative"
+    },
+    {
+      "a": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "b": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "label": "random_negative"
+    },
+    {
+      "a": "In this study, I achieve a qualitatively new method of decipherment using deep learning technology, speci\ufb01cally T5 [3, 4], which can handle text transformation rules.",
+      "b": "For each of the settings, we compute the feature variance (across 100 perturbations) and average 8 Model Method CHAIRS \u2193 CHAIRI \u2193 Recall \u2191 Avg.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The passage level in\ufb02uence for retrieval of documents has been analyzed in multiple works [7,22,37,38] and shown to be bene\ufb01cial, but in these works the focus lies on passage-to-document retrieval.",
+      "b": "FOLIO (Han et al., 2022) is an open-domain, logically complex and diverse dataset equipped with first-order logic (FOL) annotations.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under conflict, (ii) gradient rescaling under severe imbalance, or (iii) no modification when gradients are aligned and balanced.",
+      "b": "On BFCL, the smallest differences occur on Simple tasks, where both looped and non-looped SFT models already perform 5 Table 1: BFCL semantic AST correctness (%; higher is better).",
+      "label": "random_negative"
+    },
+    {
+      "a": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "b": "DPR-trained 1Appendix A.2 demonstrates that our observations are consistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "label": "random_negative"
+    },
+    {
+      "a": "FOLIO (Han et al., 2022) is an open-domain, logically complex and diverse dataset equipped with first-order logic (FOL) annotations.",
+      "b": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under conflict, (ii) gradient rescaling under severe imbalance, or (iii) no modification when gradients are aligned and balanced.",
+      "b": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Pre- Print http://adcaij.usal.es",
+      "label": "random_negative"
+    },
+    {
+      "a": "The problem is how to ensure that make knowledge-grounded dialogue systems generated conversational responses remain faithful to the provided evidence, especially when the conversation datasets contain both evidence-based and subjective responses.",
+      "b": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "b": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "label": "random_negative"
+    },
+    {
+      "a": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "b": "Visual Aid Response Type - Color In Text Explanations Phrasing - Customization Replies Confidence Threshold Drill-down Dashboard Table 1: Distribution of 17 features of [26] into three groups. a corresponding LLM-generated response.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "b": "The problem is how to ensure that make knowledge-grounded dialogue systems generated conversational responses remain faithful to the provided evidence, especially when the conversation datasets contain both evidence-based and subjective responses.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The passage level in\ufb02uence for retrieval of documents has been analyzed in multiple works [7,22,37,38] and shown to be bene\ufb01cial, but in these works the focus lies on passage-to-document retrieval.",
+      "b": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Figure 2 shows the task interference score for LoRA A and B at the 5-th and 25-th Transformer Layer for both MLP (Figure 2a) and Self-Attention (Figure 2b).",
+      "b": "For the data-to-text writing task, we prompted LLMs to generate an objective overview for a randomly sampled business in the restaurant and nightlife categories from the Yelp Open Dataset (Yelp, 2021).",
+      "label": "random_negative"
+    },
+    {
+      "a": "On BFCL, the smallest differences occur on Simple tasks, where both looped and non-looped SFT models already perform 5 Table 1: BFCL semantic AST correctness (%; higher is better).",
+      "b": "Collectively, these steps ensure that the model not only identifies inadequacies in its initial cognitive responses but also fixes them based on the metacognitive evaluating and planning.",
+      "label": "random_negative"
+    },
+    {
+      "a": "By considering passage-centric similarity relation, our approach will be more capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "b": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Pre- Print http://adcaij.usal.es",
+      "label": "random_negative"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "The AQuA improvement might not show that much importance, however, because even the improved accuracy still mostly stays at the random rate of guessing.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "b": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.",
+      "label": "random_negative"
+    },
+    {
+      "a": "It is de\ufb01ned as: Recall@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "b": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "Speci\ufb01cally, we \ufb01ne-tune the pre-trained models on large datasets (NQ, TriviaQA) with m (m \u2208{16, 256, 1024}) samples and present the few-shot retrieval results in Table 2.",
+      "label": "random_negative"
+    },
+    {
+      "a": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, we need to quantify the trade-off between computational savings and data transfer overhead.",
+      "b": "It is de\ufb01ned as: Recall@k = # Relevant Documents Retrieved in Top k Total Number of Relevant Documents NDCG (Normalized Discounted Cumulative Gain) NDCG evaluates the ranking quality of search results[12].",
+      "label": "random_negative"
+    },
+    {
+      "a": "Jiarong Qiu* University of Southern California Los Angeles, USA Retrieval augmented generation introduces external knowledge retrieval into the generation process to provide models with updatable and traceable sources of factual information.",
+      "b": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "label": "random_negative"
+    },
+    {
+      "a": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "b": "The search class also provides options for multi-threaded searching; the current implementation provides inter-query parallelism, where multiple queries are processed in parallel.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Comprehensive experiments across various benchmarks demonstrate UORA\u2019s superiority in achieving competitive fine-tuning performance with negligible computational overhead.",
+      "b": "For each of the settings, we compute the feature variance (across 100 perturbations) and average 8 Model Method CHAIRS \u2193 CHAIRI \u2193 Recall \u2191 Avg.",
+      "label": "random_negative"
+    },
+    {
+      "a": "TF-IDF cosine similarity (as presented in Fig. 2) remains low to moderate across the corpus, indicating shared domain without substantial content overlap.",
+      "b": "By considering passage-centric similarity relation, our approach will be more capable of discriminating between a positive passage and a highly similar yet irrelevant passage See Figure 1(b) .",
+      "label": "random_negative"
+    },
+    {
+      "a": "Depending on gradient cosine similarity and magnitude imbalance, Pareto LoRA applies (i) Pareto integration under conflict, (ii) gradient rescaling under severe imbalance, or (iii) no modification when gradients are aligned and balanced.",
+      "b": "While chain-of-thought inference significantly improves performance on complex reasoning tasks, it can also lead to reasoning failures when deployed with existing KV cache compression approaches.",
+      "label": "random_negative"
+    },
+    {
+      "a": "To ensure a fair comparison, we initially fine-tuned models with DoRA following the LoRA configuration, maintaining the same rank while adjusting only the learning rate.",
+      "b": "To further strengthen logical rigor, Logic-LM [99] translates natural language problems into symbolic formulations that can be solved by external logic solvers, improving determinism in deductive reasoning tasks.",
+      "label": "random_negative"
+    },
+    {
+      "a": "To ensure a fair comparison, we initially fine-tuned models with DoRA following the LoRA configuration, maintaining the same rank while adjusting only the learning rate.",
+      "b": "To determine the optimal choice between these two strategies for each vector access not resident on GPU, we need to quantify the trade-off between computational savings and data transfer overhead.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The AQuA improvement might not show that much importance, however, because even the improved accuracy still mostly stays at the random rate of guessing.",
+      "b": "DPR-trained 1Appendix A.2 demonstrates that our observations are consistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.",
+      "b": "DPR-trained 1Appendix A.2 demonstrates that our observations are consistent across a spectrum of thresholds. 2Appendix A.1 shows that the observations made in this section also hold for the context model.",
+      "label": "random_negative"
+    },
+    {
+      "a": "FOLIO (Han et al., 2022) is an open-domain, logically complex and diverse dataset equipped with first-order logic (FOL) annotations.",
+      "b": "Our EFANNA index contains two parts: the multiple randomized hierarchical structures (e.g., randomized truncated KD-tree) and an approximate k-nearest neighbor graph.",
+      "label": "random_negative"
+    },
+    {
+      "a": "The AQuA improvement might not show that much importance, however, because even the improved accuracy still mostly stays at the random rate of guessing.",
+      "b": "A natural question arises: do the components selected based on the gradient of the first batch still effectively represent the full gradient information in subsequent batches?",
+      "label": "random_negative"
+    },
+    {
+      "a": "TF-IDF cosine similarity (as presented in Fig. 2) remains low to moderate across the corpus, indicating shared domain without substantial content overlap.",
+      "b": "When given the corresponding gold passage to each question, the SQA module obtains 11.17 FF1 on SLUE-SQA-5 test set. 4.4.",
+      "label": "random_negative"
+    },
+    {
+      "a": "Documentation for Phi-3, Llama-3, and Gemma all describe how post-training mitigations such as fine-tuning improve safety performance (Bilenko, 2024; Gemma Team et al., 2024; Meta, 2024).",
+      "b": "For the data-to-text writing task, we prompted LLMs to generate an objective overview for a randomly sampled business in the restaurant and nightlife categories from the Yelp Open Dataset (Yelp, 2021).",
+      "label": "random_negative"
+    },
+    {
+      "a": "Without Task: Convert meeting agenda from calendar into Excel \ufb01le meeting_agenda.xlsx for further analysis.",
+      "b": "Top-k hit accuracy and MRR scores are reported, and the best results are marked as bold. \u2020 indicates the performance of the baseline DPR is reported in (Karpukhin et al., 2020).",
+      "label": "random_negative"
+    },
+    {
+      "a": "Advances in Distributed Computing and Artificial Intelligence Journal \u00a9Ediciones Universidad de Salamanca / cc by-nc-nd 9 Pre- Print http://adcaij.usal.es",
+      "b": "In this study, I achieve a qualitatively new method of decipherment using deep learning technology, speci\ufb01cally T5 [3, 4], which can handle text transformation rules.",
+      "label": "random_negative"
+    }
+  ]
+}

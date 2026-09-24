@@ -23,6 +23,7 @@ Two documented limits handled explicitly:
 """
 
 import logging
+import sys
 import threading
 import time
 from typing import Any
@@ -42,12 +43,62 @@ log = logging.getLogger(__name__)
 _agent = None
 _lock = threading.Lock()
 
+# The checkpoint is ~800MB of safetensors; loading it needs roughly this much
+# free memory once torch overhead is counted. Measured the hard way: on a
+# 3.8GB machine with ~0.25GB free, `laya.load()` does not raise — it segfaults
+# (Windows 0xC0000005). A native crash cannot be caught by try/except, so the
+# registry's fallback to LocalClassifier would never run and the whole process
+# would die. Hence a pre-flight check that turns an uncatchable crash into an
+# ordinary exception.
+MIN_FREE_BYTES = 1_400_000_000
+
+
+def _available_memory() -> int | None:
+    try:
+        import psutil
+
+        return psutil.virtual_memory().available
+    except ImportError:
+        pass
+    if sys.platform == "win32":
+        import ctypes
+
+        class _Status(ctypes.Structure):
+            _fields_ = [
+                ("dwLength", ctypes.c_ulong),
+                ("dwMemoryLoad", ctypes.c_ulong),
+                ("ullTotalPhys", ctypes.c_ulonglong),
+                ("ullAvailPhys", ctypes.c_ulonglong),
+                ("ullTotalPageFile", ctypes.c_ulonglong),
+                ("ullAvailPageFile", ctypes.c_ulonglong),
+                ("ullTotalVirtual", ctypes.c_ulonglong),
+                ("ullAvailVirtual", ctypes.c_ulonglong),
+                ("ullAvailExtendedVirtual", ctypes.c_ulonglong),
+            ]
+
+        status = _Status()
+        status.dwLength = ctypes.sizeof(_Status)
+        if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(status)):
+            return int(status.ullAvailPhys)
+    return None
+
+
+class LayaUnavailable(RuntimeError):
+    pass
+
 
 def _load_agent(device: str = "cpu"):
     global _agent
     if _agent is None:
         with _lock:
             if _agent is None:
+                available = _available_memory()
+                if available is not None and available < MIN_FREE_BYTES:
+                    raise LayaUnavailable(
+                        f"only {available / 1e9:.2f}GB free; the Laya checkpoint needs "
+                        f"~{MIN_FREE_BYTES / 1e9:.1f}GB to load and would segfault. "
+                        "Falling back to LocalClassifier."
+                    )
                 import laya
 
                 _agent = laya.load(device=device)
@@ -175,6 +226,69 @@ class LayaClassifier(DecisionClassifier):
             ),
             ClassifierTiming((time.perf_counter() - start) * 1000, self.name),
         )
+
+    async def evaluate(
+        self, state: str, questions: dict[str, dict]
+    ) -> tuple[dict, ClassifierTiming]:
+        """All questions in ONE forward pass — Laya's native mode.
+
+        `Agent.predict` takes the whole question dict at once, so the marginal
+        cost of a fifth guardrail is close to zero. That is the structural
+        advantage over an autoregressive backend, where every extra question is
+        another generation.
+        """
+        from anyio import to_thread
+
+        start = time.perf_counter()
+        raw = await to_thread.run_sync(self._ask, state, questions)
+        results: dict = {}
+
+        for name, spec in questions.items():
+            answer = raw.get(name)
+            if answer is None:
+                continue
+            kind = spec["type"]
+            if kind == "noul":
+                probability = float(
+                    _pick(answer, "probability", "prob", "p", "score", "confidence", default=0.0)
+                    or 0.0
+                )
+                probability = self.calibrator.apply(self.name, probability)
+                results[name] = NoulResult(
+                    probability=probability, confidence=abs(probability - 0.5) * 2
+                )
+            elif kind == "choice":
+                options = spec["options"]
+                value = str(_pick(answer, "answer", "value", "choice", default=options[0]))
+                if value not in options:
+                    value = next((o for o in options if o.lower() == value.lower()), options[0])
+                probs = _probabilities(answer)
+                results[name] = ChoiceResult(
+                    value=value,
+                    confidence=float(
+                        _pick(answer, "confidence", "prob", default=probs.get(value, 0.0)) or 0.0
+                    ),
+                    probabilities=probs,
+                )
+            elif kind == "score":
+                criteria = spec["criteria"]
+                label = str(_pick(answer, "label", "answer", "value", default=criteria[0]))
+                if label not in criteria:
+                    label = next((c for c in criteria if c.lower() in label.lower()), criteria[0])
+                index = criteria.index(label)
+                raw_score = _pick(answer, "score", "normalised", "normalized")
+                value = (
+                    float(raw_score)
+                    if isinstance(raw_score, (int, float))
+                    else index / (len(criteria) - 1 if len(criteria) > 1 else 1)
+                )
+                results[name] = ScoreResult(
+                    value=max(0.0, min(1.0, value)),
+                    label=label,
+                    confidence=float(_pick(answer, "confidence", default=0.0) or 0.0),
+                )
+
+        return results, ClassifierTiming((time.perf_counter() - start) * 1000, self.name, 1)
 
     async def noul(self, state: str, question: str) -> tuple[NoulResult, ClassifierTiming]:
         from anyio import to_thread

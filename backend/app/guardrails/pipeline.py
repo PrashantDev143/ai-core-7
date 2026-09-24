@@ -109,44 +109,39 @@ async def guard_input(query: str, *, request_id: uuid.UUID | None = None) -> Gua
     decision.stages_run.append(f"classifier:{classifier.name}")
 
     try:
-        injection, _ = await classifier.noul(
-            query, GUARD_QUESTIONS["prompt_injection"]["instructions"]
-        )
-        decision.injection_prob = round(injection.probability, 4)
-        if injection.decide(THRESHOLDS["prompt_injection"]):
-            return _reject(decision, "classifier_injection", "classifier flagged injection",
-                           REFUSAL_MESSAGES["injection"], start)
+        # ONE call for the whole question set. Asked separately this was four
+        # sequential round trips per query against a rate limit measured in
+        # single-digit requests per minute.
+        answers, _ = await classifier.evaluate(query, GUARD_QUESTIONS)
 
-        jailbreak, _ = await classifier.noul(
-            query, GUARD_QUESTIONS["jailbreak"]["instructions"]
-        )
-        decision.jailbreak_prob = round(jailbreak.probability, 4)
-        if jailbreak.decide(THRESHOLDS["jailbreak"]):
-            return _reject(decision, "classifier_jailbreak", "classifier flagged jailbreak",
-                           REFUSAL_MESSAGES["injection"], start)
+        injection = answers.get("prompt_injection")
+        if injection is not None:
+            decision.injection_prob = round(injection.probability, 4)
+            if injection.decide(THRESHOLDS["prompt_injection"]):
+                return _reject(decision, "classifier_injection", "classifier flagged injection",
+                               REFUSAL_MESSAGES["injection"], start)
 
-        topic, _ = await classifier.choice(
-            query,
-            GUARD_QUESTIONS["topic"]["instructions"],
-            GUARD_QUESTIONS["topic"]["options"],
-        )
+        jailbreak = answers.get("jailbreak")
+        if jailbreak is not None:
+            decision.jailbreak_prob = round(jailbreak.probability, 4)
+            if jailbreak.decide(THRESHOLDS["jailbreak"]):
+                return _reject(decision, "classifier_jailbreak", "classifier flagged jailbreak",
+                               REFUSAL_MESSAGES["injection"], start)
+
+        topic = answers.get("topic")
         decision.topic = topic
         # Rejecting a real question is this system's most visible failure, so
         # an out-of-scope verdict must ALSO be confident. A low-confidence
         # "unrelated" is allowed through and answered with a caveat instead.
-        if topic.value in {"unrelated", "adjacent_cs"}:
+        if topic is not None and topic.value in {"unrelated", "adjacent_cs"}:
             if topic.confidence >= THRESHOLDS["out_of_scope_confidence"]:
                 return _reject(decision, "out_of_scope", f"topic={topic.value}",
                                REFUSAL_MESSAGES["out_of_scope"], start)
             decision.degraded = True
 
-        harm, _ = await classifier.score(
-            query,
-            GUARD_QUESTIONS["harm"]["instructions"],
-            GUARD_QUESTIONS["harm"]["criteria"],
-        )
+        harm = answers.get("harm")
         decision.harm = harm
-        if harm.value >= THRESHOLDS["harm_block_at"]:
+        if harm is not None and harm.value >= THRESHOLDS["harm_block_at"]:
             return _reject(decision, "harm", f"harm={harm.label}",
                            REFUSAL_MESSAGES["harm"], start)
 

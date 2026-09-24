@@ -1,0 +1,12 @@
+{
+  "local": {
+    "backend": "local",
+    "temperature": 10.0,
+    "ece_before": 0.3342,
+    "ece_after": 0.2485,
+    "nll_before": 3.7172,
+    "nll_after": 0.727,
+    "samples": 12,
+    "improvement": 0.0857
+  }
+}

@@ -213,10 +213,185 @@ hundreds of MB in git.
 
 ---
 
+## 8. Retrieval (Phase 2)
+
+**`backend/app/retrieval/base.py`** first — four methods, and the important
+design point is that a `Retriever` returns a ranked list and nothing else. No
+generation, no formatting. That is what lets every stage be scored
+independently by the eval harness.
+
+**`dense.py`** is short. Two things to notice: `SET LOCAL hnsw.ef_search`
+rather than `SET`, so the tuning value dies with the transaction instead of
+leaking onto whichever request next borrows that pooled connection; and the
+score is `1 - cosine_distance`, which is only clean because vectors are
+normalised at write time.
+
+**`sparse.py`** implements BM25 directly — about forty lines. Read
+`BM25Index.__init__` for the inverted index and `search` for the ranking
+function itself:
+
+```
+score = Σ idf(t) · (f · (k1+1)) / (f + k1·(1 - b + b·|d|/avgdl))
+```
+
+`k1` controls how fast repeated terms stop helping; `b` controls how hard long
+documents are penalised. Then look at `_load_index`: the index rebuilds when
+the **corpus version** changes, reusing the same hash that invalidates the
+Phase 3 cache. That is not incidental — it is what stops the lexical index
+pointing at chunks that no longer exist.
+
+**`fusion.py`** is twenty lines and worth all of them. RRF reads only rank
+position, never score, because dense cosine and BM25 scores live on different
+unnormalised scales that shift per query. Adding them is meaningless. Measured
+cost: 0.4 ms.
+
+**`rerank.py`** then `service.py`. The two-stage shape — cheap recall-oriented
+retrieval to ~50 candidates, expensive precision-oriented scoring to the final
+few — is the standard production pattern, and `service.py` returns per-stage
+timings so the cost of each is visible rather than inferred.
+
+**Then read the numbers** in DECISIONS.md 2.1–2.3, and specifically 2.2.
+The eval says BM25 beats dense retrieval by 2× on recall@1. It is an artefact
+of the benchmark, the benchmark measured its own bias before running, and the
+write-up says so. That section is the most useful thing in this repo to read
+before an interview.
+
+## 9. Caching (Phase 3)
+
+**`backend/app/cache/keys.py`** — start with `exact_key()`. The corpus version
+is in the **key**, not the value. A re-index therefore produces different keys,
+old entries become unreachable and expire on TTL, and there is no read path
+that could forget to check. Putting the version in the value would work only as
+long as every reader remembered to compare it.
+
+`normalise_query` is deliberately conservative: unicode form, case, whitespace,
+trailing punctuation. Nothing more. Layer 1 must never return the answer to a
+*different* question, so anything fuzzier belongs in layer 2 where a threshold
+makes the risk explicit.
+
+**`service.py`** — `lookup()` reads top to bottom as the cost ladder: exact
+hash first, semantic comparison second. Note that misses log their best
+similarity too; a miss at 0.91 against a 0.92 threshold means something very
+different from a miss at 0.30, and without that number you cannot tell whether
+a falling hit rate is drift or a bad threshold.
+
+Also notice `clear()` uses a prefix SCAN and never `FLUSHDB` — Redis is shared
+with Langfuse's queues under the observability profile.
+
+## 10. Guardrails (Phase 4)
+
+**`rules.py`** first, because it runs first. Deterministic checks in
+microseconds, before anything costs money. Read `_INJECTION_PATTERNS` and note
+how narrow they are: this corpus is *about* prompt injection, so a guardrail
+that blocks "what is prompt injection" has made the product useless in the name
+of safety. `tests/test_guardrails.py` asserts those questions pass.
+
+**`base.py`** — the interface is three typed primitives, not a bag of
+guardrail methods:
+
+```
+choice  pick one label      score  place on a scale      noul  calibrated P(claim)
+```
+
+That shape is taken from Laya, and it is the right shape: a guardrail becomes a
+*question* (data) rather than a method (code). `NoulResult.decide(threshold)`
+keeps the operating point at the call site, so prompt-injection detection can
+fire on weak evidence while out-of-scope rejection demands strong evidence.
+
+**`calibration.py`** — temperature scaling. A raw 0.9 from either backend is not
+a 90% probability; both are overconfident. One scalar T fitted by golden-section
+search on NLL, reported as ECE before and after. One parameter, so it cannot
+overfit a small calibration set, and monotonic, so it never changes the ranking.
+
+**`local_classifier.py`** vs **`laya_classifier.py`** — same interface, and both
+handle the same two documented limits: >20 options routes hierarchically, and
+confidences go through the calibrator.
+
+**`faithfulness.py`** — read the module docstring, which is mostly a confession.
+Embedding similarity measures topical relatedness, not entailment: "trained on
+8 GPUs" and "trained on 64 GPUs" are near-identical in embedding space and one
+is false. It catches answers that wander off the evidence and misses fabricated
+specifics. That is why a low score downgrades the answer with a visible caveat
+instead of silently passing it.
+
+**`pipeline.py`** last — and note the `except` block. On classifier failure it
+fails **open**, deliberately, with a comment explaining why: the deterministic
+rules already passed, and blocking every query because a model is down converts
+a degraded dependency into a total outage.
+
+## 11. The answer path
+
+**`backend/app/answer.py`** is where everything meets, and it reads as the cost
+ladder: guardrails → cache → retrieval → generation → faithfulness.
+
+Two behaviours are worth reading carefully, both about refusing to sound
+confident: thin retrieval (best chunk below threshold) produces a caveated
+partial answer rather than a fluent guess, and an unfaithful answer is
+downgraded with its unsupported sentences named.
+
+Notice the caching condition at the bottom: only answers that are *both*
+well-grounded and not thin get stored. Caching a caveated answer multiplies one
+bad response across every future paraphrase of the question.
+
+## 12. Observability and the schema guarantee (Phases 6–7)
+
+**Read `backend/app/observability/schema.py` before the agent.** It is the
+linchpin of the whole project.
+
+The Phase 7 requirement is that a production trace can be replayed straight
+into the Phase 6 eval harness. The guarantee here is *structural*: there is no
+"production schema" and "eval schema" kept in sync by discipline — there is one
+set of dataclasses that the agent runtime, the Langfuse exporter and the
+benchmark all import. Divergence is impossible because there is nothing to
+diverge from.
+
+**Then `tests/test_schema_identity.py`**, which is what makes that a guarantee
+rather than an intention. It asserts class *identity* (not structural
+similarity), exact round-trip, a frozen field snapshot, and that a serialised
+trace scores through the real benchmark scorer with no adapter.
+
+**`redact.py`** — redaction happens as spans are built, never as a cleanup pass.
+A scrubber that runs after persistence has already written the secret to disk,
+shipped it to a third party and put it in a backup.
+
+**`tracer.py`** — two sinks, same spans. The file sink is always written, even
+when Langfuse is active, so dashboards survive the observability stack being
+the thing that broke.
+
+**`app/agent/graph.py`** — note that budget enforcement is a *node*, not an
+`if` buried in a loop. A breach is a distinct terminal state with its own
+outcome and its own metric, because "ran out of room" and "answered" are
+different events.
+
+**`app/observability/metrics.py`** — the alerts watch *leading* indicators
+(retry rate rising, cache hit rate falling) rather than outcomes. An alert on
+p99 latency tells you users are already suffering.
+
 ## Suggested order if you only have twenty minutes
 
 1. `config.py` — what the system is
 2. `migrations/001_initial.sql` — what it stores
 3. `ingestion/pipeline.py`, function `_needs_work` — the incremental logic
-4. `llm/rate_limit.py` — the most interesting constraint in the project
-5. DECISIONS.md sections 1.4, 1.5 and 1.8
+4. `llm/rate_limit.py` — searching for an undocumented rate limit
+5. `observability/schema.py` + `tests/test_schema_identity.py` — the
+   one-schema guarantee
+6. **DECISIONS.md 2.2** — why the headline retrieval number is an artefact
+7. DECISIONS.md 1.4, 1.5 and 1.8
+
+## If you are preparing for an interview
+
+The sections below are the ones with a defensible argument behind them, rather
+than a library call:
+
+| Topic | Where |
+|---|---|
+| Three ways a vector can go stale | DECISIONS 1.5, `_needs_work` |
+| Rate limiting an undocumented quota (AIMD) | DECISIONS 1.4, `rate_limit.py` |
+| Why the corpus hash includes the model | DECISIONS 1.8, `compute_corpus_version` |
+| Diagnosing a benchmark that flatters the wrong component | DECISIONS 2.2 |
+| What re-ranking buys, and what it costs | DECISIONS 2.3 |
+| Asymmetric errors when choosing a threshold | `sweep_threshold.py` docstring |
+| Guardrails that must not block their own subject matter | `rules.py`, its tests |
+| Why entailment-by-embedding is weak, and what to do about it | `faithfulness.py` |
+| Making prod traces replayable by construction | `schema.py`, `test_schema_identity.py` |
+| Why this project does not fine-tune | FINE_TUNING.md |

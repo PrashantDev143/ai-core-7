@@ -1,0 +1,50 @@
+{
+  "queries": 25,
+  "sweep": [
+    {
+      "candidates": 0,
+      "chunk_recall@1": 0.76,
+      "chunk_recall@5": 0.96,
+      "chunk_rr": 0.8333,
+      "p50_ms": 155.3,
+      "p95_ms": 392.5,
+      "rerank_mean_ms": 0.0
+    },
+    {
+      "candidates": 10,
+      "chunk_recall@1": 0.88,
+      "chunk_recall@5": 0.96,
+      "chunk_rr": 0.92,
+      "p50_ms": 2594.3,
+      "p95_ms": 8765.1,
+      "rerank_mean_ms": 3342.8
+    },
+    {
+      "candidates": 20,
+      "chunk_recall@1": 0.88,
+      "chunk_recall@5": 0.96,
+      "chunk_rr": 0.92,
+      "p50_ms": 5376.5,
+      "p95_ms": 9927.3,
+      "rerank_mean_ms": 6219.2
+    },
+    {
+      "candidates": 30,
+      "chunk_recall@1": 0.88,
+      "chunk_recall@5": 0.96,
+      "chunk_rr": 0.924,
+      "p50_ms": 5888.7,
+      "p95_ms": 7339.7,
+      "rerank_mean_ms": 6172.5
+    },
+    {
+      "candidates": 50,
+      "chunk_recall@1": 0.88,
+      "chunk_recall@5": 0.96,
+      "chunk_rr": 0.924,
+      "p50_ms": 9240.5,
+      "p95_ms": 12800.0,
+      "rerank_mean_ms": 9646.4
+    }
+  ]
+}

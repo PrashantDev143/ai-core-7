@@ -1,0 +1,393 @@
+{
+  "count": 30,
+  "categories": {
+    "single_hop": 5,
+    "verify": 5,
+    "multi_doc": 5,
+    "synthesis": 5,
+    "out_of_corpus": 5,
+    "no_tool": 5
+  },
+  "tasks": [
+    {
+      "task_id": "t001",
+      "category": "single_hop",
+      "query": "What problem does the work on Approximate nearest neighbor search for $\\ell_p$-spaces ($2 < p address?",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "Approximate"
+      ],
+      "expected_steps": 2,
+      "notes": "one lookup then answer"
+    },
+    {
+      "task_id": "t002",
+      "category": "single_hop",
+      "query": "What problem does the work on EFANNA : An Extremely Fast Approximate Nearest Neighbor Search address?",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "EFANNA"
+      ],
+      "expected_steps": 2,
+      "notes": "one lookup then answer"
+    },
+    {
+      "task_id": "t003",
+      "category": "single_hop",
+      "query": "What problem does the work on DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based re-ranking for address?",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "DoSSIER@COLIEE"
+      ],
+      "expected_steps": 2,
+      "notes": "one lookup then answer"
+    },
+    {
+      "task_id": "t004",
+      "category": "single_hop",
+      "query": "What problem does the work on PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage address?",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "PAIR:"
+      ],
+      "expected_steps": 2,
+      "notes": "one lookup then answer"
+    },
+    {
+      "task_id": "t005",
+      "category": "single_hop",
+      "query": "What problem does the work on PARM: A Paragraph Aggregation Retrieval Model for Dense Document-to-Document address?",
+      "expected_tools": [
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "PARM:"
+      ],
+      "expected_steps": 2,
+      "notes": "one lookup then answer"
+    },
+    {
+      "task_id": "t006",
+      "category": "verify",
+      "query": "Is it accurate that Chain-of-Thought Prompting Elicits Reasoning in Large Language Models improves retrieval accuracy? Verify first.",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "argument_must_mention": [
+        "Chain-of-Thought"
+      ],
+      "expected_steps": 3,
+      "notes": "explicit verification requested"
+    },
+    {
+      "task_id": "t007",
+      "category": "verify",
+      "query": "Is it accurate that Hyperlink-induced Pre-training for Passage Retrieval in Open-domain Question Answering improves retrieval accuracy? Verify first.",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "argument_must_mention": [
+        "Hyperlink-induced"
+      ],
+      "expected_steps": 3,
+      "notes": "explicit verification requested"
+    },
+    {
+      "task_id": "t008",
+      "category": "verify",
+      "query": "Is it accurate that RELIC: Retrieving Evidence for Literary Claims improves retrieval accuracy? Verify first.",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "argument_must_mention": [
+        "RELIC:"
+      ],
+      "expected_steps": 3,
+      "notes": "explicit verification requested"
+    },
+    {
+      "task_id": "t009",
+      "category": "verify",
+      "query": "Is it accurate that Self-Consistency Improves Chain of Thought Reasoning in Language Models improves retrieval accuracy? Verify first.",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "argument_must_mention": [
+        "Self-Consistency"
+      ],
+      "expected_steps": 3,
+      "notes": "explicit verification requested"
+    },
+    {
+      "task_id": "t010",
+      "category": "verify",
+      "query": "Is it accurate that LIDER: An Efficient High-dimensional Learned Index for Large-scale Dense improves retrieval accuracy? Verify first.",
+      "expected_tools": [
+        "search_corpus",
+        "verify_claim"
+      ],
+      "argument_must_mention": [
+        "LIDER:"
+      ],
+      "expected_steps": 3,
+      "notes": "explicit verification requested"
+    },
+    {
+      "task_id": "t011",
+      "category": "multi_doc",
+      "query": "Compare the approaches taken in Approximate nearest neighbor search for $\\ell_p$-spaces ($2 and in Chain-of-Thought Prompting Elicits Reasoning in Large Language.",
+      "expected_tools": [
+        "search_corpus",
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "Approximate",
+        "Chain-of-Thought"
+      ],
+      "expected_steps": 4,
+      "notes": "two distinct lookups required"
+    },
+    {
+      "task_id": "t012",
+      "category": "multi_doc",
+      "query": "Compare the approaches taken in EFANNA : An Extremely Fast Approximate Nearest and in Hyperlink-induced Pre-training for Passage Retrieval in Open-domain.",
+      "expected_tools": [
+        "search_corpus",
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "EFANNA",
+        "Hyperlink-induced"
+      ],
+      "expected_steps": 4,
+      "notes": "two distinct lookups required"
+    },
+    {
+      "task_id": "t013",
+      "category": "multi_doc",
+      "query": "Compare the approaches taken in DoSSIER@COLIEE 2021: Leveraging dense retrieval and summarization-based and in RELIC: Retrieving Evidence for Literary Claims.",
+      "expected_tools": [
+        "search_corpus",
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "DoSSIER@COLIEE",
+        "RELIC:"
+      ],
+      "expected_steps": 4,
+      "notes": "two distinct lookups required"
+    },
+    {
+      "task_id": "t014",
+      "category": "multi_doc",
+      "query": "Compare the approaches taken in PAIR: Leveraging Passage-Centric Similarity Relation for Improving and in Self-Consistency Improves Chain of Thought Reasoning in.",
+      "expected_tools": [
+        "search_corpus",
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "PAIR:",
+        "Self-Consistency"
+      ],
+      "expected_steps": 4,
+      "notes": "two distinct lookups required"
+    },
+    {
+      "task_id": "t015",
+      "category": "multi_doc",
+      "query": "Compare the approaches taken in PARM: A Paragraph Aggregation Retrieval Model for and in LIDER: An Efficient High-dimensional Learned Index for.",
+      "expected_tools": [
+        "search_corpus",
+        "search_corpus"
+      ],
+      "argument_must_mention": [
+        "PARM:",
+        "LIDER:"
+      ],
+      "expected_steps": 4,
+      "notes": "two distinct lookups required"
+    },
+    {
+      "task_id": "t016",
+      "category": "synthesis",
+      "query": "Summarise what the papers say about chunking strategies.",
+      "expected_tools": [
+        "search_corpus",
+        "summarise"
+      ],
+      "argument_must_mention": [
+        "chunking"
+      ],
+      "expected_steps": 3,
+      "notes": "gather then condense"
+    },
+    {
+      "task_id": "t017",
+      "category": "synthesis",
+      "query": "Summarise what the papers say about reranking.",
+      "expected_tools": [
+        "search_corpus",
+        "summarise"
+      ],
+      "argument_must_mention": [
+        "reranking"
+      ],
+      "expected_steps": 3,
+      "notes": "gather then condense"
+    },
+    {
+      "task_id": "t018",
+      "category": "synthesis",
+      "query": "Summarise what the papers say about hallucination measurement.",
+      "expected_tools": [
+        "search_corpus",
+        "summarise"
+      ],
+      "argument_must_mention": [
+        "hallucination"
+      ],
+      "expected_steps": 3,
+      "notes": "gather then condense"
+    },
+    {
+      "task_id": "t019",
+      "category": "synthesis",
+      "query": "Summarise what the papers say about agent tool use.",
+      "expected_tools": [
+        "search_corpus",
+        "summarise"
+      ],
+      "argument_must_mention": [
+        "agent"
+      ],
+      "expected_steps": 3,
+      "notes": "gather then condense"
+    },
+    {
+      "task_id": "t020",
+      "category": "synthesis",
+      "query": "Summarise what the papers say about retrieval evaluation.",
+      "expected_tools": [
+        "search_corpus",
+        "summarise"
+      ],
+      "argument_must_mention": [
+        "retrieval"
+      ],
+      "expected_steps": 3,
+      "notes": "gather then condense"
+    },
+    {
+      "task_id": "t021",
+      "category": "out_of_corpus",
+      "query": "What was announced at NeurIPS 2026?",
+      "expected_tools": [
+        "web_search"
+      ],
+      "argument_must_mention": [],
+      "expected_steps": 2,
+      "notes": "not answerable from a fixed paper corpus"
+    },
+    {
+      "task_id": "t022",
+      "category": "out_of_corpus",
+      "query": "What is the current price of an NVIDIA H200?",
+      "expected_tools": [
+        "web_search"
+      ],
+      "argument_must_mention": [],
+      "expected_steps": 2,
+      "notes": "not answerable from a fixed paper corpus"
+    },
+    {
+      "task_id": "t023",
+      "category": "out_of_corpus",
+      "query": "Who won the 2026 Turing Award?",
+      "expected_tools": [
+        "web_search"
+      ],
+      "argument_must_mention": [],
+      "expected_steps": 2,
+      "notes": "not answerable from a fixed paper corpus"
+    },
+    {
+      "task_id": "t024",
+      "category": "out_of_corpus",
+      "query": "What is today's weather in Bangalore?",
+      "expected_tools": [
+        "web_search"
+      ],
+      "argument_must_mention": [],
+      "expected_steps": 2,
+      "notes": "not answerable from a fixed paper corpus"
+    },
+    {
+      "task_id": "t025",
+      "category": "out_of_corpus",
+      "query": "What is the latest version number of PyTorch released this month?",
+      "expected_tools": [
+        "web_search"
+      ],
+      "argument_must_mention": [],
+      "expected_steps": 2,
+      "notes": "not answerable from a fixed paper corpus"
+    },
+    {
+      "task_id": "t026",
+      "category": "no_tool",
+      "query": "What does the acronym RAG stand for?",
+      "expected_tools": [],
+      "argument_must_mention": [],
+      "expected_steps": 1,
+      "notes": "needs no retrieval; measures over-calling"
+    },
+    {
+      "task_id": "t027",
+      "category": "no_tool",
+      "query": "Spell the word 'embedding' backwards.",
+      "expected_tools": [],
+      "argument_must_mention": [],
+      "expected_steps": 1,
+      "notes": "needs no retrieval; measures over-calling"
+    },
+    {
+      "task_id": "t028",
+      "category": "no_tool",
+      "query": "How many letters are in the word 'retrieval'?",
+      "expected_tools": [],
+      "argument_must_mention": [],
+      "expected_steps": 1,
+      "notes": "needs no retrieval; measures over-calling"
+    },
+    {
+      "task_id": "t029",
+      "category": "no_tool",
+      "query": "What is 17 multiplied by 4?",
+      "expected_tools": [],
+      "argument_must_mention": [],
+      "expected_steps": 1,
+      "notes": "needs no retrieval; measures over-calling"
+    },
+    {
+      "task_id": "t030",
+      "category": "no_tool",
+      "query": "Translate the word 'model' into French.",
+      "expected_tools": [],
+      "argument_must_mention": [],
+      "expected_steps": 1,
+      "notes": "needs no retrieval; measures over-calling"
+    }
+  ]
+}

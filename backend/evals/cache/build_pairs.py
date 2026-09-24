@@ -22,14 +22,18 @@ import random
 import sys
 from pathlib import Path
 
+from pydantic import BaseModel
+
 from app.runtime import use_compatible_event_loop
 
 HERE = Path(__file__).resolve().parent
 QUERIES = HERE.parent / "retrieval" / "queries.json"
 
-PROMPT = """Given this question about a research paper, produce TWO variants.
+# Batched for the same reason as everywhere else: the free tier throttles to a
+# few requests per minute, so one call per seed does not finish.
+BATCH_SIZE = 8
 
-Question: {query}
+PROMPT = """For EACH numbered question below, produce two variants.
 
 1. "paraphrase": the SAME question reworded. Different words, identical meaning
    and identical answer.
@@ -37,22 +41,19 @@ Question: {query}
    the same vocabulary as possible, but whose answer is different. Change what
    is being asked about, not the subject area.
 
-Return only JSON: {{"paraphrase": "...", "hard_negative": "..."}}"""
+Return one item per question, using its number as `index`.
+
+{questions}"""
 
 
-def parse_json(text: str) -> dict | None:
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.split("```")[1]
-        if text.startswith("json"):
-            text = text[4:]
-    start, end = text.find("{"), text.rfind("}")
-    if start < 0 or end < 0:
-        return None
-    try:
-        return json.loads(text[start : end + 1])
-    except json.JSONDecodeError:
-        return None
+class _Variants(BaseModel):
+    index: int
+    paraphrase: str
+    hard_negative: str
+
+
+class _VariantBatch(BaseModel):
+    items: list[_Variants]
 
 
 async def build(seeds: list[str], limit: int) -> dict:
@@ -62,21 +63,27 @@ async def build(seeds: list[str], limit: int) -> dict:
     pairs = []
     used = seeds[:limit]
 
-    for i, query in enumerate(used, 1):
+    for start in range(0, len(used), BATCH_SIZE):
+        batch = used[start : start + BATCH_SIZE]
+        block = "\n".join(f"{i}. {q}" for i, q in enumerate(batch))
         try:
-            result = await client.generate(PROMPT.format(query=query))
-            data = parse_json(result.text)
+            parsed, _ = await client.generate_structured(
+                PROMPT.format(questions=block), _VariantBatch
+            )
         except Exception as exc:
-            print(f"  [{i}] failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+            print(f"  batch {start // BATCH_SIZE + 1} failed: "
+                  f"{type(exc).__name__}: {exc}", file=sys.stderr, flush=True)
             continue
 
-        if not data or not data.get("paraphrase") or not data.get("hard_negative"):
-            continue
-
-        pairs.append({"a": query, "b": data["paraphrase"], "label": "positive"})
-        pairs.append({"a": query, "b": data["hard_negative"], "label": "hard_negative"})
-        if i % 10 == 0:
-            print(f"  {i}/{len(used)} seeds -> {len(pairs)} pairs")
+        for item in parsed.items:
+            if not (0 <= item.index < len(batch)):
+                continue
+            query = batch[item.index]
+            if item.paraphrase:
+                pairs.append({"a": query, "b": item.paraphrase, "label": "positive"})
+            if item.hard_negative:
+                pairs.append({"a": query, "b": item.hard_negative, "label": "hard_negative"})
+        print(f"  {len(pairs)} pairs after batch {start // BATCH_SIZE + 1}", flush=True)
 
     # Random negatives are free and need no model.
     rng = random.Random(7)

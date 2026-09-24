@@ -142,26 +142,105 @@ Currently built: config, schema, ingestion, embeddings, Gemini client, health.
 
 Filled in by the phase that measures each one. Nothing here is estimated.
 
-| Metric | Value | Measured in |
+### Corpus and ingestion (Phase 1)
+
+| Metric | Value |
+|---|---|
+| Documents indexed | 99 (of 100 fetched; 1 arXiv 404) |
+| Chunks | 2,560 |
+| Mean / min / max chunk tokens | 434.0 / 48 / 480 |
+| Mean pages per paper | 12.9 |
+| Ingestion, cold (99 docs) | **1,339 s** |
+| Ingestion, no changes | **6.1 s** (219× faster) |
+| Documents failed | 0 |
+| HNSW build, 2,560 vectors | 3.6 s |
+| Embedding model | BAAI/bge-small-en-v1.5, 384-dim, 128 MB |
+
+### Retrieval (Phase 2)
+
+80 ICT queries. Chunk-level = exact gold chunk returned.
+
+| Config | recall@1 | recall@5 | recall@10 | MRR | p50 ms |
+|---|---|---|---|---|---|
+| dense only (HNSW) | 0.438 | 0.838 | 0.863 | 0.610 | 116 |
+| sparse (BM25) | 0.812 | 0.988 | 0.988 | 0.899 | 20 |
+| hybrid + RRF | 0.675 | 0.900 | 0.950 | 0.783 | 164 |
+| hybrid + RRF + rerank | **0.863** | 0.988 | **1.000** | **0.922** | 17,758 |
+
+> **Read DECISIONS.md 2.2 before quoting the dense-vs-sparse row.** BM25's lead
+> is an artefact of the eval set — mean query/gold term containment is 1.0, so
+> lexical retrieval is handed the answer. The reranking comparison is sound.
+
+Re-ranker candidate sweep — quality plateaus at 10, latency does not:
+
+| candidates | recall@1 | MRR | p50 ms |
+|---|---|---|---|
+| 0 | 0.760 | 0.833 | 155 |
+| **10** (default) | **0.880** | 0.920 | **2,594** |
+| 20 | 0.880 | 0.920 | 5,377 |
+| 50 | 0.880 | 0.924 | 9,241 |
+
+Fusion cost: 0.4 ms. Absolute latencies are inflated by memory pressure on a
+3.8 GB machine (see DECISIONS 2.3).
+
+### Gemini free tier, measured
+
+| Metric | Value |
+|---|---|
+| Published limits | **None** — Google removed the tables |
+| Configured ceiling | 10 RPM / 250 RPD (conservative guess) |
+| Observed | 429 at 10 RPM; limiter backed off to 5 RPM |
+| Server-suggested retry delay | 12 s (honoured over jittered backoff) |
+| Minimal structured call | 10.3 s |
+
+The adaptive limiter discovering the real limit is the point — see DECISIONS 1.4.
+
+### Caching (Phase 3) — semantic layer measured and DISABLED
+
+120 labelled pairs. Cosine similarity with bge-small:
+
+| class | mean | min | max |
+|---|---|---|---|
+| positive (true paraphrase) | 0.9331 | 0.844 | 0.987 |
+| **hard negative** (same topic, different question) | **0.9470** | 0.842 | 0.999 |
+| random negative | 0.5644 | 0.446 | 0.730 |
+
+Hard negatives score **higher** than true paraphrases, so no threshold
+separates them — precision never exceeds 0.50 at any useful recall. The
+F1-optimal threshold (0.73) has a **100% hard-negative false-positive rate**.
+
+`SEMANTIC_CACHE_ENABLED=false`. Layer 1 (exact match) is unaffected. Full
+reasoning in DECISIONS.md 3.2 — a retrieval embedder is the wrong tool for
+near-duplicate detection.
+
+### Guardrails (Phase 4)
+
+12 stratified prompts, LocalClassifier:
+
+| metric | value |
+|---|---|
+| accuracy / precision / recall | 1.000 / 1.000 / 1.000 |
+| **tricky false-positive rate** | **0.000** |
+| calls per decision | 1 (was 4 — see DECISIONS 4.2a) |
+| ECE before → after calibration | 0.334 → 0.248 |
+| fitted temperature | 10.0 (bound-limited) |
+
+n=12 is small — treat the perfect scores as "the pipeline works", not as an
+accuracy claim. The fitted temperature hitting its bound is the real finding:
+the model emits 0.00 or 0.95–0.99 and nothing between, so its "probabilities"
+are decisions in disguise (DECISIONS 4.2c).
+
+**Laya comparison is blocked on this machine** — the 804 MB checkpoint
+segfaults at 3.8 GB RAM. Interface, both backends and the harness are complete
+and will produce the table on any machine with ~2 GB free. See DECISIONS 4.1.
+
+### Still to measure
+
+| Metric | Phase | Blocker |
 |---|---|---|
-| Corpus documents | TBD | Phase 1 |
-| Corpus chunks | TBD | Phase 1 |
-| Mean chunk tokens | TBD | Phase 1 |
-| Ingestion wall time (cold) | TBD | Phase 1 |
-| Ingestion wall time (no changes) | TBD | Phase 1 |
-| Recall@10, dense only | TBD | Phase 2 |
-| Recall@10, hybrid + RRF | TBD | Phase 2 |
-| Recall@10, + cross-encoder | TBD | Phase 2 |
-| MRR before / after rerank | TBD | Phase 2 |
-| Re-ranker added latency (p50/p95) | TBD | Phase 2 |
-| Semantic cache threshold (chosen) | TBD | Phase 3 |
-| Cache hit rate, exact / semantic | TBD | Phase 3 |
-| Latency on hit vs miss | TBD | Phase 3 |
-| Guardrail trigger rate | TBD | Phase 4 |
-| Classifier p50/p95, local vs Laya | TBD | Phase 4 |
-| Tool-call precision / recall | TBD | Phase 6 |
-| Step-budget breach rate | TBD | Phase 6 |
-| End-to-end p50/p95/p99 | TBD | Phase 7 |
+| Tool-call precision/recall, budget breach rate | 6 | free-tier latency |
+| End-to-end p50/p95/p99, cache hit rate in production | 7 | needs traffic |
+| Local vs Laya agreement | 4 | RAM (804 MB model) |
 
 ---
 

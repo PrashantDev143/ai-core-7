@@ -213,4 +213,127 @@ trigger from Q1 doing exactly the job it was built for.
 
 ---
 
-_Phases 2–7 add their own questions as they are built._
+## Phase 2 — retrieval
+
+### Q8. Your evaluation says BM25 beats dense retrieval by 2× on recall@1. Defend that.
+
+I wouldn't, and that is the answer. It is an artefact of the benchmark, not a
+property of the retrievers.
+
+The numbers are real: sparse 0.812 recall@1 versus dense 0.438. But the query
+set was built with an Inverse Cloze Task — take a chunk, lift a sentence out of
+it, use that sentence as the query. So `build_queryset.py` measures **term
+containment** for every query, and the mean is **1.0**. Every token of every
+query appears verbatim in its gold chunk. BM25 is being handed the answer key.
+
+The detail I'd volunteer is the one I nearly missed. The first metric I
+computed was Jaccard overlap, and it came out at 0.147 — which looks
+reassuringly low. It is misleading, because Jaccard divides by the union, and a
+one-sentence query against a 400-token chunk scores low even when every query
+term is present. Containment is the honest statistic here. Had I reported only
+the Jaccard, a badly contaminated benchmark would have looked clean and I would
+have shipped a false claim about embeddings.
+
+The general lesson: **when a benchmark flatters a component you did not expect
+to win, suspect the benchmark before rewriting the architecture.** The fix is
+implemented — `--method llm` paraphrases each question so containment drops —
+and DECISIONS.md 2.2 carries the caveat next to the table rather than in a
+footnote.
+
+### Q9. Was the cross-encoder worth it?
+
+For quality, unambiguously. Same queries, same candidates:
+
+- recall@1: 0.675 → **0.863**
+- MRR: 0.783 → **0.922**
+- recall@10: 0.950 → **1.000**
+
+The shape of that is informative: fusion already had the right chunk in its top
+10 about 95% of the time. Re-ranking barely improves *whether* the answer is
+retrieved — it fixes *where in the list* it lands. That is exactly what a
+cross-encoder should do, because it scores the query and passage jointly
+instead of embedding them independently.
+
+For latency, as originally configured, no. p50 went from 164 ms to **17,758
+ms** at 50 candidates.
+
+So I swept the candidate count, since cross-encoder cost is linear in it. At 10
+candidates: recall@1 **0.880** at **2,594 ms** — better quality than 50
+candidates, at roughly a seventh of the cost. Scoring 50 candidates was buying
+nothing except latency.
+
+Two caveats I'd raise unprompted: the absolute milliseconds are inflated
+because the machine was swapping (dense retrieval measured 1,442 ms inside the
+reranked config versus 196 ms without — identical work), and these are CPU
+numbers; a GPU changes the economics entirely.
+
+### Q10. Why reciprocal rank fusion instead of weighting the two scores?
+
+Because the two scores are not comparable. Dense cosine similarity is bounded
+in [0,1] and clusters tightly; BM25 is unbounded and its range shifts per query
+depending on the idf of the terms involved. Adding or averaging them means the
+result is dominated by whichever scorer happens to have the wider range that
+day, and any fixed weight you tune is tuned to one query distribution.
+
+RRF reads only ordinal position — `score(d) = Σ 1/(k + rank_r(d))` with k=60.
+No score calibration, no per-retriever weight, nothing to retune when you swap
+an embedding model.
+
+The property that matters is what k=60 buys: it damps the top ranks, so the gap
+between rank 1 and rank 2 is small while the gap between rank 1 and rank 50 is
+not. The effect is that a chunk found by *both* retrievers outranks one found
+brilliantly by only one — which is the entire point of running two retrievers.
+`test_retrieval_and_cache.py` asserts that directly.
+
+Measured cost of fusion: **0.4 ms**. It is free next to either retriever.
+
+### Q11. What's wrong with your eval set, beyond the containment problem?
+
+Five things, and I'd rather name them than be asked:
+
+1. **One gold chunk per query.** This *understates* recall — neighbouring
+   chunks from the same paper often answer the question just as well and are
+   scored as misses. That is why chunk-level and document-level are both
+   reported: the first understates, the second overstates, and the truth is
+   between them.
+2. **Every query is answerable.** There are no unanswerable questions, so the
+   system's refusal behaviour is completely untested by this harness.
+3. **No multi-hop questions.** Nothing requires combining two papers, which is
+   precisely what the Phase 6 agent exists for.
+4. **No typos, no ambiguity, no follow-ups.** Real users produce all three.
+5. **Derived from the corpus.** A query set generated from the documents can
+   never surface a gap in the documents.
+
+With real production data I'd replace it entirely: sample real queries from
+logs, then label by pooling the top-k of several retrieval configurations and
+judging the pools — the TREC approach. That gives multiple graded relevance
+labels per query instead of one binary gold chunk, which fixes weaknesses 1 and
+5 at once.
+
+### Q12. Why implement BM25 yourself instead of using a library?
+
+Partly because it is forty lines and this project is built to be read — the
+ranking function is the thing worth being able to see:
+
+```
+score = Σ idf(t) · (f · (k1+1)) / (f + k1·(1 - b + b·|d|/avgdl))
+```
+
+`k1` (1.5) controls how quickly repeated terms stop helping; `b` (0.75)
+controls how hard long documents are penalised. Both matter here because chunks
+are deliberately uniform in length, which makes `b` nearly inert — a detail
+you only notice if you can see the formula.
+
+The more defensible reason is the index lifecycle. It is an in-memory inverted
+index rebuilt when the **corpus version** changes, reusing the same hash that
+invalidates the Phase 3 cache. A library index would have needed the same
+wiring anyway, and getting it wrong means the lexical side silently serves
+chunks that no longer exist.
+
+Where this stops working: ~10^6 chunks, at which point it belongs in a real
+inverted index — a Postgres BM25 extension, or OpenSearch. At 2,560 chunks it
+measures 20 ms p50, so there is a lot of headroom before that matters.
+
+---
+
+_Phases 3–7 add their own questions as they are built._

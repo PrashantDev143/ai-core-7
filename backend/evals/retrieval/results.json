@@ -1,0 +1,91 @@
+{
+  "query_set": {
+    "count": 80,
+    "method": "ict",
+    "mean_lexical_overlap": 0.1466,
+    "mean_lexical_containment": 1.0
+  },
+  "results": [
+    {
+      "chunk_rr": 0.6098,
+      "doc_rr": 0.8798,
+      "chunk_recall@1": 0.4375,
+      "doc_recall@1": 0.825,
+      "chunk_recall@5": 0.8375,
+      "doc_recall@5": 0.95,
+      "chunk_recall@10": 0.8625,
+      "doc_recall@10": 0.9875,
+      "chunk_recall@20": 0.8875,
+      "doc_recall@20": 0.9875,
+      "p50_ms": 115.9,
+      "p95_ms": 249.8,
+      "mean_ms": 297.7,
+      "stages_ms": {
+        "dense_ms": 297.5
+      },
+      "config": "dense"
+    },
+    {
+      "chunk_rr": 0.8989,
+      "doc_rr": 0.9938,
+      "chunk_recall@1": 0.8125,
+      "doc_recall@1": 0.9875,
+      "chunk_recall@5": 0.9875,
+      "doc_recall@5": 1.0,
+      "chunk_recall@10": 0.9875,
+      "doc_recall@10": 1.0,
+      "chunk_recall@20": 1.0,
+      "doc_recall@20": 1.0,
+      "p50_ms": 20.5,
+      "p95_ms": 44.9,
+      "mean_ms": 172.8,
+      "stages_ms": {
+        "sparse_ms": 172.7
+      },
+      "config": "sparse"
+    },
+    {
+      "chunk_rr": 0.7835,
+      "doc_rr": 0.9758,
+      "chunk_recall@1": 0.675,
+      "doc_recall@1": 0.9625,
+      "chunk_recall@5": 0.9,
+      "doc_recall@5": 0.9875,
+      "chunk_recall@10": 0.95,
+      "doc_recall@10": 0.9875,
+      "chunk_recall@20": 0.9875,
+      "doc_recall@20": 1.0,
+      "p50_ms": 164.4,
+      "p95_ms": 418.6,
+      "mean_ms": 222.2,
+      "stages_ms": {
+        "dense_ms": 196.3,
+        "sparse_ms": 25.3,
+        "fusion_ms": 0.4
+      },
+      "config": "hybrid_rrf"
+    },
+    {
+      "chunk_rr": 0.9221,
+      "doc_rr": 1.0,
+      "chunk_recall@1": 0.8625,
+      "doc_recall@1": 1.0,
+      "chunk_recall@5": 0.9875,
+      "doc_recall@5": 1.0,
+      "chunk_recall@10": 1.0,
+      "doc_recall@10": 1.0,
+      "chunk_recall@20": 1.0,
+      "doc_recall@20": 1.0,
+      "p50_ms": 17757.8,
+      "p95_ms": 33505.4,
+      "mean_ms": 18815.3,
+      "stages_ms": {
+        "dense_ms": 1442.3,
+        "sparse_ms": 208.2,
+        "fusion_ms": 4.0,
+        "rerank_ms": 17150.5
+      },
+      "config": "hybrid_rrf_rerank"
+    }
+  ]
+}
