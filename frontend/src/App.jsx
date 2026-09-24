@@ -5,9 +5,9 @@ import Trajectory from './components/Trajectory.jsx'
 import StatsBar from './components/StatsBar.jsx'
 
 const EXAMPLES = [
-  'What chunking strategies do these papers evaluate?',
-  'How does reciprocal rank fusion combine rankings?',
-  'What are the reported weaknesses of RAG evaluation benchmarks?',
+  'What effect does chunk size have on RAG performance?',
+  'How does self-consistency improve chain-of-thought reasoning?',
+  'What is DoRA and how does it differ from LoRA?',
 ]
 
 export default function App() {

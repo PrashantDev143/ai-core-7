@@ -92,8 +92,12 @@ with — unlike a prompt-based guard.
 
 The rules are narrow on purpose — they match *instructions aimed at the
 system*, not the phrase "prompt injection". This passes rules; the classifier
-sees a research question (`in_scope`, low injection probability) → allowed →
-normal answer from the security papers in the corpus.
+sees a research question (`in_scope`, low injection probability) → allowed.
+
+*Measured:* the corpus has little on injection defences, so the answer is
+honest and thin — it cites AgentDojo from an agent-tracing survey, says the
+passages propose no specific defences, and carries a "weakly related (best
+match 0.13)" caveat at low confidence. Not blocked, and not bluffing.
 
 **Shows:** a guardrail that blocks its own subject matter makes the product
 useless. `tests/test_guardrails.py` asserts these questions pass.

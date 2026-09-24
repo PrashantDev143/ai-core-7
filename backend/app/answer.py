@@ -256,7 +256,8 @@ async def _answer(
         )
         record_tokens(span, meta.prompt_tokens, meta.output_tokens, meta.model)
         span.output = {"answer": parsed.answer[:1000], "confidence": parsed.confidence}
-        timings["generation_ms"] = span.duration_ms
+    # Read after the block: the tracer only sets duration_ms when the span closes.
+    timings["generation_ms"] = span.duration_ms
 
     result.answer = parsed.answer
     result.confidence = parsed.confidence
@@ -265,7 +266,7 @@ async def _answer(
     with tracer.span(trajectory, SpanKind.FAITHFULNESS, "entailment") as span:
         report = await check_faithfulness(parsed.answer, [c.content for c in chunks])
         span.output = report.as_dict()
-        timings["faithfulness_ms"] = span.duration_ms
+    timings["faithfulness_ms"] = span.duration_ms
 
     result.faithfulness = report.as_dict()
     trajectory.faithfulness_score = report.score

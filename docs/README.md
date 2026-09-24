@@ -11,6 +11,7 @@ original interview notes live at the repo root and are linked below.
 | 2 | [02-how-to-use.md](02-how-to-use.md) | Starting it, the UI, every API endpoint with a real `curl` and its response, config knobs, running the evals | 20 min |
 | 3 | [03-example-scenarios.md](03-example-scenarios.md) | 12 concrete situations traced through the code — what fires, what the user sees, why | 20 min |
 | 4 | [04-interview-questions.md](04-interview-questions.md) | 30 new questions (system design, "what if", debugging, behavioural) with answers, plus a 60-second pitch | 40 min |
+| 5 | [05-interview-demo.md](05-interview-demo.md) | 10-step live demo script — every prompt tested, with the measured result and what to say | 10 min |
 
 ## Where every document in the repo lives
 
