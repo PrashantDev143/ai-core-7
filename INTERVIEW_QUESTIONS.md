@@ -336,4 +336,260 @@ measures 20 ms p50, so there is a lot of headroom before that matters.
 
 ---
 
-_Phases 3–7 add their own questions as they are built._
+## Phase 3 — caching
+
+### Q13. Walk me through how you picked your semantic cache threshold.
+
+I didn't ship one. The sweep said the layer shouldn't exist, and that's the
+answer.
+
+I built 120 labelled pairs in three classes — paraphrases, hard negatives (same
+topic and vocabulary, different question), and random negatives — then measured
+cosine similarity with the retrieval embedder:
+
+| class | mean cosine |
+|---|---|
+| positive (true paraphrase) | 0.9331 |
+| **hard negative** | **0.9470** |
+| random negative | 0.5644 |
+
+Hard negatives score *higher* than true paraphrases. The distributions aren't
+overlapping, they're inverted. Precision never exceeds 0.50 at any useful
+recall, and the F1-optimal threshold of 0.73 has a **100% hard-negative false
+positive rate** — it would serve a wrong answer to every same-topic query.
+
+**Why it happens is the interesting part.** bge-small is trained for
+*retrieval*: "what chunk size did they use" and "what chunk overlap did they
+use" *should* embed close together, because they should retrieve the same
+passage. Semantic caching needs the opposite property — it needs to know those
+are different questions. Using a retrieval embedder as a near-duplicate
+detector is a category error, and the sweep is what exposed it.
+
+So `SEMANTIC_CACHE_ENABLED=false`. Layer 1 (normalised hash) is unaffected and
+can't confuse two different questions by construction.
+
+**The part I'd emphasise:** I also chose the selection *policy* deliberately.
+The two errors aren't symmetric — a false negative costs one extra generation,
+a false positive serves a confident wrong answer. So the selector uses a
+precision floor rather than maximising F1. An accuracy-driven tuning process
+would have picked 0.73 and shipped something actively harmful.
+
+### Q14. Your eval sets keep finding problems. What makes a good one?
+
+Hard negatives. That's the single lesson that transferred across every
+threshold in this project.
+
+If my cache pair set had only contained paraphrases and *random* negatives, it
+would have looked excellent — random negatives sit at 0.564, miles below any
+sensible threshold, so precision would have read ~1.0 and I'd have shipped the
+layer. The entire finding rests on the `hard_negative` class, which I generated
+specifically to share topic and vocabulary while differing in what's asked.
+
+Same pattern in Phase 4: the guardrail dataset has five `tricky` prompts that
+are legitimate questions *about* prompt injection, in a corpus that contains
+papers about prompt injection. A guardrail measured only on attacks and benign
+small talk ships broken — it blocks "what is a jailbreak attack" and makes the
+product unable to discuss its own subject matter. `tricky_false_positive_rate`
+is a first-class metric for that reason, and it measured 0.000.
+
+**A tuning set of only easy negatives measures nothing.**
+
+## Phase 4 — guardrails
+
+### Q15. How do you know your confidence scores mean anything?
+
+I don't — I measured that they don't, which is why the calibrator exists.
+
+Fitting a temperature on the guardrail results returned **T = 10.0, the upper
+bound of my search range.** The optimiser wanted to soften the model's
+confidence further than I allowed.
+
+The raw outputs show why. Asked for an honest probability, with an explicit
+instruction that 0.5 means genuinely uncertain, the model returned: 0.00, 0.00,
+0.00, 0.00, 0.05, 0.99, 0.95, 0.95, 0.00, 0.00, 0.05, 0.00. It emits
+**decisions dressed as probabilities** — near-0 or near-1, essentially nothing
+between. NLL was 3.717 uncalibrated (a confident wrong answer is punished
+enormously); temperature scaling cut it 5× to 0.727 and ECE from 0.334 to
+0.248, but can't manufacture a middle that was never there.
+
+The consequence I'd lead with: **my carefully differentiated thresholds do
+nothing on this backend.** I set 0.45 for prompt injection and 0.55 for
+jailbreak, reasoning that the two errors cost different amounts. With outputs
+only ever near 0 or 1, every threshold between 0.1 and 0.9 behaves identically.
+The design is right; the model can't express it.
+
+That's also the strongest argument for Laya in the whole project — it's trained
+against strictly proper scoring rules, so reporting honest probabilities is the
+reward-maximising behaviour. I'd flag that as a prediction rather than a
+result, because I couldn't run it (Q16).
+
+### Q16. You were asked to benchmark two classifier backends. Where's the table?
+
+There isn't one, and I'd rather say that than show numbers I didn't measure.
+
+What I did verify, all of it empirically rather than from docs:
+
+- The GitHub path in my brief 404s; the real home is the HuggingFace repo.
+- `pip install laya` works — 0.3.6, a 43 KB pure-Python wheel, no dependency
+  conflicts (needs torch≥2.0 and transformers≥4.48; I already had 2.14 and
+  5.17).
+- The Apple-Silicon restriction applies only to the separate `laya-mlx`
+  runtime.
+- I introspected the real API rather than trusting documentation:
+  `laya.load()`, `Agent.predict(state, questions)`,
+  `predict_shortlist(..., k=20)`, `QTYPES`, `ece_score`.
+
+Two of those map exactly onto the limits I was warned about: `predict_shortlist`
+with k=20 *is* the remedy for large choice schemas, and `ece_score` exists
+because calibration is a known issue upstream.
+
+**Where it failed:** the checkpoint is 804 MB and `laya.load()` segfaults on a
+3.8 GB machine — both with Docker running (~0.13 GB free) and stopped (~0.25 GB).
+
+**The consequence that mattered more than the failure:** a segfault is a native
+crash, so `try/except` around the constructor never runs. My registry's careful
+fallback would have been bypassed and the API process would have died outright.
+So I added a pre-flight free-memory check that raises `LayaUnavailable` before
+torch is touched. Verified: setting `CLASSIFIER_BACKEND=laya` now logs the
+reason and runs on `LocalClassifier`, and `/guardrails/status` surfaces
+`fallback_reason` so the substitution can't pass unnoticed.
+
+An uncatchable crash became a logged, recoverable fallback. The interface, both
+backends, the shared question set and the harness are complete and produce the
+table on any machine with ~2 GB free.
+
+### Q17. Your guardrail made four LLM calls per query. Why is that bad, and what did you do?
+
+It's bad for the obvious reason — four round trips and four rate-limit slots
+for one decision — but the fix came from noticing the *interface* was wrong,
+not the implementation.
+
+Laya's native API is `predict(state, questions)`: it evaluates a whole dict of
+typed questions in a single forward pass. By building my interface around one
+question at a time, I was forcing the Laya backend to throw away its main
+structural advantage — that a fifth guardrail costs it almost nothing — and
+making the two backends comparable at the wrong granularity.
+
+So `DecisionClassifier.evaluate(state, questions)` now answers the whole set at
+once. `LocalClassifier` builds a single Pydantic schema covering every question
+via `create_model` — generated from the question definitions so it can't drift —
+and makes one constrained call. Four calls became one.
+
+**What surfaced it was the rate limit making my benchmark impossible.** My
+first instinct was to batch *prompts* to get the eval to finish, which would
+have shipped the four-calls-per-query pipeline to production untouched. A
+constraint that makes your benchmark impossible is often telling you something
+about your design, not just your budget.
+
+## Phases 6–7 — agent and observability
+
+### Q18. How do you guarantee production traces can be replayed into your eval harness?
+
+By making it structurally impossible for them to diverge. There is no
+"production schema" and "eval schema" kept in sync by discipline — there's one
+set of dataclasses in `observability/schema.py`, and the agent runtime, the
+Langfuse exporter and the benchmark scorer all import the same objects.
+
+`tests/test_schema_identity.py` enforces it four ways:
+
+1. **Class identity**, not structural similarity: `runner.Trajectory is
+   Trajectory` and `bench.Trajectory is Trajectory`. A second definition
+   anywhere fails immediately.
+2. **Exact round-trip**: `to_dict → from_dict → to_dict` is an identity, and
+   survives JSON.
+3. **Frozen field snapshot**: adding a field without updating the test fails,
+   forcing whoever adds it to confirm the eval side reads it.
+4. **Real replay**: a serialised trace scored by the actual benchmark scorer
+   with no adapter.
+
+I rejected the obvious alternative — separate types plus a converter — because
+a converter is exactly the thing that silently rots. It keeps compiling while
+quietly dropping a field the eval harness needed.
+
+Verified at runtime too: `/observability/traces/{id}/replay` on a real
+production trace returns `{"round_trip_exact": true, "eval_ready": true}`.
+
+### Q19. What did your agent benchmark actually tell you?
+
+That the agent knows *what* to call and *how*, but not *when to stop*.
+
+12 tasks across 6 categories: precision 0.786, recall 0.917, argument
+correctness 0.96. That combination is specific — it almost never fails to call
+a tool it needed, and when it calls one the arguments are right. It calls too
+many. One single-hop lookup made 4 `search_corpus` calls; one two-document
+comparison made 7.
+
+Two design choices made that visible:
+
+- **Multiset, not set, precision.** Set-based scoring gives an agent that calls
+  `search_corpus` five times a perfect 1.0 against an expected
+  `{search_corpus}`. Multiset scoring gives it 0.25. The pathology showed up on
+  the second task of the first run.
+- **A `no_tool` category.** Five tasks needing no retrieval at all. Without
+  them, a benchmark made only of tool-requiring tasks rewards an agent that
+  always calls tools, and over-calling shows up as a mild precision dip spread
+  thin rather than its own visible failure. It scored 0.500.
+
+One category fails the opposite way: `synthesis` has precision 1.000 and recall
+0.500 — it retrieves then answers directly instead of calling `summarise`,
+consistently across both tasks. That's a systematic tool-description issue, and
+arguably a sign the tool doesn't earn its place.
+
+**Caveat I'd volunteer:** n=2 per category identifies directions, not
+magnitudes. "Over-calling is the dominant failure mode" is supportable;
+"precision is 0.786" is not a number to quote to three decimals.
+
+### Q20. Tell me about a time your own evaluation misled you.
+
+Twice in this project, and both were more instructive than the results.
+
+**The benchmark scored the agent down for being right.** My first agent run
+gave every `verify` task 0.5 recall and 0.0 sequence match — the agent called
+`verify_claim` alone, I expected `[search_corpus, verify_claim]`. But
+`verify_claim` performs its own corpus lookup; I wrote it that way. I was
+demanding a redundant call, and an agent that made it would have been *less*
+efficient while scoring better.
+
+What makes this dangerous is that the numbers were *plausible*. "0.5 recall on
+verify" reads as "the agent forgets to search first", which is a believable
+story with an obvious fix — change the prompt. I'd have "fixed" a working
+agent. What caught it was reading the per-task `tool_sequence` rather than
+trusting the aggregate. Both runs are kept in the repo so the correction is
+visible rather than tidied away.
+
+**The retrieval eval flattered the wrong component.** BM25 beat dense retrieval
+2× on recall@1, which isn't a real finding — my query set had term containment
+of 1.0, so lexical retrieval was handed the answer key (Q8).
+
+The common thread: **when an evaluation produces a result you didn't expect,
+suspect the evaluation before you change the system.** Both times the instinct
+to "fix" the system would have made it worse.
+
+### Q21. Anything about ordering your pipeline?
+
+Yes, and it cost me a 630× regression before I measured it.
+
+The stages are ordered by cost: guardrails → cache → retrieval → generation.
+That reads as clean layering, and it made the cache almost pointless — every
+cache *hit* paid a full guardrail classifier LLM call, ~7 seconds on a lookup
+that took milliseconds. The cache saved the generation and then spent more than
+it saved on the guard.
+
+The fix was to split the guard where its cost changes, not where its concern
+changes:
+
+```
+deterministic rules (0.03 ms) -> cache (2.7 ms) -> classifier (seconds)
+```
+
+Cache hits went from 6,958 ms to **11 ms**. Nothing was traded away: rules
+still run first, so a prompt injection is rejected in 17 ms and never reaches
+the cache.
+
+There was a second bug in the same path — `current_corpus_version()` re-read
+and re-hashed every document row on every lookup, so deriving the cache key was
+more expensive than the thing it keyed. Memoised with a 60 s TTL.
+
+**Neither showed up in unit tests.** Both needed the whole stack running
+against a real corpus, which is the general argument for smoke-testing the
+assembled system rather than only its parts.

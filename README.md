@@ -117,24 +117,61 @@ put the project keys in `.env`.
 
 ## Architecture
 
-_Diagram added in Phase 8, once every component exists._
+Stages are ordered by **cost**, and the guard is deliberately split so the
+cache sits between its cheap half and its expensive half (DECISIONS 3.5).
 
 ```
-                   ┌──────────────┐
-   React UI ──────►│   FastAPI    │
-                   └──────┬───────┘
-                          │
-              ┌───────────┼────────────┐
-              ▼           ▼            ▼
-        guardrails     cache      retrieval
-         (Phase 4)   (Phase 3)    (Phase 2)
-                          │            │
-                     ┌────▼───┐   ┌────▼─────────────┐
-                     │ Redis  │   │ Postgres+pgvector│
-                     └────────┘   └──────────────────┘
+  React UI ──► POST /ask
+                  │
+                  ▼
+    ┌─────────────────────────────┐
+    │ 1. deterministic rules      │  0.03 ms   regex, length, repetition
+    │    length · blocklist       │            BLOCK ──► refusal (17 ms)
+    └─────────────┬───────────────┘
+                  ▼
+    ┌─────────────────────────────┐
+    │ 2. cache  (exact, Redis)    │  2.7 ms    HIT ──► answer (11 ms total)
+    │    key = hash + corpus_ver  │            semantic layer OFF (3.2)
+    └─────────────┬───────────────┘
+                  ▼ miss
+    ┌─────────────────────────────┐
+    │ 3. typed classifier         │  1 call    injection · jailbreak
+    │    choice · score · noul    │            topic · harm
+    └─────────────┬───────────────┘            BLOCK ──► refusal
+                  ▼
+    ┌─────────────────────────────┐
+    │ 4. retrieval                │  dense (HNSW) ──┐
+    │                             │                 ├─► RRF ─► cross-encoder
+    │                             │  BM25 ──────────┘         (top 10 → 8)
+    └─────────────┬───────────────┘
+                  ▼
+    ┌─────────────────────────────┐
+    │ 5. generation               │  constrained decoding, inline [n] citations
+    └─────────────┬───────────────┘
+                  ▼
+    ┌─────────────────────────────┐
+    │ 6. faithfulness             │  claim-level entailment check
+    │                             │  unsupported ──► caveat + downgrade
+    └─────────────┬───────────────┘
+                  ▼
+              answer + citations + caveats
+                  │
+                  ├──► feedback  (thumbs · edit · copy · abandon)
+                  └──► trace     (every span, PII-redacted on write)
+
+  POST /research ──► LangGraph agent
+       search_corpus · web_search · summarise · verify_claim
+       budget as a graph node ──► breach is its own outcome
+
+  Storage:  Postgres + pgvector (chunks, feedback, guardrail events)
+            Redis (cache layer 1)
+            JSONL traces (always) + Langfuse (--profile observability)
 ```
 
-Currently built: config, schema, ingestion, embeddings, Gemini client, health.
+**One schema, three consumers.** `Trajectory` in `observability/schema.py` is
+produced by the agent, exported to Langfuse, and scored by the eval harness —
+the same object, so a production trace replays into the benchmark with no
+adapter. Enforced by `tests/test_schema_identity.py`.
 
 ---
 
