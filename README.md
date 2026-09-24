@@ -334,6 +334,7 @@ with no adapter.
 
 ## Documentation
 
+- **[docs/](docs/README.md) — start here: what it does, how to use it, example scenarios, extended interview prep**
 - [DECISIONS.md](DECISIONS.md) — every non-obvious choice and its alternatives
 - [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md) — reading order for the repo
 - [INTERVIEW_QUESTIONS.md](INTERVIEW_QUESTIONS.md) — questions this code answers

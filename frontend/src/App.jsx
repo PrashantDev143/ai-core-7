@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ask, reportAbandon, research } from './api.js'
+import { ask, reportAbandon, research, sendFeedback } from './api.js'
 import Answer from './components/Answer.jsx'
 import Trajectory from './components/Trajectory.jsx'
 import StatsBar from './components/StatsBar.jsx'
@@ -119,7 +119,11 @@ export default function App() {
       {result && (
         <Answer
           result={result}
-          onRegenerate={() => run(result.query, true)}
+          onRegenerate={() => {
+            // Recorded against the answer being rejected, not the new one.
+            sendFeedback(result.request_id, 'regenerate').catch(() => {})
+            run(result.query, true)
+          }}
         />
       )}
 
