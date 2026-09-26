@@ -3,7 +3,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
-from pydantic import Field, field_validator, model_validator
+from pydantic import AliasChoices, Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -76,7 +76,8 @@ class Settings(BaseSettings):
     app_env: Literal["development", "production"] = "development"
     log_level: str = "INFO"
     api_host: str = "0.0.0.0"
-    api_port: int = 8000
+    # Hosting platforms (Render, Railway, Fly) inject PORT; API_PORT wins if both are set.
+    api_port: int = Field(default=8000, validation_alias=AliasChoices("API_PORT", "PORT"))
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 
     @field_validator("gemini_api_key")

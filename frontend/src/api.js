@@ -1,4 +1,6 @@
-const BASE = '/api'
+// '/api' goes through the Vite dev proxy. A deployed frontend has no proxy, so
+// VITE_API_BASE points it at the backend's public URL instead.
+const BASE = (import.meta.env.VITE_API_BASE || '/api').replace(/\/$/, '')
 
 // One id per browser session. Used to tie implicit signals (regenerate, copy,
 // abandon) to the same visitor without any account or persistent identifier.

@@ -12,6 +12,7 @@ original interview notes live at the repo root and are linked below.
 | 3 | [03-example-scenarios.md](03-example-scenarios.md) | 12 concrete situations traced through the code — what fires, what the user sees, why | 20 min |
 | 4 | [04-interview-questions.md](04-interview-questions.md) | 30 new questions (system design, "what if", debugging, behavioural) with answers, plus a 60-second pitch | 40 min |
 | 5 | [05-interview-demo.md](05-interview-demo.md) | 10-step live demo script — every prompt tested, with the measured result and what to say | 10 min |
+| 6 | [06-deployment.md](06-deployment.md) | Frontend on Vercel, backend on a container host, and why the backend can't be serverless | 10 min |
 
 ## Where every document in the repo lives
 
